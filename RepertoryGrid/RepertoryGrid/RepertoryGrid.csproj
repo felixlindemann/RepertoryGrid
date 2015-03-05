@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DA2D7BD-7EEF-464C-AE10-654A2E5403E8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RepertoryGrid</RootNamespace>
+    <AssemblyName>RepertoryGrid</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RepertoryGrid.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicInterop, Version=0.7.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="RDotNet, Version=1.5.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet.NativeLibrary, Version=1.5.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.NativeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClasses\NotifyPropertyChanged.cs" />
+    <Compile Include="classes\ImageFile.cs" />
+    <Compile Include="classes\Rating.cs" />
+    <Compile Include="classes\ScaleItem.cs" />
+    <Compile Include="classes\Project.cs" />
+    <Compile Include="classes\Element.cs" />
+    <Compile Include="classes\Interview.cs" />
+    <Compile Include="BaseClasses\DeletingEventArgs.cs" />
+    <Compile Include="DialogConstructPCA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogConstructPCA.Designer.cs">
+      <DependentUpon>DialogConstructPCA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogRateElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogRateElement.Designer.cs">
+      <DependentUpon>DialogRateElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEvaluateElements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEvaluateElements.Designer.cs">
+      <DependentUpon>FormEvaluateElements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInterview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInterview.Designer.cs">
+      <DependentUpon>FormInterview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="classes\Construct.cs" />
+    <Compile Include="FormProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProject.Designer.cs">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProjectInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProjectInspector.Designer.cs">
+      <DependentUpon>FormProjectInspector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatus.Designer.cs">
+      <DependentUpon>FormStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="input\rotatetCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcConstruct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcConstruct.Designer.cs">
+      <DependentUpon>UcConstruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcElement.Designer.cs">
+      <DependentUpon>UcElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcElementConstruct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcElementConstruct.Designer.cs">
+      <DependentUpon>UcElementConstruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucEvaluateElements01.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucEvaluateElements01.Designer.cs">
+      <DependentUpon>ucEvaluateElements01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConstructLeftPole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlConstructLeftPole.Designer.cs">
+      <DependentUpon>UserControlConstructLeftPole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlConstructRightPole.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlConstructRightPole.Designer.cs">
+      <DependentUpon>UserControlConstructRightPole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlRtoDatagridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlRtoDatagridView.Designer.cs">
+      <DependentUpon>UserControlRtoDatagridView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DialogConstructPCA.resx">
+      <DependentUpon>DialogConstructPCA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogRateElement.resx">
+      <DependentUpon>DialogRateElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEvaluateElements.resx">
+      <DependentUpon>FormEvaluateElements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInterview.resx">
+      <DependentUpon>FormInterview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProject.resx">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProjectInspector.resx">
+      <DependentUpon>FormProjectInspector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatus.resx">
+      <DependentUpon>FormStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UcConstruct.resx">
+      <DependentUpon>UcConstruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcElement.resx">
+      <DependentUpon>UcElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcElementConstruct.resx">
+      <DependentUpon>UcElementConstruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucEvaluateElements01.resx">
+      <DependentUpon>ucEvaluateElements01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlConstructLeftPole.resx">
+      <DependentUpon>UserControlConstructLeftPole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlConstructRightPole.resx">
+      <DependentUpon>UserControlConstructRightPole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlRtoDatagridView.resx">
+      <DependentUpon>UserControlRtoDatagridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.Construct.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.Element.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.ImageFile.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.Interview.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.Project.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.Rating.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.classes.ScaleItem.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XSDSchema_ClearWorkspaceCmd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RIconImg.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RepeatHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OptionsHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LegendHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pushpin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowAllGridlines.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Likely_unavail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GotoShortcutsHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AppWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowGridlinesHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddTableHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_black_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillRightHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillLeftHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NoteHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\status_anim.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\update_00.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XSDSchema_GraphBtmToTop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XSDSchema_GraphLeftToRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XSDSchema_GraphTopToBtm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LayoutSelectColumn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LayoutSelectRow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowGridlinesHS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CenterAcrossHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compareversionsHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Task-Inspector-Suggestion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EntityDataModel_navigation_property_16x15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RestartHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActualSizeHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormulaEvaluatorHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActualSizeHS1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RHelper\RHelper.csproj">
+      <Project>{45A62EDB-1676-4991-9766-C2F66F211D98}</Project>
+      <Name>RHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

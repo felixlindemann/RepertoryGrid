@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="b9c54989-0ed0-4de7-97ae-242e8bce68a0" name="felixlindemann@FELIXLINDEM239D 2015-02-25 16:13:18" runUser="FELIXLINDEM239D\felixlindemann" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Lokal" id="c55aef44-e59c-4ee6-aee7-2ad998123b15">
+    <Description>Dies sind die standardmäßigen Testeinstellungen für einen lokalen Testlauf.</Description>
+    <Deployment userDeploymentRoot="Y:\git\github\RepertoryGrid\RepertoryGrid\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="felixlindemann_FELIXLINDEM239D 2015-02-25 16_13_18">
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\RepertoryGrid\bin\Debug\RepertoryGrid.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-02-25T16:13:18.6752000+01:00" queuing="2015-02-25T16:13:19.4552000+01:00" start="2015-02-25T16:13:19.5020000+01:00" finish="2015-02-25T16:13:27.3800000+01:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethodConstruct" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygrid\bin\debug\testprojectrepertorygrid.dll" id="573d3c3a-0183-6978-3ad3-4a370aaef2b5">
+      <Execution id="47ebb699-89fc-4e46-8853-47a33e9c8454" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGrid/bin/Debug/TestProjectRepertoryGrid.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGrid.UnitTestConstructingProject, TestProjectRepertoryGrid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethodConstruct" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Nicht in einer Liste enthaltene Ergebnisse" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Alle geladenen Ergebnisse" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="573d3c3a-0183-6978-3ad3-4a370aaef2b5" executionId="47ebb699-89fc-4e46-8853-47a33e9c8454" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="47ebb699-89fc-4e46-8853-47a33e9c8454" testId="573d3c3a-0183-6978-3ad3-4a370aaef2b5" testName="TestMethodConstruct" computerName="FELIXLINDEM239D" duration="00:00:07.0691703" startTime="2015-02-25T16:13:19.5332000+01:00" endTime="2015-02-25T16:13:27.2552000+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="47ebb699-89fc-4e46-8853-47a33e9c8454">
+      <Output>
+        <DebugTrace> ------------ XML 1 ------------ 
+&lt;Project Id="2c5fcf16-c42f-4475-8496-45ff55fa2306" Name="Demo Project"&gt;
+  &lt;Remark&gt;Just for demo Purpose. Random Data used&lt;/Remark&gt;
+  &lt;Interview Id="86e7b044-8a90-441b-a389-cd0bb968b600" Proband="Interview 1" Date="25.02.2015 16:13:20"&gt;
+    &lt;Remark&gt;Small one&lt;/Remark&gt;
+    &lt;Construct Id="4b8aa667-146d-405a-8074-b06dde4b767d" Name="Marke" ContrastPol="Billig Marke" ConstructPol="High-End Marke" SortIndex="1" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Construct Id="6555cb3d-e9b3-4735-ae3f-6548260036ca" Name="Farbe" ContrastPol="Dunkel" ConstructPol="Hell" SortIndex="2" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Construct Id="81f3a530-61e3-4b2b-9065-c67dfec89139" Name="Preis" ContrastPol="Günstig" ConstructPol="Teuer" SortIndex="2" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Element Id="cdec3fb8-4009-4ae2-8c7e-d20324c2ea02" Name="Auto 1" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="8a9496f5-5b0a-4c3f-806b-c30e84bab8ce" ParentElement="cdec3fb8-4009-4ae2-8c7e-d20324c2ea02" ParentConstruct="4b8aa667-146d-405a-8074-b06dde4b767d" ScaleItemId="3" /&gt;
+      &lt;Rating Id="471ccdc8-b16c-4fb6-9acc-e36bc69f1040" ParentElement="cdec3fb8-4009-4ae2-8c7e-d20324c2ea02" ParentConstruct="6555cb3d-e9b3-4735-ae3f-6548260036ca" ScaleItemId="2" /&gt;
+      &lt;Rating Id="3c863a93-9e68-404a-8a76-f13e0f5364e5" ParentElement="cdec3fb8-4009-4ae2-8c7e-d20324c2ea02" ParentConstruct="81f3a530-61e3-4b2b-9065-c67dfec89139" ScaleItemId="3" /&gt;
+    &lt;/Element&gt;
+    &lt;Element Id="4d1c5bb8-2426-4532-a1b2-09899cebb7b8" Name="Auto 2" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="28ff048a-c71d-4b62-9130-f60df7fe5013" ParentElement="4d1c5bb8-2426-4532-a1b2-09899cebb7b8" ParentConstruct="4b8aa667-146d-405a-8074-b06dde4b767d" ScaleItemId="1" /&gt;
+      &lt;Rating Id="a64332c2-ba97-41f8-a260-4b53cbce0d54" ParentElement="4d1c5bb8-2426-4532-a1b2-09899cebb7b8" ParentConstruct="6555cb3d-e9b3-4735-ae3f-6548260036ca" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="b7fba8f0-711f-4df4-99c4-f78ed8f327dd" ParentElement="4d1c5bb8-2426-4532-a1b2-09899cebb7b8" ParentConstruct="81f3a530-61e3-4b2b-9065-c67dfec89139" ScaleItemId="1" /&gt;
+    &lt;/Element&gt;
+    &lt;Element Id="78851c11-d755-46dc-8ade-3bd23e81816f" Name="Auto 3" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="6364373d-62b6-4d96-9c63-cb0ecfa80377" ParentElement="78851c11-d755-46dc-8ade-3bd23e81816f" ParentConstruct="4b8aa667-146d-405a-8074-b06dde4b767d" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="739aceaf-9416-4d46-8083-1780417335e2" ParentElement="78851c11-d755-46dc-8ade-3bd23e81816f" ParentConstruct="6555cb3d-e9b3-4735-ae3f-6548260036ca" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="f95828cc-06af-4178-b659-bc1a902e86cc" ParentElement="78851c11-d755-46dc-8ade-3bd23e81816f" ParentConstruct="81f3a530-61e3-4b2b-9065-c67dfec89139" ScaleItemId="-3" /&gt;
+    &lt;/Element&gt;
+  &lt;/Interview&gt;
+  &lt;ScaleItem Id="2147483647" Name="NAN" /&gt;
+  &lt;ScaleItem Id="-2147483648" Name="Not rated (interviewee doesn't want to rate this item)" /&gt;
+  &lt;ScaleItem Id="-3" Name="The contrast applies totally" /&gt;
+  &lt;ScaleItem Id="-2" Name="The contrast applies not totally, the construct does not apply" /&gt;
+  &lt;ScaleItem Id="-1" Name="The contrast rather applies than the construct pole" /&gt;
+  &lt;ScaleItem Id="0" Name="Neither the contrast nor the construct aplly" /&gt;
+  &lt;ScaleItem Id="1" Name="The construct rather applies than the contrast pole" /&gt;
+  &lt;ScaleItem Id="2" Name="The construct applies not totally, the contrast does not apply" /&gt;
+  &lt;ScaleItem Id="3" Name="The construct applies totally" /&gt;
+&lt;/Project&gt;
+</DebugTrace>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGrid.UnitTestConstructingProject.TestMethodConstruct-Testmethode hat eine Ausnahme ausgelöst: System.InvalidOperationException: Die Sequenz enthält kein übereinstimmendes Element.</Message>
+          <StackTrace>    bei System.Linq.Enumerable.Single[TSource](IEnumerable`1 source, Func`2 predicate)
+   bei RepertoryGrid.classes.Element..ctor(Interview interview, XElement xml) in Y:\git\github\RepertoryGrid\RepertoryGrid\RepertoryGrid\classes\Element.cs:Zeile 125.
+   bei RepertoryGrid.classes.Interview..ctor(Project project, XElement xml) in Y:\git\github\RepertoryGrid\RepertoryGrid\RepertoryGrid\classes\Interview.cs:Zeile 123.
+   bei RepertoryGrid.classes.Project..ctor(XElement xml) in Y:\git\github\RepertoryGrid\RepertoryGrid\RepertoryGrid\classes\Project.cs:Zeile 113.
+   bei TestProjectRepertoryGrid.UnitTestConstructingProject.TestMethodConstruct() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGrid\UnitTestConstructingProject.cs:Zeile 42.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

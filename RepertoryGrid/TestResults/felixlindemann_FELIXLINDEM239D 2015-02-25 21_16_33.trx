@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="cc3f8931-0180-4f44-a3a7-ef5fa7becddd" name="felixlindemann@FELIXLINDEM239D 2015-02-25 21:16:33" runUser="FELIXLINDEM239D\felixlindemann" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Lokal" id="c55aef44-e59c-4ee6-aee7-2ad998123b15">
+    <Description>Dies sind die standardmäßigen Testeinstellungen für einen lokalen Testlauf.</Description>
+    <Deployment enabled="false" runDeploymentRoot="felixlindemann_FELIXLINDEM239D 2015-02-25 21_16_33">
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.NativeLibrary.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\RepertoryGrid\bin\Debug\RepertoryGrid.exe" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-02-25T21:16:33.2679000+01:00" queuing="2015-02-25T21:16:38.8571000+01:00" start="2015-02-25T21:16:38.9975000+01:00" finish="2015-02-25T21:16:40.3391000+01:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethodConstruct" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygrid\bin\debug\testprojectrepertorygrid.dll" id="573d3c3a-0183-6978-3ad3-4a370aaef2b5">
+      <Execution id="a9dfd467-b470-4b10-a4ba-b1c5dfc628f9" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGrid/bin/Debug/TestProjectRepertoryGrid.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGrid.UnitTestConstructingProject, TestProjectRepertoryGrid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethodConstruct" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Nicht in einer Liste enthaltene Ergebnisse" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Alle geladenen Ergebnisse" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="573d3c3a-0183-6978-3ad3-4a370aaef2b5" executionId="a9dfd467-b470-4b10-a4ba-b1c5dfc628f9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="a9dfd467-b470-4b10-a4ba-b1c5dfc628f9" testId="573d3c3a-0183-6978-3ad3-4a370aaef2b5" testName="TestMethodConstruct" computerName="FELIXLINDEM239D" duration="00:00:00.2433285" startTime="2015-02-25T21:16:39.0443000+01:00" endTime="2015-02-25T21:16:40.2143000+01:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a9dfd467-b470-4b10-a4ba-b1c5dfc628f9">
+      <Output>
+        <DebugTrace> ------------ XML 1 ------------ 
+&lt;Project Id="885ae282-9fc9-4669-bbb5-a6b725486b05" Name="Demo Project"&gt;
+  &lt;Remark&gt;Just for demo Purpose. Random Data used&lt;/Remark&gt;
+  &lt;Interview Id="f0871ac7-509b-4fa3-aad4-1734c377fcfc" Proband="Interview 1" Date="25.02.2015 21:16:40"&gt;
+    &lt;Remark&gt;Small one&lt;/Remark&gt;
+    &lt;Construct Id="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" Name="Marke" ContrastPol="Billig Marke" ConstructPol="High-End Marke" SortIndex="1" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Construct Id="85bffdd9-3226-49dd-874a-25c5cd913fac" Name="Farbe" ContrastPol="Dunkel" ConstructPol="Hell" SortIndex="2" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Construct Id="759b677f-ab63-4253-925c-a94bae9a880b" Name="Preis" ContrastPol="Günstig" ConstructPol="Teuer" SortIndex="2" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Element Id="de3c70c5-8bb3-404a-a6b8-9e360eff0950" Name="Auto 1" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="e674972b-f8df-4e72-95e4-c09aa1a09db6" ParentElement="de3c70c5-8bb3-404a-a6b8-9e360eff0950" ParentConstruct="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" ScaleItemId="3" /&gt;
+      &lt;Rating Id="6dc2cebb-c0d8-4d20-961a-57fbbbf534df" ParentElement="de3c70c5-8bb3-404a-a6b8-9e360eff0950" ParentConstruct="85bffdd9-3226-49dd-874a-25c5cd913fac" ScaleItemId="2" /&gt;
+      &lt;Rating Id="a4a4d986-6c8e-4347-80d2-1af0bb43155d" ParentElement="de3c70c5-8bb3-404a-a6b8-9e360eff0950" ParentConstruct="759b677f-ab63-4253-925c-a94bae9a880b" ScaleItemId="3" /&gt;
+    &lt;/Element&gt;
+    &lt;Element Id="b590fec5-4b5e-4b24-8327-581e2e33e1da" Name="Auto 2" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="d41cc628-dd3e-4ff2-8b9b-870d3e76d133" ParentElement="b590fec5-4b5e-4b24-8327-581e2e33e1da" ParentConstruct="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" ScaleItemId="1" /&gt;
+      &lt;Rating Id="c1b46b76-8c7e-44d7-a678-b4678710ca11" ParentElement="b590fec5-4b5e-4b24-8327-581e2e33e1da" ParentConstruct="85bffdd9-3226-49dd-874a-25c5cd913fac" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="7769176c-bb89-4de0-8d3f-5ec6d08d8a00" ParentElement="b590fec5-4b5e-4b24-8327-581e2e33e1da" ParentConstruct="759b677f-ab63-4253-925c-a94bae9a880b" ScaleItemId="1" /&gt;
+    &lt;/Element&gt;
+    &lt;Element Id="81b309b6-89d9-4751-aa7f-aaefcae80698" Name="Auto 3" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="91f57a78-8862-4d10-84e3-18814caa9689" ParentElement="81b309b6-89d9-4751-aa7f-aaefcae80698" ParentConstruct="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="109810aa-4c16-4227-a9db-46042567fea0" ParentElement="81b309b6-89d9-4751-aa7f-aaefcae80698" ParentConstruct="85bffdd9-3226-49dd-874a-25c5cd913fac" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="a61df4a3-f203-4696-aaab-4c73c74b0d94" ParentElement="81b309b6-89d9-4751-aa7f-aaefcae80698" ParentConstruct="759b677f-ab63-4253-925c-a94bae9a880b" ScaleItemId="-3" /&gt;
+    &lt;/Element&gt;
+  &lt;/Interview&gt;
+  &lt;ScaleItem Id="2147483647" Name="NAN" /&gt;
+  &lt;ScaleItem Id="-2147483648" Name="Not rated (interviewee doesn't want to rate this item)" /&gt;
+  &lt;ScaleItem Id="-3" Name="The contrast applies totally" /&gt;
+  &lt;ScaleItem Id="-2" Name="The contrast applies not totally, the construct does not apply" /&gt;
+  &lt;ScaleItem Id="-1" Name="The contrast rather applies than the construct pole" /&gt;
+  &lt;ScaleItem Id="0" Name="Neither the contrast nor the construct aplly" /&gt;
+  &lt;ScaleItem Id="1" Name="The construct rather applies than the contrast pole" /&gt;
+  &lt;ScaleItem Id="2" Name="The construct applies not totally, the contrast does not apply" /&gt;
+  &lt;ScaleItem Id="3" Name="The construct applies totally" /&gt;
+&lt;/Project&gt;
+ ------------ XML 2 ------------ 
+&lt;Project Id="885ae282-9fc9-4669-bbb5-a6b725486b05" Name="Demo Project"&gt;
+  &lt;Remark&gt;Just for demo Purpose. Random Data used&lt;/Remark&gt;
+  &lt;Interview Id="f0871ac7-509b-4fa3-aad4-1734c377fcfc" Proband="Interview 1" Date="25.02.2015 21:16:40"&gt;
+    &lt;Remark&gt;Small one&lt;/Remark&gt;
+    &lt;Construct Id="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" Name="Marke" ContrastPol="Billig Marke" ConstructPol="High-End Marke" SortIndex="1" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Construct Id="85bffdd9-3226-49dd-874a-25c5cd913fac" Name="Farbe" ContrastPol="Dunkel" ConstructPol="Hell" SortIndex="2" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Construct Id="759b677f-ab63-4253-925c-a94bae9a880b" Name="Preis" ContrastPol="Günstig" ConstructPol="Teuer" SortIndex="2" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+    &lt;/Construct&gt;
+    &lt;Element Id="de3c70c5-8bb3-404a-a6b8-9e360eff0950" Name="Auto 1" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="e674972b-f8df-4e72-95e4-c09aa1a09db6" ParentElement="de3c70c5-8bb3-404a-a6b8-9e360eff0950" ParentConstruct="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" ScaleItemId="3" /&gt;
+      &lt;Rating Id="6dc2cebb-c0d8-4d20-961a-57fbbbf534df" ParentElement="de3c70c5-8bb3-404a-a6b8-9e360eff0950" ParentConstruct="85bffdd9-3226-49dd-874a-25c5cd913fac" ScaleItemId="2" /&gt;
+      &lt;Rating Id="a4a4d986-6c8e-4347-80d2-1af0bb43155d" ParentElement="de3c70c5-8bb3-404a-a6b8-9e360eff0950" ParentConstruct="759b677f-ab63-4253-925c-a94bae9a880b" ScaleItemId="3" /&gt;
+    &lt;/Element&gt;
+    &lt;Element Id="b590fec5-4b5e-4b24-8327-581e2e33e1da" Name="Auto 2" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="d41cc628-dd3e-4ff2-8b9b-870d3e76d133" ParentElement="b590fec5-4b5e-4b24-8327-581e2e33e1da" ParentConstruct="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" ScaleItemId="1" /&gt;
+      &lt;Rating Id="c1b46b76-8c7e-44d7-a678-b4678710ca11" ParentElement="b590fec5-4b5e-4b24-8327-581e2e33e1da" ParentConstruct="85bffdd9-3226-49dd-874a-25c5cd913fac" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="7769176c-bb89-4de0-8d3f-5ec6d08d8a00" ParentElement="b590fec5-4b5e-4b24-8327-581e2e33e1da" ParentConstruct="759b677f-ab63-4253-925c-a94bae9a880b" ScaleItemId="1" /&gt;
+    &lt;/Element&gt;
+    &lt;Element Id="81b309b6-89d9-4751-aa7f-aaefcae80698" Name="Auto 3" SortIndex="0" UseForEvaluation="true"&gt;
+      &lt;Remark&gt;&lt;/Remark&gt;
+      &lt;Rating Id="91f57a78-8862-4d10-84e3-18814caa9689" ParentElement="81b309b6-89d9-4751-aa7f-aaefcae80698" ParentConstruct="77bd0feb-2781-4c24-bc8c-3f4ccaa903da" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="109810aa-4c16-4227-a9db-46042567fea0" ParentElement="81b309b6-89d9-4751-aa7f-aaefcae80698" ParentConstruct="85bffdd9-3226-49dd-874a-25c5cd913fac" ScaleItemId="-3" /&gt;
+      &lt;Rating Id="a61df4a3-f203-4696-aaab-4c73c74b0d94" ParentElement="81b309b6-89d9-4751-aa7f-aaefcae80698" ParentConstruct="759b677f-ab63-4253-925c-a94bae9a880b" ScaleItemId="-3" /&gt;
+    &lt;/Element&gt;
+  &lt;/Interview&gt;
+  &lt;ScaleItem Id="2147483647" Name="NAN" /&gt;
+  &lt;ScaleItem Id="-2147483648" Name="Not rated (interviewee doesn't want to rate this item)" /&gt;
+  &lt;ScaleItem Id="-3" Name="The contrast applies totally" /&gt;
+  &lt;ScaleItem Id="-2" Name="The contrast applies not totally, the construct does not apply" /&gt;
+  &lt;ScaleItem Id="-1" Name="The contrast rather applies than the construct pole" /&gt;
+  &lt;ScaleItem Id="0" Name="Neither the contrast nor the construct aplly" /&gt;
+  &lt;ScaleItem Id="1" Name="The construct rather applies than the contrast pole" /&gt;
+  &lt;ScaleItem Id="2" Name="The construct applies not totally, the contrast does not apply" /&gt;
+  &lt;ScaleItem Id="3" Name="The construct applies totally" /&gt;
+&lt;/Project&gt;
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
