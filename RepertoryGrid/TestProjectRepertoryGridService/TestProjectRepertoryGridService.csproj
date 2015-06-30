@@ -73,17 +73,9 @@
       <Project>{8716A3AA-0C88-4CCA-AF85-AB77C2F47C95}</Project>
       <Name>LimeTreeExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RepertoryGridGUI\RepertoryGridGUI.csproj">
-      <Project>{C2B52DD7-5B28-470F-AB8C-6276BE7ABF1B}</Project>
-      <Name>RepertoryGridGUI</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RepertoryGridModel\RepertoryGridModel.csproj">
-      <Project>{FDD87B5D-ADAE-499C-9EF9-9FD0A9C16F64}</Project>
-      <Name>RepertoryGridModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\RepertoryGridService\RepertoryGridService.csproj">
-      <Project>{211ACE1B-8E6C-4F53-A411-418A4C2BA281}</Project>
-      <Name>RepertoryGridService</Name>
+    <ProjectReference Include="..\OpenRepGridGui\OpenRepGridGui.csproj">
+      <Project>{FCBADB5A-8566-4639-8547-C5A243BD0F30}</Project>
+      <Name>OpenRepGridGui</Name>
     </ProjectReference>
     <ProjectReference Include="..\RHelper\RHelper.csproj">
       <Project>{45A62EDB-1676-4991-9766-C2F66F211D98}</Project>

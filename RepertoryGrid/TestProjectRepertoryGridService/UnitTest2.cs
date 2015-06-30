@@ -2,11 +2,11 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RepertoryGrid.Service;
-using RepertoryGrid.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting; 
 using System.Diagnostics;
 using RDotNet;
+using OpenRepGridGui.Service;
+using OpenRepGridModel.Model;
 
 namespace TestProjectRepertoryGridService
 {
@@ -70,9 +70,10 @@ namespace TestProjectRepertoryGridService
         {
 
             ProjectService ps = new ProjectService(R);
-            InterviewService IS = ps.AddInterview((new Interview(ps.CurrentProject)));
+            ps.AddInterview((new Interview(ps.CurrentProject)));
+            InterviewService IS = ps.InterviewServices.Last();
             IS.CurrentInterview.GridName = "fbb2003";
-            IS.GetFromR(null, true);
+            IS.GetFromR( true);
 
             /*
             ####################################

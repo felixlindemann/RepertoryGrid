@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
-using RepertoryGrid.Service;
-using RepertoryGrid.Model;
+using OpenRepGridGui.Service;
+using OpenRepGridModel.Model; 
 
 namespace TestProjectRepertoryGridService
 {
@@ -80,10 +80,11 @@ namespace TestProjectRepertoryGridService
                          "x";
 
             ProjectService ps = new ProjectService(R);
-            InterviewService IS = ps.AddInterview((new Interview(ps.CurrentProject)));
+             ps.AddInterview((new Interview(ps.CurrentProject)));
+            InterviewService IS =ps.InterviewServices.Last();
             IS.CurrentInterview.GridName = "x";
             IS.R.Evaluate(cmd, false);
-            IS.GetFromR(null, true);
+            IS.GetFromR(  true);
 
             Assert.IsTrue(IS.CurrentInterview.Elements[0].Name == "element_1");
             Assert.IsTrue(IS.CurrentInterview.Elements[1].Name == "element_2");
@@ -113,10 +114,10 @@ namespace TestProjectRepertoryGridService
                 }
             }
             IS.SetToR(false,"y");
-
-            InterviewService ISn = ps.AddInterview((new Interview(ps.CurrentProject)));
+            ps.AddInterview((new Interview(ps.CurrentProject)));
+            InterviewService ISn = ps.InterviewServices.Last();
             ISn.CurrentInterview.GridName = "y";
-            ISn.GetFromR(null, true);
+            ISn.GetFromR(   true);
 
             Assert.IsTrue(IS.CurrentInterview.Elements.Count == 4);
             Assert.IsTrue(ISn.CurrentInterview.Elements.Count == 4);

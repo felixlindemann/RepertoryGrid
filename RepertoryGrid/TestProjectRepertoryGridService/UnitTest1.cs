@@ -2,11 +2,10 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RepertoryGrid.Service;
-using RepertoryGrid.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting; 
 using System.Diagnostics;
 using RDotNet;
+using OpenRepGridGui.Service;
 
 namespace TestProjectRepertoryGridService
 {

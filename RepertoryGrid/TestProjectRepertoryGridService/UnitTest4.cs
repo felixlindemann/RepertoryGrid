@@ -2,11 +2,11 @@
 using System.Text;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RepertoryGrid.Service;
-using RepertoryGrid.Model;
+using Microsoft.VisualStudio.TestTools.UnitTesting; 
 using RDotNet;
 using System.Diagnostics;
+using OpenRepGridGui.Service;
+using OpenRepGridModel.Model;
 
 namespace TestProjectRepertoryGridService
 {
@@ -70,9 +70,10 @@ namespace TestProjectRepertoryGridService
         {
 
             ProjectService ps = new ProjectService(R);
-            InterviewService IS = ps.AddInterview((new Interview(ps.CurrentProject)));
+            ps.AddInterview((new Interview(ps.CurrentProject)));
+            InterviewService IS =ps.InterviewServices.Last();
             IS.CurrentInterview.GridName = "mackay1992";
-            IS.GetFromR(null, true);
+            IS.GetFromR(  true);
 
             NumericMatrix m = IS.ConstructCor(false,"pearson");
             /* http://docu.openrepgrid.org/constructs_correlation.html
@@ -138,9 +139,10 @@ namespace TestProjectRepertoryGridService
             Standard deviation of statistic 0.15 
              
              */
-            IS = ps.AddInterview((new Interview(ps.CurrentProject)));
+            ps.AddInterview((new Interview(ps.CurrentProject)));
+            IS = ps.InterviewServices.Last();
             IS.CurrentInterview.GridName = "fbb2003";
-            IS.GetFromR(null, true);
+            IS.GetFromR(  true);
             DataFrame df = IS.ConstructRmsCor(false);
             String[] rowNames = {  
                                 "(1) clever - not bright", 
