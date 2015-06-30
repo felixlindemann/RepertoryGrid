@@ -6,8 +6,9 @@ Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\bin\Debug\RDotNet.NativeLibrar
 Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\bin\Debug\DynamicInterop.xml
 Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\bin\Debug\RDotNet.xml
 Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\bin\Debug\RDotNet.NativeLibrary.xml
-Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.dll
-Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.pdb
 Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.Properties.Resources.resources
 Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.ucRConsole.resources
 Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.csproj.GenerateResource.Cache
+Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.dll
+Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.pdb
+Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\obj\Debug\RHelper.csprojResolveAssemblyReference.cache

@@ -30,7 +30,7 @@ namespace RHelper
 
                 if (rengine != null)
                 {
-                    rEngine.rExec += new RepertoryGrid.BaseClasses.RExececutedEventHandler(rEngine_rExec);
+                    rEngine.rExec += new RExececutedEventHandler(rEngine_rExec);
                 }
             }
         }
@@ -63,7 +63,7 @@ namespace RHelper
             LoadRScript();
         }
 
-        void rEngine_rExec(RepertoryGrid.BaseClasses.RExececutedEventArgs e)
+        void rEngine_rExec(RExececutedEventArgs e)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace RHelper
 
                 // if (e.RExececutedException != null) throw e.RExececutedException;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //  Debug.Print(ex.StackTrace);
             }

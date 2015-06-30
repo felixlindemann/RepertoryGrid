@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using RDotNet;
-using RepertoryGrid.BaseClasses;
+using RDotNet; 
 
 namespace RHelper
 {
@@ -16,11 +15,9 @@ namespace RHelper
         #region Variables
 
         private REngine rEngine;
-
-        private int sinkwidth = 1000;
-
-        private String rHome = @"c:\Program Files\R\R-3.1.2";
-
+        private Boolean autoPrint = false; 
+        private int sinkwidth = 1000; 
+        private String rHome = @"c:\Program Files\R\R-3.1.2"; 
         private Boolean is64Bit = Environment.Is64BitProcess;
 
         #endregion
@@ -87,8 +84,17 @@ namespace RHelper
             get { return is64Bit; }
             set { is64Bit = value; }
         }
-
-
+         
+        public Boolean AutoPrint
+        {
+            get { return autoPrint; }
+            set
+            {
+                autoPrint = value;
+                this.rEngine.AutoPrint = value;
+            }
+        }
+         
         #endregion
 
         #region Constructor
@@ -100,7 +106,7 @@ namespace RHelper
         /// x64/i386
         /// </summary>
         /// <param name="autoprint">is needed for debugging purposes</param>
-        public RHelper(bool autoprint = true)
+        public RHelper( )
         {
             if (dirRHome.Exists)
             {
@@ -109,9 +115,8 @@ namespace RHelper
 
                     REngine.SetEnvironmentVariables(dirRBin.FullName, dirRHome.FullName);
                     this.rEngine = REngine.GetInstance();
-
+                    this.AutoPrint = autoPrint;
                     // Use for Debug Purpose.
-                    this.rEngine.AutoPrint = autoprint;
                     // Update sinkwidt in rEngine instance
                     this.SinkWidth = this.sinkwidth;
                     return;
@@ -123,8 +128,6 @@ namespace RHelper
         }
 
         #endregion
-
-
 
         #region Methods
 
@@ -139,28 +142,44 @@ namespace RHelper
         /// <param name="cmd">the Commands to be Executed. can be multiline</param>
         /// <param name="widht">sink may produce newline if width is to small</param>
         /// <returns>the result of the evaluated commands</returns>
-        public List<SymbolicExpression> Evaluate(String cmd)
+        public List<SymbolicExpression> Evaluate(String cmd, Boolean linewise = true)
         {
             List<SymbolicExpression> rs = new List<SymbolicExpression>();
-
-            // Make array by splitting each line
-            String[] a = cmd.Split(Environment.NewLine.ToCharArray());
-
-            // iterate for each Command
-            foreach (string str in a)
+            if (linewise)
             {
-                // Remove Blank Spaces at beginning and end
-                String strCMD = str.Trim();
-                // do not execute for empty lines
-                if (strCMD.Length > 0)
+                // Make array by splitting each line
+                String[] a = cmd.Split(Environment.NewLine.ToCharArray());
+
+                // iterate for each Command
+                foreach (string str in a)
                 {
-                    rs.Add(EvaluateLine(strCMD));
+                    // Remove Blank Spaces at beginning and end
+                    String strCMD = str.Trim();
+                    // do not execute for empty lines
+                    if (strCMD.Length > 0)
+                    {
+                        rs.Add(EvaluateLine(strCMD));
+                    }
                 }
+            }
+            else
+            {
+                rs.Add(EvaluateLine(cmd));
             }
             return rs;
 
         }
 
+        /// <summary>
+        /// Commands will be execucted linewise by default.
+        /// Before a command is executed, the sink command is executed to 
+        /// divert the R output to a temp-File 
+        /// https://stat.ethz.ch/R-manual/R-devel/library/base/html/sink.html
+        /// After the Command is executed, the content from the tmp-file 
+        /// is read and included in the event RExececuted while it is fired. 
+        /// </summary>
+        /// <param name="scriptfile">the script that should be executed</param> 
+        /// <returns>the result of the evaluated commands</returns>
         public List<SymbolicExpression> Evaluate(FileInfo scriptfile)
         {
             if (!scriptfile.Exists)
@@ -187,7 +206,7 @@ namespace RHelper
             try
             {
                 // Activate sink
-                this.rEngine.Evaluate(string.Format("sink(\"{0}\")", f.FullName.Replace("\\", "/")));
+                this.Execute(string.Format("sink(\"{0}\")", f.FullName.Replace("\\", "/")));
 
                 // Evaluate Command and add Result to result list.
                 s = rEngine.Evaluate(cmd);
@@ -200,13 +219,13 @@ namespace RHelper
             finally
             {
                 // End sink
-                this.rEngine.Evaluate("sink()");
+                this.Execute("sink()");
 
                 // read sink-Output from tempfile
                 result = File.ReadAllText(f.FullName);
 
                 // delete tempfile
-                this.rEngine.Evaluate(string.Format("unlink(\"{0}\")", f.FullName.Replace("\\", "/")));
+                this.Execute(string.Format("unlink(\"{0}\")", f.FullName.Replace("\\", "/")));
 
                 // fire Event
                 CommandExecuted(new RExececutedEventArgs(cmd, result, s));
@@ -214,9 +233,26 @@ namespace RHelper
             return s;
         }
 
+        /// <summary>
+        /// Execute Command without fireing Event
+        /// </summary>
+        /// <param name="cmd"></param>
+        public void Execute(String cmd)
+        {
+            rEngine.Evaluate(cmd);
+        }
+
+        public  Boolean isValidVariableName(string value)
+        {
+            Boolean result = true;
+       //Todo
+            // http://www.r-bloggers.com/testing-for-valid-variable-names/
+            return result;
+        }
+
         #endregion
 
-        #region get variables from R
+        #region get Converted R-variables from R
 
         public int getInt(string cmd)
         {
@@ -356,10 +392,23 @@ namespace RHelper
 
         public void Dispose()
         {
+
             if (this.rEngine != null)
             {
+                if (this.rEngine.IsRunning)
+                {
+                    // if any plots are open, they have to be closed 
+                    // before shooting down R
+                    int I = this.getInt("length(dev.list())");
+                    for (int i = 0; i < I; i++)
+                    {
+                        this.EvaluateLine("dev.off()");
+                    }
+                }
+                // Shoot down
                 this.rEngine.Dispose();
                 this.rEngine = null;
+
             }
 
         }

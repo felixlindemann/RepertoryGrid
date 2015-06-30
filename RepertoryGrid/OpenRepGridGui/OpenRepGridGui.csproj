@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FCBADB5A-8566-4639-8547-C5A243BD0F30}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OpenRepGridGui</RootNamespace>
+    <AssemblyName>OpenRepGridGui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>OpenRepGridGui.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicInterop">
+      <HintPath>..\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="RDotNet">
+      <HintPath>..\packages\R.NET.Community.1.6.4\lib\net40\RDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet.NativeLibrary">
+      <HintPath>..\packages\R.NET.Community.1.6.4\lib\net40\RDotNet.NativeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="View\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\mdi\ProjectSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\mdi\ProjectSetup.Designer.cs">
+      <DependentUpon>ProjectSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Construct.cs" />
+    <Compile Include="Model\Element.cs" />
+    <Compile Include="Model\Interview.cs" />
+    <Compile Include="Model\Project.cs" />
+    <Compile Include="Model\ScaleItem.cs" />
+    <Compile Include="Model\Score.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\InterviewService.cs" />
+    <Compile Include="Service\ProjectService.cs" />
+    <Compile Include="View\mdi\Properties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\mdi\Properties.Designer.cs">
+      <DependentUpon>Properties.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\mdi\ProjectSetup.resx">
+      <DependentUpon>ProjectSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\mdi\Properties.resx">
+      <DependentUpon>Properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\OpenRepGridModel.Model.Construct.datasource" />
+    <None Include="Properties\DataSources\OpenRepGridModel.Model.Element.datasource" />
+    <None Include="Properties\DataSources\OpenRepGridModel.Model.Interview.datasource" />
+    <None Include="Properties\DataSources\OpenRepGridModel.Model.Project.datasource" />
+    <None Include="Properties\DataSources\OpenRepGridModel.Model.ScaleItem.datasource" />
+    <None Include="Properties\DataSources\OpenRepGridModel.Model.Score.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\myExtensions\LimeTreeExtensions.csproj">
+      <Project>{8716A3AA-0C88-4CCA-AF85-AB77C2F47C95}</Project>
+      <Name>LimeTreeExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHelper\RHelper.csproj">
+      <Project>{45A62EDB-1676-4991-9766-C2F66F211D98}</Project>
+      <Name>RHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditDocument.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CommentHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DocumentHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RIconImg.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Microphone.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

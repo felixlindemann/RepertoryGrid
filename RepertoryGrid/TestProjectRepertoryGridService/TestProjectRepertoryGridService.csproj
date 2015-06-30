@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{589971AD-78F0-4D07-9DA2-F1B6E3B32553}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestProjectRepertoryGridService</RootNamespace>
+    <AssemblyName>TestProjectRepertoryGridService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DynamicInterop">
+      <HintPath>..\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="RDotNet">
+      <HintPath>..\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RDotNet.NativeLibrary">
+      <HintPath>..\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.NativeLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Numerics" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UnitTest2.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UnitTest3.cs" />
+    <Compile Include="UnitTest4.cs" />
+    <Compile Include="UnitTest5.cs" />
+    <Compile Include="UnitTest6.cs" />
+    <Compile Include="UnitTest7.cs" />
+    <Compile Include="UnitTest8.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\myExtensions\LimeTreeExtensions.csproj">
+      <Project>{8716A3AA-0C88-4CCA-AF85-AB77C2F47C95}</Project>
+      <Name>LimeTreeExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepertoryGridGUI\RepertoryGridGUI.csproj">
+      <Project>{C2B52DD7-5B28-470F-AB8C-6276BE7ABF1B}</Project>
+      <Name>RepertoryGridGUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepertoryGridModel\RepertoryGridModel.csproj">
+      <Project>{FDD87B5D-ADAE-499C-9EF9-9FD0A9C16F64}</Project>
+      <Name>RepertoryGridModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepertoryGridService\RepertoryGridService.csproj">
+      <Project>{211ACE1B-8E6C-4F53-A411-418A4C2BA281}</Project>
+      <Name>RepertoryGridService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHelper\RHelper.csproj">
+      <Project>{45A62EDB-1676-4991-9766-C2F66F211D98}</Project>
+      <Name>RHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
