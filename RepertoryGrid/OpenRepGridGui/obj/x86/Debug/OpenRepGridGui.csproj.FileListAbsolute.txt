@@ -20,10 +20,6 @@ Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\bin\Debug\OpenRepGridGu
 Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.mdi.FormMain.resources
 Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.mdi.FormProperties.resources
 Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.mdi.mdiInterview.resources
-Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.dlgCorrelation.resources
-Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionFromDictionary.resources
-Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.Dialog.dlgCluster.resources
-Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.dlgDistance.resources
 \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\bin\Debug\OpenRepGridGui.exe.config
 \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.exe
 \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.pdb
@@ -53,3 +49,7 @@ Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGr
 \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValueString.resources
 \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.Dialog.dlgValues.resources
 \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValueStringEnumDictionary.resources
+Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.Dialog.dlgValues.resources
+Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValues.resources
+Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValueStringEnumDictionary.resources
+Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValue.resources

@@ -103,35 +103,17 @@
       <DependentUpon>Properties.cs</DependentUpon>
     </Compile>
     <Compile Include="View\uc\IucOptionalValues.cs" />
-    <Compile Include="View\uc\ucOptionalValuesBoolean.cs">
+    <Compile Include="View\uc\ucOptionalValue.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\uc\ucOptionalValuesBoolean.Designer.cs">
-      <DependentUpon>ucOptionalValuesBoolean.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\uc\ucOptionalValuesInteger.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\uc\ucOptionalValuesInteger.Designer.cs">
-      <DependentUpon>ucOptionalValuesInteger.cs</DependentUpon>
+    <Compile Include="View\uc\ucOptionalValue.Designer.cs">
+      <DependentUpon>ucOptionalValue.cs</DependentUpon>
     </Compile>
     <Compile Include="View\uc\ucOptionalValues.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View\uc\ucOptionalValues.Designer.cs">
       <DependentUpon>ucOptionalValues.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\uc\ucOptionalValuesDouble.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\uc\ucOptionalValuesDouble.Designer.cs">
-      <DependentUpon>ucOptionalValuesDouble.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\uc\ucOptionalValueString.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\uc\ucOptionalValueString.Designer.cs">
-      <DependentUpon>ucOptionalValueString.cs</DependentUpon>
     </Compile>
     <Compile Include="View\uc\ucOptionalValueStringEnumDictionary.cs">
       <SubType>UserControl</SubType>
@@ -164,20 +146,11 @@
     <EmbeddedResource Include="View\mdi\Properties.resx">
       <DependentUpon>Properties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\uc\ucOptionalValuesBoolean.resx">
-      <DependentUpon>ucOptionalValuesBoolean.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\uc\ucOptionalValuesDouble.resx">
-      <DependentUpon>ucOptionalValuesDouble.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\uc\ucOptionalValuesInteger.resx">
-      <DependentUpon>ucOptionalValuesInteger.cs</DependentUpon>
+    <EmbeddedResource Include="View\uc\ucOptionalValue.resx">
+      <DependentUpon>ucOptionalValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\uc\ucOptionalValues.resx">
       <DependentUpon>ucOptionalValues.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\uc\ucOptionalValueString.resx">
-      <DependentUpon>ucOptionalValueString.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\uc\ucOptionalValueStringEnumDictionary.resx">
       <DependentUpon>ucOptionalValueStringEnumDictionary.cs</DependentUpon>
@@ -293,6 +266,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CancelApproval_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Orange_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\023_Tip_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

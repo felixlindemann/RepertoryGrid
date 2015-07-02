@@ -33,11 +33,13 @@
             this.checkBoxUseParameter = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.groupBoxParameter.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxParameter
             // 
+            this.groupBoxParameter.Controls.Add(this.buttonHelp);
             this.groupBoxParameter.Controls.Add(this.checkBoxUseParameter);
             this.groupBoxParameter.Controls.Add(this.flowLayoutPanel1);
             this.groupBoxParameter.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -70,12 +72,23 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(274, 64);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // ucOptionFromDictionary
+            // buttonHelp
+            // 
+            this.buttonHelp.Image = global::OpenRepGridGui.Properties.Resources.Help;
+            this.buttonHelp.Location = new System.Drawing.Point(6, 15);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(26, 23);
+            this.buttonHelp.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.buttonHelp, "Get Help");
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // ucOptionalValueStringEnumDictionary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBoxParameter);
-            this.Name = "ucOptionFromDictionary";
+            this.Name = "ucOptionalValueStringEnumDictionary";
             this.Size = new System.Drawing.Size(280, 109);
             this.groupBoxParameter.ResumeLayout(false);
             this.groupBoxParameter.PerformLayout();
@@ -89,5 +102,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.CheckBox checkBoxUseParameter;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }

@@ -12,7 +12,7 @@ namespace OpenRepGridGui.View.uc
 {
     public partial class ucOptionalValues : UserControl
     {
-
+        private List<IucOptionalValues> ctls = new List<IucOptionalValues>();
         private List<rParameter> acceptedValues;
 
         public List<rParameter> AcceptedValues
@@ -21,46 +21,28 @@ namespace OpenRepGridGui.View.uc
             set
             {
                 acceptedValues = value;
-
                 if (value == null) return;
-                foreach(rParameter p in this.AcceptedValues){  
-                    if (p.VariableType == typeof(String))
-                    {
-                        ucOptionalValueString ucv = new ucOptionalValueString();
-                        ucv.RParameter = p;
-                        ucv.Dock = DockStyle.Top;
-                        panel1.Controls.Add(ucv);
-                    }
-                    if (p.VariableType == typeof(int))
-                    {
-                        ucOptionalValuesInteger ucv = new ucOptionalValuesInteger();
-                        ucv.RParameter = p;
+                ctls = new List<IucOptionalValues>();
+                foreach (rParameter p in this.AcceptedValues)
+                {
+                    TabPage t = new TabPage(p.VarName);
+                    tabControl1.TabPages.Add(t);
 
-                        ucv.Dock = DockStyle.Top;
-                        panel1.Controls.Add(ucv);
-                    }
-                    if (p.VariableType == typeof(double))
-                    {
-                        ucOptionalValuesDouble ucv = new ucOptionalValuesDouble();
-                        ucv.RParameter = p;
-
-                        ucv.Dock = DockStyle.Top;
-                        panel1.Controls.Add(ucv);
-                    }
-                    if (p.VariableType == typeof(bool))
-                    {
-                        ucOptionalValuesBoolean ucv = new ucOptionalValuesBoolean();
-                        ucv.RParameter = p;
-
-                        ucv.Dock = DockStyle.Top;
-                        panel1.Controls.Add(ucv);
-                    }
                     if (p.VariableType == typeof(Dictionary<String, Boolean>))
                     {
                         ucOptionalValueStringEnumDictionary ucv = new ucOptionalValueStringEnumDictionary();
                         ucv.RParameter = p;
-                        ucv.Dock = DockStyle.Top;
-                        panel1.Controls.Add(ucv);
+                        ucv.Dock = DockStyle.Fill;
+                        t.Controls.Add(ucv);
+                        ctls.Add(ucv);
+                    }
+                    else
+                    {
+                        ucOptionalValue ucv = new ucOptionalValue();
+                        ucv.RParameter = p;
+                        ucv.Dock = DockStyle.Fill;
+                        t.Controls.Add(ucv);
+                        ctls.Add(ucv);
                     }
                 }
             }
@@ -77,24 +59,20 @@ namespace OpenRepGridGui.View.uc
         {
             Dictionary<String, object> o = new Dictionary<string, object>();
 
-            foreach (Control ctl in panel1.Controls)
+            foreach (IucOptionalValues uc in ctls)
             {
-                if (ctl is IucOptionalValues)
+                if (uc.isUsed)
                 {
-                    IucOptionalValues uc = (IucOptionalValues)ctl;
-                    if (uc.isUsed)
-                    {
-                        o.Add(uc.RParameter.VarName, uc.ParamValue);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Expected was {0} -- Recieved: {1}",
-                        typeof(IucOptionalValues).GetType().ToString(), ctl.GetType().ToString());
+                    o.Add(uc.RParameter.VarName, uc.ParamValue);
                 }
             }
 
             return o;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

@@ -61,18 +61,18 @@ namespace OpenRepGridGui.View.uc
 
             }
         }
-          
-        public object ParamValue
+
+        public object[] ParamValue
         {
             get
             {
                 if (this.flowLayoutPanel1.Controls.OfType<RadioButton>().Any(x => x.Checked))
                 {
-                    return this.flowLayoutPanel1.Controls.OfType<RadioButton>().FirstOrDefault(x => x.Checked).Text;
+                    return new string[] { this.flowLayoutPanel1.Controls.OfType<RadioButton>().FirstOrDefault(x => x.Checked).Text };
                 }
                 else
                 {
-                    return "NAN";
+                    return new string[] { "NAN" };
                 }
             }
         }
@@ -82,6 +82,12 @@ namespace OpenRepGridGui.View.uc
         {
             this.flowLayoutPanel1.Enabled = checkBoxUseParameter.Checked;
         }
-         
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+                  MessageBox.Show(this.RParameter.Description, string.Format("Info to Parameter: '{0}'", this.RParameter.VarName), MessageBoxButtons.OK, MessageBoxIcon.Information);
+     
+        }
+
     }
 }

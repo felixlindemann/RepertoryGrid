@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="23d4ef98-608f-419c-ae1d-8ad7650ead0e" name="felixlindemann@FELIXLINDEM239D 2015-07-02 15:10:41" runUser="FELIXLINDEM239D\felixlindemann" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Lokal" id="c55aef44-e59c-4ee6-aee7-2ad998123b15">
+    <Description>Dies sind die standardmäßigen Testeinstellungen für einen lokalen Testlauf.</Description>
+    <Deployment enabled="false" runDeploymentRoot="felixlindemann_FELIXLINDEM239D 2015-07-02 15_10_41">
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\bin\Debug\OpenRepGridGui.exe" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.NativeLibrary.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\bin\Debug\RHelper.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\myExtensions\bin\Debug\LimeTree.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-07-02T15:10:41.3244000+02:00" queuing="2015-07-02T15:10:41.4180000+02:00" start="2015-07-02T15:10:41.4180000+02:00" finish="2015-07-02T15:10:44.4510000+02:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="9" executed="9" passed="2" error="0" failed="7" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestStatsConstructs" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="fafdf69d-2d74-c9c5-881d-4fc6fffa6c2b">
+      <Execution id="bb775e6b-1ace-4de3-bcd0-f9cf3bd196b0" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest2, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestStatsConstructs" />
+    </UnitTest>
+    <UnitTest name="TestOpenDemoFromR" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="398efdea-8626-c4b1-6e38-05f7a86888bb">
+      <Execution id="240306d7-e684-4e32-a05f-a7d667f3496a" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest5, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestOpenDemoFromR" />
+    </UnitTest>
+    <UnitTest name="TestOpenDemoFromR" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="19d77829-bc37-b3c1-d116-d4229b1bc69f">
+      <Execution id="700d0bad-5204-4b13-bd4e-9e3e8b789043" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest1, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestOpenDemoFromR" />
+    </UnitTest>
+    <UnitTest name="TestCorrelationOfConstructs" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="94905ce7-c0d9-a84f-9fca-18dc69df29c7">
+      <Execution id="6eefb789-126a-4e96-81c2-6e48bcd3422c" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest4, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestCorrelationOfConstructs" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="4cd0ddf0-f115-0990-ea18-66d345c04c35">
+      <Execution id="5546dd3d-2063-4d1d-b89a-0c9d36107a0d" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest9, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="TestMakeGrid" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="8b028926-be19-b58d-6c53-fb6406019387">
+      <Execution id="f261b2fd-e809-4608-8f95-e40d35c1a67a" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest3, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMakeGrid" />
+    </UnitTest>
+    <UnitTest name="TestPCAOfConstructs" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="60ce76a1-ae7e-902b-3d9d-7baf0b085f9f">
+      <Execution id="48c569cd-8aaa-41d3-a30a-873deb7518d9" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest6, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPCAOfConstructs" />
+    </UnitTest>
+    <UnitTest name="TestClustering" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="bab371c2-46db-2a78-2efb-7d3053c296e0">
+      <Execution id="43404037-bce9-43d1-8f3f-af390722f915" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest7, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestClustering" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="777d7552-a9f5-23c8-0a4c-362522c60e26">
+      <Execution id="62cb3181-2aa3-4fec-9cb4-2096d28599e3" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest8, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Nicht in einer Liste enthaltene Ergebnisse" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Alle geladenen Ergebnisse" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="19d77829-bc37-b3c1-d116-d4229b1bc69f" executionId="700d0bad-5204-4b13-bd4e-9e3e8b789043" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="398efdea-8626-c4b1-6e38-05f7a86888bb" executionId="240306d7-e684-4e32-a05f-a7d667f3496a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4cd0ddf0-f115-0990-ea18-66d345c04c35" executionId="5546dd3d-2063-4d1d-b89a-0c9d36107a0d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="60ce76a1-ae7e-902b-3d9d-7baf0b085f9f" executionId="48c569cd-8aaa-41d3-a30a-873deb7518d9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="777d7552-a9f5-23c8-0a4c-362522c60e26" executionId="62cb3181-2aa3-4fec-9cb4-2096d28599e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8b028926-be19-b58d-6c53-fb6406019387" executionId="f261b2fd-e809-4608-8f95-e40d35c1a67a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94905ce7-c0d9-a84f-9fca-18dc69df29c7" executionId="6eefb789-126a-4e96-81c2-6e48bcd3422c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bab371c2-46db-2a78-2efb-7d3053c296e0" executionId="43404037-bce9-43d1-8f3f-af390722f915" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fafdf69d-2d74-c9c5-881d-4fc6fffa6c2b" executionId="bb775e6b-1ace-4de3-bcd0-f9cf3bd196b0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="700d0bad-5204-4b13-bd4e-9e3e8b789043" testId="19d77829-bc37-b3c1-d116-d4229b1bc69f" testName="TestOpenDemoFromR" computerName="FELIXLINDEM239D" duration="00:00:02.7241243" startTime="2015-07-02T15:10:41.4336000+02:00" endTime="2015-07-02T15:10:44.3418000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="700d0bad-5204-4b13-bd4e-9e3e8b789043">
+      <Output>
+        <StdOut>Lade nötiges Paket: pvclust
+------------------------------------------------
+ OpenRepGrid Version 0.1.9
+ Tools for the analysis of repertory grid data
+ For an introduction visit: www.openrepgrid.org
+ CAUTION: The package is in alpha phase.
+          Design changes may still occur.
+------------------------------------------------</StdOut>
+        <DebugTrace>library(OpenRepGrid)
+Disposed
+library(OpenRepGrid)
+settings(show.trim=30)
+settings(show.cut=30)
+settings(show.scale=TRUE)
+settings(show.meta=TRUE)
+settings(cno=TRUE)
+settings(eno=TRUE)
+CleanupTest
+</DebugTrace>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest1.TestOpenDemoFromR-Testmethode hat eine Ausnahme ausgelöst: System.ArgumentOutOfRangeException: Das angegebene Argument liegt außerhalb des gültigen Wertebereichs.
+Parametername: The min Value must be larger than the max Value</Message>
+          <StackTrace>    bei OpenRepGridGui.Service.InterviewService.defineDefaultScale(Int32 min, Int32 max) in Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\Service\InterviewService.cs:Zeile 401.
+   bei OpenRepGridGui.Service.InterviewService.GetFromR(Boolean DefineScale) in Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\Service\InterviewService.cs:Zeile 201.
+   bei OpenRepGridGui.Service.ProjectService.addGridFromR(String GridName, String cmd) in Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\Service\ProjectService.cs:Zeile 431.
+   bei OpenRepGridGui.Service.ProjectService.getDemo(String data) in Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\Service\ProjectService.cs:Zeile 415.
+   bei TestProjectRepertoryGridService.UnitTest1.TestOpenDemoFromR() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest1.cs:Zeile 71.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="240306d7-e684-4e32-a05f-a7d667f3496a" testId="398efdea-8626-c4b1-6e38-05f7a86888bb" testName="TestOpenDemoFromR" computerName="FELIXLINDEM239D" duration="00:00:00.0257495" startTime="2015-07-02T15:10:44.3418000+02:00" endTime="2015-07-02T15:10:44.3730000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="240306d7-e684-4e32-a05f-a7d667f3496a">
+      <Output>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest5.InitializeTest-Methode für die Initialisierung hat eine Ausnahme ausgelöst. System.InvalidOperationException: System.InvalidOperationException: The single REngine instance has already been disposed of (i.e. shut down). Multiple engine restart is not possible..</Message>
+          <StackTrace>    bei RDotNet.REngine.GetInstance(String dll, Boolean initialize, StartupParameter parameter, ICharacterDevice device)
+   bei RHelper.RHelper..ctor() in \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\RHelper\RHelper.cs:Zeile 117.
+   bei TestProjectRepertoryGridService.UnitTest5.InitializeTest() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest5.cs:Zeile 38.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="5546dd3d-2063-4d1d-b89a-0c9d36107a0d" testId="4cd0ddf0-f115-0990-ea18-66d345c04c35" testName="TestMethod1" computerName="FELIXLINDEM239D" duration="00:00:00.0004262" startTime="2015-07-02T15:10:44.3730000+02:00" endTime="2015-07-02T15:10:44.3730000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5546dd3d-2063-4d1d-b89a-0c9d36107a0d">
+      <Output>
+        <DebugTrace>o.GetType().ToString(): System.Int32[]
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="48c569cd-8aaa-41d3-a30a-873deb7518d9" testId="60ce76a1-ae7e-902b-3d9d-7baf0b085f9f" testName="TestPCAOfConstructs" computerName="FELIXLINDEM239D" duration="00:00:00.0044837" startTime="2015-07-02T15:10:44.3886000+02:00" endTime="2015-07-02T15:10:44.3886000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="48c569cd-8aaa-41d3-a30a-873deb7518d9">
+      <Output>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest6.InitializeTest-Methode für die Initialisierung hat eine Ausnahme ausgelöst. System.InvalidOperationException: System.InvalidOperationException: The single REngine instance has already been disposed of (i.e. shut down). Multiple engine restart is not possible..</Message>
+          <StackTrace>    bei RDotNet.REngine.GetInstance(String dll, Boolean initialize, StartupParameter parameter, ICharacterDevice device)
+   bei RHelper.RHelper..ctor() in \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\RHelper\RHelper.cs:Zeile 117.
+   bei TestProjectRepertoryGridService.UnitTest6.InitializeTest() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest6.cs:Zeile 37.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="62cb3181-2aa3-4fec-9cb4-2096d28599e3" testId="777d7552-a9f5-23c8-0a4c-362522c60e26" testName="TestMethod1" computerName="FELIXLINDEM239D" duration="00:00:00.0033232" startTime="2015-07-02T15:10:44.3886000+02:00" endTime="2015-07-02T15:10:44.3886000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62cb3181-2aa3-4fec-9cb4-2096d28599e3">
+    </UnitTestResult>
+    <UnitTestResult executionId="f261b2fd-e809-4608-8f95-e40d35c1a67a" testId="8b028926-be19-b58d-6c53-fb6406019387" testName="TestMakeGrid" computerName="FELIXLINDEM239D" duration="00:00:00.0039648" startTime="2015-07-02T15:10:44.4042000+02:00" endTime="2015-07-02T15:10:44.4042000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f261b2fd-e809-4608-8f95-e40d35c1a67a">
+      <Output>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest3.InitializeTest-Methode für die Initialisierung hat eine Ausnahme ausgelöst. System.InvalidOperationException: System.InvalidOperationException: The single REngine instance has already been disposed of (i.e. shut down). Multiple engine restart is not possible..</Message>
+          <StackTrace>    bei RDotNet.REngine.GetInstance(String dll, Boolean initialize, StartupParameter parameter, ICharacterDevice device)
+   bei RHelper.RHelper..ctor() in \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\RHelper\RHelper.cs:Zeile 117.
+   bei TestProjectRepertoryGridService.UnitTest3.InitializeTest() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest3.cs:Zeile 36.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="6eefb789-126a-4e96-81c2-6e48bcd3422c" testId="94905ce7-c0d9-a84f-9fca-18dc69df29c7" testName="TestCorrelationOfConstructs" computerName="FELIXLINDEM239D" duration="00:00:00.0043088" startTime="2015-07-02T15:10:44.4042000+02:00" endTime="2015-07-02T15:10:44.4198000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6eefb789-126a-4e96-81c2-6e48bcd3422c">
+      <Output>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest4.InitializeTest-Methode für die Initialisierung hat eine Ausnahme ausgelöst. System.InvalidOperationException: System.InvalidOperationException: The single REngine instance has already been disposed of (i.e. shut down). Multiple engine restart is not possible..</Message>
+          <StackTrace>    bei RDotNet.REngine.GetInstance(String dll, Boolean initialize, StartupParameter parameter, ICharacterDevice device)
+   bei RHelper.RHelper..ctor() in \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\RHelper\RHelper.cs:Zeile 117.
+   bei TestProjectRepertoryGridService.UnitTest4.InitializeTest() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest4.cs:Zeile 37.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="43404037-bce9-43d1-8f3f-af390722f915" testId="bab371c2-46db-2a78-2efb-7d3053c296e0" testName="TestClustering" computerName="FELIXLINDEM239D" duration="00:00:00.0038148" startTime="2015-07-02T15:10:44.4198000+02:00" endTime="2015-07-02T15:10:44.4198000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="43404037-bce9-43d1-8f3f-af390722f915">
+      <Output>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest7.InitializeTest-Methode für die Initialisierung hat eine Ausnahme ausgelöst. System.InvalidOperationException: System.InvalidOperationException: The single REngine instance has already been disposed of (i.e. shut down). Multiple engine restart is not possible..</Message>
+          <StackTrace>    bei RDotNet.REngine.GetInstance(String dll, Boolean initialize, StartupParameter parameter, ICharacterDevice device)
+   bei RHelper.RHelper..ctor() in \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\RHelper\RHelper.cs:Zeile 117.
+   bei TestProjectRepertoryGridService.UnitTest7.InitializeTest() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest7.cs:Zeile 40.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bb775e6b-1ace-4de3-bcd0-f9cf3bd196b0" testId="fafdf69d-2d74-c9c5-881d-4fc6fffa6c2b" testName="TestStatsConstructs" computerName="FELIXLINDEM239D" duration="00:00:00.0039077" startTime="2015-07-02T15:10:44.4198000+02:00" endTime="2015-07-02T15:10:44.4354000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb775e6b-1ace-4de3-bcd0-f9cf3bd196b0">
+      <Output>
+        <ErrorInfo>
+          <Message>Die TestProjectRepertoryGridService.UnitTest2.InitializeTest-Methode für die Initialisierung hat eine Ausnahme ausgelöst. System.InvalidOperationException: System.InvalidOperationException: The single REngine instance has already been disposed of (i.e. shut down). Multiple engine restart is not possible..</Message>
+          <StackTrace>    bei RDotNet.REngine.GetInstance(String dll, Boolean initialize, StartupParameter parameter, ICharacterDevice device)
+   bei RHelper.RHelper..ctor() in \\psf\Home\git\github\RepertoryGrid\RepertoryGrid\RHelper\RHelper.cs:Zeile 117.
+   bei TestProjectRepertoryGridService.UnitTest2.InitializeTest() in Y:\git\github\RepertoryGrid\RepertoryGrid\TestProjectRepertoryGridService\UnitTest2.cs:Zeile 38.
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

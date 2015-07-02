@@ -11,6 +11,7 @@ using LimeTree.BaseClasses;
 using System.Diagnostics;
 using LimeTree.Extensions;
 using RHelper.model;
+using System.Drawing;
 
 namespace OpenRepGridGui.Service
 {
@@ -187,8 +188,6 @@ namespace OpenRepGridGui.Service
         }
 
         #endregion
-
-
 
         #region Communicate with R
 
@@ -680,8 +679,35 @@ namespace OpenRepGridGui.Service
                     if (acceptedValues.Any(x => x.VarName == key))
                     {
                         rParameter param = acceptedValues.Single(x => x.VarName == key);
-                        if (optionalValues[key].GetType() == param.VariableType ||
-                            param.VariableType == typeof(Dictionary<String, Boolean>))
+                        Type valueType = optionalValues[key].GetType();
+
+                        if (param.VariableType == typeof(Color))
+                        {
+                            String[] a;
+                            if (valueType.IsArray)
+                            {
+                                a = (String[])optionalValues[key];
+                            }
+                            else
+                            {
+                                a = new string[] { (string)optionalValues[key] };
+                            }
+
+                            if (a.Length > 0)
+                            {
+                                cmd.Append("c(");
+                                for (int i = 0; i < a.Length; i++)
+                                {
+                                    if (i > 0) cmd.Append(",");
+                                    cmd.Append("\"");
+                                    cmd.Append(a[i]);
+                                    cmd.Append("\"");
+                                }
+                                cmd.Append(")");
+
+                            }
+                        }
+                        else if (valueType == param.VariableType || param.VariableType == typeof(Dictionary<String, Boolean>))
                         {
                             cmd.Append(", ");
                             cmd.Append(key);
@@ -689,47 +715,114 @@ namespace OpenRepGridGui.Service
 
                             if (optionalValues[key].GetType() == typeof(string))
                             {
-                                cmd.Append("\"");
-                                cmd.Append(optionalValues[key]);
-                                cmd.Append("\"");
-                            }
-                            else if (optionalValues[key].GetType() == typeof(Boolean))
-                            {
-                                if ((Boolean)optionalValues[key])
+                                String[] a;
+                                if (valueType.IsArray)
                                 {
-                                    cmd.Append("TRUE");
+                                    a = (String[])optionalValues[key];
                                 }
                                 else
                                 {
-                                    cmd.Append("FALSE");
+                                    a = new string[] { (string)optionalValues[key] };
+                                }
+
+                                if (a.Length > 0)
+                                {
+                                    cmd.Append("c(");
+                                    for (int i = 0; i < a.Length; i++)
+                                    {
+                                        if (i > 0) cmd.Append(",");
+                                        cmd.Append("\"");
+                                        cmd.Append(a[i]);
+                                        cmd.Append("\"");
+                                    }
+                                    cmd.Append(")");
+
                                 }
                             }
-                            else if (
-                                optionalValues[key].GetType() == typeof(int) ||
-                                optionalValues[key].GetType() == typeof(Int16) ||
-                                optionalValues[key].GetType() == typeof(Int32) ||
-                                optionalValues[key].GetType() == typeof(Int64) ||
-                                optionalValues[key].GetType() == typeof(long)
-                                )
-                            {
-                                cmd.Append(optionalValues[key].ToString());
-                            }
-                            else if (optionalValues[key].GetType() == typeof(Double) ||
-                                     optionalValues[key].GetType() == typeof(Single) ||
-                                     optionalValues[key].GetType() == typeof(Decimal) ||
-                                     optionalValues[key].GetType() == typeof(double) ||
-                                     optionalValues[key].GetType() == typeof(decimal))
-                            {
-                                cmd.Append(
-                                    ((double)optionalValues[key]).ToString().Replace(",", ".")
-                                );
-                            }
                         }
-                        else
+                        else if (valueType == typeof(Boolean))
                         {
-                            throw new InvalidDataException(string.Format("The type of the optional value '{0}' is {1} instead of {2}",
-                                key, optionalValues[key].GetType(), param.VariableType.ToString()));
+                            Boolean[] a;
+
+                            if (valueType.IsArray)
+                            {
+                                a = (Boolean[])optionalValues[key];
+                            }
+                            else
+                            {
+                                a = new Boolean[] { (Boolean)optionalValues[key] };
+                            }
+
+                            if (a.Length > 0)
+                            {
+                                cmd.Append("c(");
+                                for (int i = 0; i < a.Length; i++)
+                                {
+                                    if (i > 0) cmd.Append(",");
+                                    if (a[i])
+                                    {
+                                        cmd.Append("TRUE");
+                                    }
+                                    else
+                                    {
+                                        cmd.Append("FALSE");
+                                    }
+                                }
+                                cmd.Append(")");
+
+                            }
                         }
+                        else if (valueType == typeof(int))
+                        {
+                            int[] a;
+
+                            if (valueType.IsArray)
+                            {
+                                a = (int[])optionalValues[key];
+                            }
+                            else
+                            {
+                                a = new int[] { (int)optionalValues[key] };
+                            }
+
+                            if (a.Length > 0)
+                            {
+                                cmd.Append("c(");
+                                for (int i = 0; i < a.Length; i++)
+                                {
+                                    if (i > 0) cmd.Append(",");
+                                    cmd.Append(a[i].ToString());
+                                }
+                                cmd.Append(")");
+
+                            }
+                        }
+                        else if (valueType == typeof(Double))
+                        {
+
+                            Double[] a;
+
+                            if (valueType.IsArray)
+                            {
+                                a = (Double[])optionalValues[key];
+                            }
+                            else
+                            {
+                                a = new Double[] { (Double)optionalValues[key] };
+                            }
+
+                            if (a.Length > 0)
+                            {
+                                cmd.Append("c(");
+                                for (int i = 0; i < a.Length; i++)
+                                {
+                                    if (i > 0) cmd.Append(",");
+                                    cmd.Append(a[i].ToString().Replace(",", "."));
+                                }
+                                cmd.Append(")");
+
+                            }
+                        } 
                     }
                     else
                     {
@@ -745,8 +838,8 @@ namespace OpenRepGridGui.Service
         public static List<rParameter> StatsGridAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean)));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean), 1, 1, 1));
 
             return acceptedValues;
         }
@@ -755,53 +848,53 @@ namespace OpenRepGridGui.Service
         public static List<rParameter> CorrelationAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "method", "A character string indicating which correlation coefficient to be computed. One of \"pearson\" (default), \"kendall\" or \"spearman\", can be abbreviated. The default is \"pearson\".", InterviewService.CorrelationTypes(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "rc", "Use Cohen's rc which is invariant to construct reflection (see desciption above). It is used as the default.", null, typeof(Boolean)));
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean)));
+            acceptedValues.Add(new rParameter(true, "method", "A character string indicating which correlation coefficient to be computed. One of \"pearson\" (default), \"kendall\" or \"spearman\", can be abbreviated. The default is \"pearson\".", InterviewService.CorrelationTypes(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "rc", "Use Cohen's rc which is invariant to construct reflection (see desciption above). It is used as the default.", null, typeof(Boolean), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean), 1, 1, 1));
 
             return acceptedValues;
         }
         public static List<rParameter> CorrelationRMSAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "method", "A character string indicating which correlation coefficient to be computed. One of \"pearson\" (default), \"kendall\" or \"spearman\", can be abbreviated. The default is \"pearson\".", InterviewService.CorrelationTypes(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "rc", "Use Cohen's rc which is invariant to construct reflection (see desciption above). It is used as the default.", null, typeof(Boolean)));
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean)));
+            acceptedValues.Add(new rParameter(true, "method", "A character string indicating which correlation coefficient to be computed. One of \"pearson\" (default), \"kendall\" or \"spearman\", can be abbreviated. The default is \"pearson\".", InterviewService.CorrelationTypes(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "rc", "Use Cohen's rc which is invariant to construct reflection (see desciption above). It is used as the default.", null, typeof(Boolean), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean), 1, 1, 1));
 
             return acceptedValues;
         }
         public static List<rParameter> DistanceAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "dmethod", "The distance measure to be used. This must be one of \"euclidean\", \"maximum\", \"manhattan\", \"canberra\", \"binary\" or \"minkowski\". Any unambiguous substring can be given. For additional information on the different types type ?dist.", InterviewService.DistanceMeasures(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "p", "The power of the Minkowski distance, in case \"minkowski\" is used as argument for dmethod", new int[] { 1, 10 }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean)));
+            acceptedValues.Add(new rParameter(true, "dmethod", "The distance measure to be used. This must be one of \"euclidean\", \"maximum\", \"manhattan\", \"canberra\", \"binary\" or \"minkowski\". Any unambiguous substring can be given. For additional information on the different types type ?dist.", InterviewService.DistanceMeasures(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "p", "The power of the Minkowski distance, in case \"minkowski\" is used as argument for dmethod", new int[] { 1, 10 }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean), 1, 1, 1));
 
             return acceptedValues;
         }
         public static List<rParameter> DistanceSlaterAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean)));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean), 1, 1, 1));
 
             return acceptedValues;
         }
         public static List<rParameter> DistanceHartmannAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "method", "Use 'paper' (default) for precalculated mean and standard deviations (as e.g. given in Hartmann (1992)) for the standardization;\n use 'simulate' to simulate the distribution of distances based on the size and scale range of the grid under investigation.", InterviewService.DistanceHartmannMethods(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "reps", "Number of random grids to generate to produce sample distribution for Hartmann distances (default is 1000). Note that a lot of samples may take a while to calculate.", new int[] { 1, int.MaxValue }, typeof(int)));
+            acceptedValues.Add(new rParameter(true, "method", "Use 'paper' (default) for precalculated mean and standard deviations (as e.g. given in Hartmann (1992)) for the standardization;\n use 'simulate' to simulate the distribution of distances based on the size and scale range of the grid under investigation.", InterviewService.DistanceHartmannMethods(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "reps", "Number of random grids to generate to produce sample distribution for Hartmann distances (default is 1000). Note that a lot of samples may take a while to calculate.", new int[] { 1, int.MaxValue }, typeof(int), 1, 1, 1));
 
             return acceptedValues;
         }
         public static List<rParameter> DistanceNormalizedAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "reps", "Number of random grids to generate to produce sample distribution for Hartmann distances (default is 1000). Note that a lot of samples may take a while to calculate.", new int[] { 1, int.MaxValue }, typeof(int)));
+            acceptedValues.Add(new rParameter(true, "reps", "Number of random grids to generate to produce sample distribution for Hartmann distances (default is 1000). Note that a lot of samples may take a while to calculate.", new int[] { 1, int.MaxValue }, typeof(int), 1, 1, 1));
             // acceptedValues.Add(new rParameter(true, "prob", "The probability of each rating value to occur. If NULL (default) the distribution is uniform. The number of values must match the length of the rating scale.", InterviewService.DistanceHartmannMethods(), typeof(Dictionary<String, Boolean>)));
 
             return acceptedValues;
@@ -809,9 +902,9 @@ namespace OpenRepGridGui.Service
         public static List<rParameter> SomerDAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "dependent", "A string denoting the direction of dependency in the output table (as d is assymetrical). Possible values are \"columns\" (the default) for setting the columns as dependent, \"rows\" for setting the rows as the dependent variable and \"symmetric\" for the symmetrical Somers' d measure (the mean of the two directional values for code\"columns\" and \"rows\").", InterviewService.SomerDMethods(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean)));
+            acceptedValues.Add(new rParameter(true, "dependent", "A string denoting the direction of dependency in the output table (as d is assymetrical). Possible values are \"columns\" (the default) for setting the columns as dependent, \"rows\" for setting the rows as the dependent variable and \"symmetric\" for the symmetrical Somers' d measure (the mean of the two directional values for code\"columns\" and \"rows\").", InterviewService.SomerDMethods(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "index", "Whether to print the number of the construct or element in front of the name (default is TRUE). This is useful to avoid identical row names, which may cause an error.", null, typeof(Boolean), 1, 1, 1));
 
             return acceptedValues;
         }
@@ -819,27 +912,27 @@ namespace OpenRepGridGui.Service
         public static List<rParameter> PCAAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "nfactors", "Number of components to extract (default is 3).", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "rotate", "\"none\", \"varimax\", \"promax\" and \"cluster\" are possible rotations (default is none).", InterviewService.RotationMethods(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "method", "A character string indicating which correlation coefficient to be computed. One of \"pearson\" (default), \"kendall\" or \"spearman\", can be abbreviated. The default is \"pearson\".", InterviewService.CorrelationTypes(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
+            acceptedValues.Add(new rParameter(true, "nfactors", "Number of components to extract (default is 3).", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "rotate", "\"none\", \"varimax\", \"promax\" and \"cluster\" are possible rotations (default is none).", InterviewService.RotationMethods(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "method", "A character string indicating which correlation coefficient to be computed. One of \"pearson\" (default), \"kendall\" or \"spearman\", can be abbreviated. The default is \"pearson\".", InterviewService.CorrelationTypes(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
 
             return acceptedValues;
         }
-     
+
         public static List<rParameter> ClusterAcceptedValues()
         {
             List<rParameter> acceptedValues = new List<rParameter>();
-            acceptedValues.Add(new rParameter(true, "along", "Along which dimension to cluster. 1 = constructs only, 2= elements only, 0=both (default).", new int[] { 0, 2 }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "dmethod", "The distance measure to be used. This must be one of \"euclidean\", \"maximum\", \"manhattan\", \"canberra\", \"binary\" or \"minkowski\". Any unambiguous substring can be given. For additional information on the different types type ?dist.", InterviewService.DistanceMeasures(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "cmethod", "The agglomeration method to be used. This should be (an unambiguous abbreviation of) one of \"ward\", \"single\", \"complete\", \"average\", \"mcquitty\", \"median\" or \"centroid\".", InterviewService.ClusterMethods(), typeof(Dictionary<String, Boolean>)));
-            acceptedValues.Add(new rParameter(true, "p", "The power of the Minkowski distance, in case \"minkowski\" is used as argument for dmethod", new int[] { 1, 10 }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "align", "Whether the constructs should be aligned before clustering (default is TRUE). If not, the grid matrix is clustered as is. See Details section for more information.", null, typeof(Boolean)));
-            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int)));
-            acceptedValues.Add(new rParameter(true, "main", "Title of plot. The default is a name indicating the distance function and cluster method.", null, typeof(string)));
-            acceptedValues.Add(new rParameter(true, "print", "Logical. Wether to print the dendrogram (default is TRUE).", null, typeof(Boolean)));
-           
-           
+            acceptedValues.Add(new rParameter(true, "along", "Along which dimension to cluster. 1 = constructs only, 2= elements only, 0=both (default).", new int[] { 0, 2 }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "dmethod", "The distance measure to be used. This must be one of \"euclidean\", \"maximum\", \"manhattan\", \"canberra\", \"binary\" or \"minkowski\". Any unambiguous substring can be given. For additional information on the different types type ?dist.", InterviewService.DistanceMeasures(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "cmethod", "The agglomeration method to be used. This should be (an unambiguous abbreviation of) one of \"ward\", \"single\", \"complete\", \"average\", \"mcquitty\", \"median\" or \"centroid\".", InterviewService.ClusterMethods(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "p", "The power of the Minkowski distance, in case \"minkowski\" is used as argument for dmethod", new int[] { 1, 10 }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "align", "Whether the constructs should be aligned before clustering (default is TRUE). If not, the grid matrix is clustered as is. See Details section for more information.", null, typeof(Boolean), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "main", "Title of plot. The default is a name indicating the distance function and cluster method.", null, typeof(string), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "print", "Logical. Wether to print the dendrogram (default is TRUE).", null, typeof(Boolean), 1, 1, 1));
+
+
             return acceptedValues;
         }
 
@@ -1118,7 +1211,7 @@ namespace OpenRepGridGui.Service
             this.AppendRScript(cmd.ToString());
             NumericMatrix dt = this.R.Evaluate(cmd.ToString())[0].AsNumericMatrix();
             return dt;
-             
+
         }
 
         #endregion
@@ -1140,17 +1233,17 @@ namespace OpenRepGridGui.Service
             cmd.Append(getOptionalValues(optionalValues, InterviewService.PCAAcceptedValues()));
             cmd.Append(")");
             this.AppendRScript(cmd.ToString());
-             this.R.Evaluate(cmd.ToString());
-             
+            this.R.Evaluate(cmd.ToString());
+
         }
 
         #endregion
 
         #endregion
-         
+
 
         #region Constructs and Elements
-         
+
 
         #region Cluster
 
@@ -1169,8 +1262,8 @@ namespace OpenRepGridGui.Service
             cmd.Append(getOptionalValues(optionalValues, InterviewService.ClusterAcceptedValues()));
             cmd.Append(")");
             this.AppendRScript(cmd.ToString());
-       this.R.Evaluate(cmd.ToString()) ;
-            
+            this.R.Evaluate(cmd.ToString());
+
             this.GetFromR(false);
 
 

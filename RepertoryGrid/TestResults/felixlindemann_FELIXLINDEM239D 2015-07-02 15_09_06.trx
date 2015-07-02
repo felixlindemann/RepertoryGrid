@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="169bc365-59e8-47f7-832c-bb5fc7564250" name="felixlindemann@FELIXLINDEM239D 2015-07-02 15:09:06" runUser="FELIXLINDEM239D\felixlindemann" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Lokal" id="c55aef44-e59c-4ee6-aee7-2ad998123b15">
+    <Description>Dies sind die standardmäßigen Testeinstellungen für einen lokalen Testlauf.</Description>
+    <Deployment enabled="false" runDeploymentRoot="felixlindemann_FELIXLINDEM239D 2015-07-02 15_09_06">
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\bin\Debug\OpenRepGridGui.exe" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\R.NET.Community.1.5.21\lib\net40\RDotNet.NativeLibrary.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\RHelper\bin\Debug\RHelper.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\myExtensions\bin\Debug\LimeTree.dll" />
+      <DeploymentItem filename="Y:\git\github\RepertoryGrid\RepertoryGrid\packages\DynamicInterop.0.7.4\lib\net40\DynamicInterop.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2015-07-02T15:09:06.2346000+02:00" queuing="2015-07-02T15:09:06.2966000+02:00" start="2015-07-02T15:09:06.3006000+02:00" finish="2015-07-02T15:09:06.5016000+02:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestMethod1" storage="y:\git\github\repertorygrid\repertorygrid\testprojectrepertorygridservice\bin\debug\testprojectrepertorygridservice.dll" id="4cd0ddf0-f115-0990-ea18-66d345c04c35">
+      <Execution id="9dcb4b7f-5140-4a06-b24c-aad291673d45" />
+      <TestMethod codeBase="Y:/git/github/RepertoryGrid/RepertoryGrid/TestProjectRepertoryGridService/bin/Debug/TestProjectRepertoryGridService.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProjectRepertoryGridService.UnitTest9, TestProjectRepertoryGridService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Nicht in einer Liste enthaltene Ergebnisse" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Alle geladenen Ergebnisse" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="4cd0ddf0-f115-0990-ea18-66d345c04c35" executionId="9dcb4b7f-5140-4a06-b24c-aad291673d45" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9dcb4b7f-5140-4a06-b24c-aad291673d45" testId="4cd0ddf0-f115-0990-ea18-66d345c04c35" testName="TestMethod1" computerName="FELIXLINDEM239D" duration="00:00:00.0103958" startTime="2015-07-02T15:09:06.3066000+02:00" endTime="2015-07-02T15:09:06.4806000+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9dcb4b7f-5140-4a06-b24c-aad291673d45">
+      <Output>
+        <DebugTrace>o.GetType().ToString(): System.Int32[]
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

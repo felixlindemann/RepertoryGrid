@@ -10,6 +10,6 @@ namespace OpenRepGridGui.View.uc
     {
           rParameter RParameter { get; set; }
           bool isUsed{ get;   }
-          object ParamValue { get; }
+          object[] ParamValue { get; }
     }
 }

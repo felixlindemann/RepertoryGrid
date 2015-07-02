@@ -63,9 +63,39 @@ namespace OpenRepGridGui.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _023_Tip_32x32_72 {
+            get {
+                object obj = ResourceManager.GetObject("023_Tip_32x32_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _077_AddFile_32x42_72 {
             get {
                 object obj = ResourceManager.GetObject("077_AddFile_32x42_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _112_Minus_Orange_16x16_72 {
+            get {
+                object obj = ResourceManager.GetObject("112_Minus_Orange_16x16_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _112_Minus_Orange_32x32_72 {
+            get {
+                object obj = ResourceManager.GetObject("112_Minus_Orange_32x32_72", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +246,16 @@ namespace OpenRepGridGui.Properties {
         internal static System.Drawing.Bitmap GoRtlHS {
             get {
                 object obj = ResourceManager.GetObject("GoRtlHS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Help {
+            get {
+                object obj = ResourceManager.GetObject("Help", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

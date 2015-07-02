@@ -28,46 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // tabControl1
             // 
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 307);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Please provide Optional Values here";
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(405, 288);
-            this.panel1.TabIndex = 0;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(352, 165);
+            this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // ucOptionalValues
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tabControl1);
             this.Name = "ucOptionalValues";
-            this.Size = new System.Drawing.Size(411, 307);
-            this.groupBox1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(352, 165);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabControl tabControl1;
+
     }
 }
