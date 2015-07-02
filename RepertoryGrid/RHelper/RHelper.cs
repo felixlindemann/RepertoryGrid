@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using RDotNet; 
+using RDotNet;
 
 namespace RHelper
 {
@@ -15,9 +15,9 @@ namespace RHelper
         #region Variables
 
         private REngine rEngine;
-        private Boolean autoPrint = false; 
-        private int sinkwidth = 1000; 
-        private String rHome = @"c:\Program Files\R\R-3.1.2"; 
+        private Boolean autoPrint = false;
+        private int sinkwidth = 1000;
+        private String rHome = @"c:\Program Files\R\R-3.1.2";
         private Boolean is64Bit = Environment.Is64BitProcess;
 
         #endregion
@@ -84,7 +84,7 @@ namespace RHelper
             get { return is64Bit; }
             set { is64Bit = value; }
         }
-         
+
         public Boolean AutoPrint
         {
             get { return autoPrint; }
@@ -94,7 +94,7 @@ namespace RHelper
                 this.rEngine.AutoPrint = value;
             }
         }
-         
+
         #endregion
 
         #region Constructor
@@ -106,7 +106,7 @@ namespace RHelper
         /// x64/i386
         /// </summary>
         /// <param name="autoprint">is needed for debugging purposes</param>
-        public RHelper( )
+        public RHelper()
         {
             if (dirRHome.Exists)
             {
@@ -242,10 +242,10 @@ namespace RHelper
             rEngine.Evaluate(cmd);
         }
 
-        public  Boolean isValidVariableName(string value)
+        public Boolean isValidVariableName(string value)
         {
             Boolean result = true;
-       //Todo
+            //Todo
             // http://www.r-bloggers.com/testing-for-valid-variable-names/
             return result;
         }
@@ -256,7 +256,14 @@ namespace RHelper
 
         public int getInt(string cmd)
         {
-            return this.getIntegerVector(cmd)[0];
+            try
+            {
+                return this.getIntegerVector(cmd)[0];
+            }
+            catch (Exception)
+            {
+                return int.MinValue;
+            } 
         }
 
         public String getString(string cmd)
@@ -328,6 +335,8 @@ namespace RHelper
                 }
 
             }
+            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgv.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
 
 
         }

@@ -37,22 +37,17 @@
             System.Windows.Forms.Label remarkLabel;
             this.dataRepeater1 = new Microsoft.VisualBasic.PowerPacks.DataRepeater();
             this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.interviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
             this.remarkTextBox1 = new System.Windows.Forms.TextBox();
             this.probandTextBox = new System.Windows.Forms.TextBox();
             this.gridNameTextBox = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.remarkTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.toolStripLabelCredits = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabelStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.interviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectBindingSource = new System.Windows.Forms.BindingSource(this.components);
             gridNameLabel = new System.Windows.Forms.Label();
             probandLabel = new System.Windows.Forms.Label();
             remarkLabel1 = new System.Windows.Forms.Label();
@@ -61,17 +56,16 @@
             remarkLabel = new System.Windows.Forms.Label();
             this.dataRepeater1.ItemTemplate.SuspendLayout();
             this.dataRepeater1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interviewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridNameLabel
             // 
             gridNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             gridNameLabel.AutoSize = true;
-            gridNameLabel.Location = new System.Drawing.Point(575, 6);
+            gridNameLabel.Location = new System.Drawing.Point(560, 6);
             gridNameLabel.Name = "gridNameLabel";
             gridNameLabel.Size = new System.Drawing.Size(60, 13);
             gridNameLabel.TabIndex = 0;
@@ -99,7 +93,7 @@
             // 
             dateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             dateLabel.AutoSize = true;
-            dateLabel.Location = new System.Drawing.Point(330, 7);
+            dateLabel.Location = new System.Drawing.Point(315, 7);
             dateLabel.Name = "dateLabel";
             dateLabel.Size = new System.Drawing.Size(33, 13);
             dateLabel.TabIndex = 8;
@@ -146,7 +140,7 @@
             this.dataRepeater1.ItemTemplate.Size = new System.Drawing.Size(825, 117);
             this.dataRepeater1.Location = new System.Drawing.Point(12, 145);
             this.dataRepeater1.Name = "dataRepeater1";
-            this.dataRepeater1.Size = new System.Drawing.Size(833, 274);
+            this.dataRepeater1.Size = new System.Drawing.Size(833, 297);
             this.dataRepeater1.TabIndex = 11;
             this.dataRepeater1.Text = "dataRepeater1";
             // 
@@ -154,43 +148,10 @@
             // 
             this.dateDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.interviewBindingSource, "Date", true));
-            this.dateDateTimePicker.Location = new System.Drawing.Point(369, 3);
+            this.dateDateTimePicker.Location = new System.Drawing.Point(354, 3);
             this.dateDateTimePicker.Name = "dateDateTimePicker";
             this.dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateDateTimePicker.TabIndex = 9;
-            // 
-            // interviewBindingSource
-            // 
-            this.interviewBindingSource.DataSource = typeof(OpenRepGridModel.Model.Interview);
-            this.interviewBindingSource.PositionChanged += new System.EventHandler(this.interviewBindingSource_PositionChanged);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Image = global::OpenRepGridGui.Properties.Resources.DeleteHS;
-            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(626, 77);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(65, 23);
-            this.btnDelete.TabIndex = 7;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Image = global::OpenRepGridGui.Properties.Resources.CommentHS;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(697, 77);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(65, 23);
-            this.btnEdit.TabIndex = 6;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // remarkTextBox1
             // 
@@ -201,7 +162,7 @@
             this.remarkTextBox1.Location = new System.Drawing.Point(54, 29);
             this.remarkTextBox1.Multiline = true;
             this.remarkTextBox1.Name = "remarkTextBox1";
-            this.remarkTextBox1.Size = new System.Drawing.Size(515, 71);
+            this.remarkTextBox1.Size = new System.Drawing.Size(500, 70);
             this.remarkTextBox1.TabIndex = 5;
             // 
             // probandTextBox
@@ -211,14 +172,14 @@
             this.probandTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.interviewBindingSource, "Proband", true));
             this.probandTextBox.Location = new System.Drawing.Point(54, 3);
             this.probandTextBox.Name = "probandTextBox";
-            this.probandTextBox.Size = new System.Drawing.Size(261, 20);
+            this.probandTextBox.Size = new System.Drawing.Size(246, 20);
             this.probandTextBox.TabIndex = 3;
             // 
             // gridNameTextBox
             // 
             this.gridNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gridNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.interviewBindingSource, "GridName", true));
-            this.gridNameTextBox.Location = new System.Drawing.Point(641, 3);
+            this.gridNameTextBox.Location = new System.Drawing.Point(626, 3);
             this.gridNameTextBox.Name = "gridNameTextBox";
             this.gridNameTextBox.Size = new System.Drawing.Size(121, 20);
             this.gridNameTextBox.TabIndex = 1;
@@ -232,10 +193,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(757, 20);
             this.nameTextBox.TabIndex = 12;
-            // 
-            // projectBindingSource
-            // 
-            this.projectBindingSource.DataSource = typeof(OpenRepGridModel.Model.Project);
             // 
             // remarkTextBox
             // 
@@ -266,44 +223,42 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(833, 100);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
-            // toolStripLabelCredits
+            // btnDelete
             // 
-            this.toolStripLabelCredits.Name = "toolStripLabelCredits";
-            this.toolStripLabelCredits.Size = new System.Drawing.Size(570, 17);
-            this.toolStripLabelCredits.Text = "This software uses the R-Library \"OpenRepGrid\" which was designed and programmed " +
-    "by Mark Heckmann";
+            this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDelete.Image = global::OpenRepGridGui.Properties.Resources.DeleteHS;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(611, 76);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(65, 23);
+            this.btnDelete.TabIndex = 7;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // statusStrip1
+            // btnEdit
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabelCredits,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabelStatus,
-            this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 432);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(857, 22);
-            this.statusStrip1.TabIndex = 9;
-            this.statusStrip1.Text = "statusStrip1";
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.Image = global::OpenRepGridGui.Properties.Resources.CommentHS;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(682, 76);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(65, 23);
+            this.btnEdit.TabIndex = 6;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // toolStripStatusLabel2
+            // interviewBindingSource
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(272, 17);
-            this.toolStripStatusLabel2.Spring = true;
+            this.interviewBindingSource.DataSource = typeof(OpenRepGridModel.Model.Interview);
+            this.interviewBindingSource.PositionChanged += new System.EventHandler(this.interviewBindingSource_PositionChanged);
             // 
-            // toolStripStatusLabelStatus
+            // projectBindingSource
             // 
-            this.toolStripStatusLabelStatus.Name = "toolStripStatusLabelStatus";
-            this.toolStripStatusLabelStatus.Size = new System.Drawing.Size(42, 17);
-            this.toolStripStatusLabelStatus.Text = "Status:";
-            this.toolStripStatusLabelStatus.Visible = false;
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
-            this.toolStripProgressBar1.Visible = false;
+            this.projectBindingSource.DataSource = typeof(OpenRepGridModel.Model.Project);
             // 
             // ProjectSetup
             // 
@@ -312,21 +267,18 @@
             this.ClientSize = new System.Drawing.Size(857, 454);
             this.Controls.Add(this.dataRepeater1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.statusStrip1);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.projectBindingSource, "Name", true));
             this.Name = "ProjectSetup";
             this.Text = "Project";
+            this.Load += new System.EventHandler(this.ProjectSetup_Load);
             this.dataRepeater1.ItemTemplate.ResumeLayout(false);
             this.dataRepeater1.ItemTemplate.PerformLayout();
             this.dataRepeater1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.interviewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.interviewBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -345,11 +297,6 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.TextBox remarkTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripLabelCredits;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelStatus;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
     }
 }
 

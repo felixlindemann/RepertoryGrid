@@ -11,13 +11,6 @@ namespace LimeTree.BaseClasses
         #region INotifyPropertyChanged Members
 
         protected Boolean hasChanges;
-
-        [Browsable(false)]
-        public Boolean HasChanges
-        {
-            get { return hasChanges; }
-            set { hasChanges = value; }
-        }
          
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -42,7 +35,7 @@ namespace LimeTree.BaseClasses
         public void FirePropertyChanged(string propertyName)
         {
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
-            this.HasChanges = true;
+            this.hasChanges = true;
         }
 
         #endregion

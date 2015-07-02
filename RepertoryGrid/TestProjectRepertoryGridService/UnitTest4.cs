@@ -75,7 +75,7 @@ namespace TestProjectRepertoryGridService
             IS.CurrentInterview.GridName = "mackay1992";
             IS.GetFromR(  true);
 
-            NumericMatrix m = IS.ConstructCor(false,"pearson");
+            NumericMatrix m = IS.Correlation(false).AsNumericMatrix();
             /* http://docu.openrepgrid.org/constructs_correlation.html
             ##############################
             Correlation between constructs
@@ -143,7 +143,7 @@ namespace TestProjectRepertoryGridService
             IS = ps.InterviewServices.Last();
             IS.CurrentInterview.GridName = "fbb2003";
             IS.GetFromR(  true);
-            DataFrame df = IS.ConstructRmsCor(false);
+            DataFrame df = IS.CorrelationRMS(false);
             String[] rowNames = {  
                                 "(1) clever - not bright", 
                                 "(2) disorganized - organized",
@@ -189,7 +189,7 @@ namespace TestProjectRepertoryGridService
                 { -0.1, -0.4, -0.2, -0.2, -0.2,  0.1,  0.0,  0.5,  1.0}
             };
 
-            NumericMatrix sD = IS.ConstructD(false);
+            NumericMatrix sD = IS.ConstructD( );
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)

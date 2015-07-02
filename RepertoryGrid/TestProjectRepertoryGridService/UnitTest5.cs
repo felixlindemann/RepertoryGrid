@@ -94,7 +94,7 @@ namespace TestProjectRepertoryGridService
             (9) rather agg - not aggres 9           
             
              */
-            NumericMatrix nm = IS.DistanceConstructs(false);
+            NumericMatrix nm = IS.Distance(false);
             double[,] values = new double[9, 9];
             values[0, 1] = 10.39;
             values[0, 2] = 2.45;

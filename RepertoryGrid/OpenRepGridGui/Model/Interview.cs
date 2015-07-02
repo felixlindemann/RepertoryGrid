@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text; 
+using System.Text;
 using System.Xml.Linq;
 using System.IO;
 using System.ComponentModel;
 using LimeTree.BaseClasses;
-using OpenRepGridModel.Model; 
+using OpenRepGridModel.Model;
 
 namespace OpenRepGridModel.Model
 {
@@ -112,14 +112,22 @@ namespace OpenRepGridModel.Model
             set { SetPropertyField("Scales", ref scales, value); }
         }
 
-        #endregion
+        public   Boolean HasChanges()
+        {
+            return this.hasChanges ||
+                   this.Constructs.Any(x => x.HasChanges()) ||
+                   this.Elements.Any(x => x.HasChanges()) ||
+                   this.Scales.Any(x => x.HasChanges());
 
+        }
+        #endregion
+         
         #region Constructors
 
         public Interview(Project project)
         {
             this.parentProject = project;
-            this.HasChanges = false;
+            this.ResetHasChanges();
         }
 
         #endregion
@@ -197,7 +205,7 @@ namespace OpenRepGridModel.Model
 
         void r_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            this.HasChanges = true;
+            this.ResetHasChanges();
         }
 
         public override int GetHashCode()
@@ -226,7 +234,7 @@ namespace OpenRepGridModel.Model
 
         public void ResetHasChanges()
         {
-            this.HasChanges = false;
+            this.hasChanges = false;
             foreach (ScaleItem o in this.Scales)
             {
                 o.ResetHasChanges();

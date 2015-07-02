@@ -79,7 +79,8 @@ namespace OpenRepGridModel.Model
             get { return remark; }
             set { SetPropertyField("Remark", ref remark, value); }
         }
-          
+
+        public Boolean HasChanges() { return this.hasChanges; }
 
         #endregion
 
@@ -92,7 +93,7 @@ namespace OpenRepGridModel.Model
             this.ContrastPol = "<Contrast Pole>";
             this.Name = "<Construct Name>";
             this.Remark = "";  
-            this.HasChanges = false;
+            this.ResetHasChanges();
         }
 
                         
@@ -157,7 +158,7 @@ namespace OpenRepGridModel.Model
                 this.Name = xml.Attribute("Name").Value;
                 this.Remark = xml.Element("Remark").Value;
 
-                this.HasChanges = false;
+                this.ResetHasChanges();
             }
             else
             {
@@ -178,7 +179,7 @@ namespace OpenRepGridModel.Model
             
         public void ResetHasChanges()
         {
-            this.HasChanges = false; 
+            this.hasChanges = false; 
         }  
     }
 }

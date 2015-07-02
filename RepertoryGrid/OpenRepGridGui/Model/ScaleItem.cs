@@ -83,7 +83,7 @@ namespace OpenRepGridModel.Model
             this.ParentInterview = parent;
             this.ParentInterview.Scales.Add(this);
             this.Name = sName;
-            this.HasChanges = false;
+            this.ResetHasChanges();
         }
 
         public ScaleItem(Interview parent, XElement xe)
@@ -92,13 +92,14 @@ namespace OpenRepGridModel.Model
             this.ParentInterview = parent;
             this.ParentInterview.Scales.Add(this);
             this.Name = xe.Attribute("Name").Value;
-            this.HasChanges = false; 
+            this.ResetHasChanges();
         }
 
         #endregion
 
         #region Methods
 
+        public Boolean HasChanges() { return this.hasChanges; }
         public XElement getXML()
         {
             return new XElement("ScaleItem",
@@ -135,7 +136,7 @@ namespace OpenRepGridModel.Model
          
         public void ResetHasChanges()
         {
-            this.HasChanges = false;
+            this.hasChanges = false;
         }
         #endregion
     }

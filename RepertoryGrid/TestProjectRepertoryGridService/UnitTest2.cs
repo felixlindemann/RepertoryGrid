@@ -91,7 +91,7 @@ namespace TestProjectRepertoryGridService
             (8) distant - warm             8 8 4.12 1.96    4.0    4.12 1.48   1   7     6 -0.05    -1.46 0.69
             (9) rather agg - not aggres    9 8 3.62 1.92    3.0    3.62 2.22   1   7     6  0.36    -1.25 0.68
              */
-            DataFrame df = IS.StatsConstructs(false);
+            DataFrame df = IS.StatsGrid(false);
             Assert.IsTrue(df.RowNames[0] == "(1) clever - not bright");
             Assert.IsTrue(df.RowNames[1] == "(2) disorganiz - organized");
             Assert.IsTrue(df.RowNames[8] == "(9) rather agg - not aggres");
@@ -125,7 +125,7 @@ namespace TestProjectRepertoryGridService
             (8) a pitied person         8 9 4.44 1.42      5    4.44 1.48   2   7     5 -0.02    -0.75 0.47
 
              */
-            df = IS.StatsElements(false);
+            df = IS.StatsGrid(true);
             Assert.IsTrue(df.RowNames[0] == "(1) self");
             Assert.IsTrue(df.RowNames[1] == "(2) my father");
             Assert.IsTrue(df.RowNames[7] == "(8) a pitied person");

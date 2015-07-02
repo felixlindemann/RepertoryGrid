@@ -12,7 +12,7 @@ namespace OpenRepGridGui.Service
 {
     public class ProjectService : NotifyPropertyChanged, IDisposable
     {
-       
+
         #region Variables
 
         private RHelper.RHelper rEngine;
@@ -24,11 +24,12 @@ namespace OpenRepGridGui.Service
         private Boolean cno = true;
         private Boolean eno = true;
         private int showtrim = 30;
-        private int showcut = 30;
+        private int showcut = 30; 
 
         #endregion
- 
+
         #region Properties
+         
 
         [Browsable(false)]
         public List<InterviewService> InterviewServices
@@ -36,6 +37,7 @@ namespace OpenRepGridGui.Service
             get { return interviewServices; }
             set { SetPropertyField("InterviewServices", ref interviewServices, value); }
         }
+
 
         [Browsable(false)]
         public Project CurrentProject
@@ -50,8 +52,9 @@ namespace OpenRepGridGui.Service
                 {
                     InterviewService IS = new InterviewService(this, interview);
                     this.InterviewServices.Add(IS);
-                    this.FirePropertyChanged("InterviewServices");
                 }
+                this.FirePropertyChanged("InterviewServices");
+                this.FirePropertyChanged("CurrentProject");
             }
         }
 
@@ -187,7 +190,7 @@ namespace OpenRepGridGui.Service
         public ProjectService(RHelper.RHelper r)
         {
             this.rEngine = r;
-            this.project = new Project();
+            this.CurrentProject = new Project();
 
             this.rEngine.Evaluate("library(OpenRepGrid)");
 
@@ -197,12 +200,12 @@ namespace OpenRepGridGui.Service
             this.ShowMeta = this.ShowMeta;
             this.PrintConstructId = this.PrintConstructId;
             this.PrintElementId = this.PrintElementId;
-
-
+         
         }
+         
 
         #endregion
-         
+
         #region Methods
 
         public void Save(FileInfo f)
@@ -216,15 +219,20 @@ namespace OpenRepGridGui.Service
             x.Add(new XAttribute("PrintElementId", this.PrintElementId));
             x.Add(new XAttribute("AutoPrint", this.R.AutoPrint));
             x.Save(f.FullName);
+            this.CurrentProject.ResetHasChanges();
         }
-          
+
+        public void LoadDemoInterview(String gridName)
+        {
+            addGridFromR(gridName, "");
+        }
+
         public void AddInterview()
         {
             Interview interview = new Interview(this.CurrentProject);
             interview.GridName = "grid_" + Math.Abs(interview.Id.GetHashCode());
             interview.Proband = "<Proband>";
-
-              AddInterview(interview);
+            AddInterview(interview);
         }
 
         public void AddInterview(Interview i)
@@ -232,14 +240,13 @@ namespace OpenRepGridGui.Service
             this.CurrentProject.Interviews.Add(i);
             InterviewService IS = new InterviewService(this, i);
             this.InterviewServices.Add(IS);
-            this.FirePropertyChanged("CurrentProject"); 
+            this.FirePropertyChanged("CurrentProject");
         }
 
         public void RemoveInterview(int i)
         {
             Interview interview = this.CurrentProject.Interviews[i];
             RemoveInterview(interview);
-            this.FirePropertyChanged("CurrentProject");
         }
 
         public void RemoveInterview(Interview i)
@@ -247,7 +254,8 @@ namespace OpenRepGridGui.Service
 
             this.InterviewServices.RemoveAll(x => x.CurrentInterview.Id.Equals(i.Id));
             this.CurrentProject.Interviews.RemoveAll(x => x.Id.Equals(i.Id));
-            this.CurrentProject.FirePropertyChanged("CurrentProject");
+            this.CurrentProject.FirePropertyChanged("Interviews");
+            this.FirePropertyChanged("CurrentProject");
 
         }
 
@@ -294,11 +302,12 @@ namespace OpenRepGridGui.Service
 
 
                 foreach (XElement xe in xml.Elements("Interview"))
-                { 
+                {
                     ImportFelixLindemann(xe);
                 }
-                this.project.HasChanges = false;
-                this.CurrentProject.FirePropertyChanged("CurrentProject");
+                this.FirePropertyChanged("CurrentProject");
+                this.CurrentProject.ResetHasChanges();
+
             }
             else if (xml.Name == "Interview")
             {
@@ -323,23 +332,29 @@ namespace OpenRepGridGui.Service
                 {
                     Element elem = iService.AddElement();
                     elem.UpdateFromXML(xe); // is added to this.Elements in constructor 
-                    foreach (XElement xRating in xml.Elements("Rating"))
+                    foreach (XElement xRating in xe.Elements("Rating"))
                     {
                         Guid cid = Guid.Parse(xRating.Attribute("ParentConstruct").Value);
                         Predicate<Construct> pc = new Predicate<Construct>(x => x.Id.Equals(cid));
                         if (iService.CurrentInterview.Constructs.Any(x => pc(x)) == false) throw new KeyNotFoundException();
                         Construct c = iService.CurrentInterview.Constructs.Single(x => pc(x));
-
-                        Score s = iService.GiveRating(elem, c, int.Parse(xRating.Attribute("ScaleItemId").Value)); 
+                        int rating = int.Parse(xRating.Attribute("ScaleItemId").Value);
+                       // Console.WriteLine("Element: {0} -- Construct: {1} -- Rating: {2}", elem.Name, c.ConstructPol, rating);
+                        Score s = iService.GiveRating(elem, c,rating );
                     }
                 }
-                iService.CurrentInterview.HasChanges = false;
-                this.AddInterview( iService.CurrentInterview);
+                this.AddInterview(iService.CurrentInterview);
+                this.CurrentProject.FirePropertyChanged("Interviews");
             }
             else
             {
                 throw new Exception(String.Format("XML-Node doesn't match. Expected: 'Project' or 'Interview'. Provided. '{0}'.", xml.Name));
             }
+        }
+
+        public Boolean HasChanges()
+        {
+            return this.CurrentProject.HasChanges();
         }
 
         #endregion
@@ -370,15 +385,15 @@ namespace OpenRepGridGui.Service
                 demoData.Add("bellmcgorry1992", "grid from a psychotic patient used in Bell (1997, p. 6). Data originated from a study by Bell and McGorry (1992).");
                 demoData.Add("boeker", "grid from seventeen year old female schizophrenic patient undergoing last stage of psychoanalytically oriented psychotherapy (Böker, 1996, p. 163).");
                 demoData.Add("fbb2003", "dataset used in A manual for Repertory Grid Technique (Fransella, Bell, & Bannister, 2003b, p. 60).");
-                     demoData.Add("feixas2004", "grid from a 22 year old Spanish girl suffering self-worth problems (Feixas & Saúl, 2004, p. 77).");
-                  demoData.Add("mackay1992", "dataset Grid C used in Mackay’s paper on inter-element correlation (1992, p. 65).");
-                  demoData.Add("leach2001a", "pre-dataset from sexual child abuse survivor (Leach, Freshwater, Aldridge, & Sunderland, 2001, p. 227).");
-                  demoData.Add("leach2001b", "post-therapy dataset from sexual child abuse survivor (Leach, Freshwater, Aldridge, & Sunderland, 2001, p. 227).");
-                  demoData.Add("raeithel", "grid data to demonstrate the use of Bertin diagrams (Raeithel, 1998, p. 223). The context of its administration is unknown.");
-                  demoData.Add("slater1977a", "drug addict’s grid dataset from (Slater, 1977, p. 32).");
-                  demoData.Add("slater1977b", "grid dataset (ranked) from a seventeen year old female psychiatric patient (Slater, 1977, p. 110) showing depression, anxiety and self-mutilation. The data was originally reported by Watson (1970).");
-                   // More to come
-                  /*  */
+                demoData.Add("feixas2004", "grid from a 22 year old Spanish girl suffering self-worth problems (Feixas & Saúl, 2004, p. 77).");
+                demoData.Add("mackay1992", "dataset Grid C used in Mackay’s paper on inter-element correlation (1992, p. 65).");
+                demoData.Add("leach2001a", "pre-dataset from sexual child abuse survivor (Leach, Freshwater, Aldridge, & Sunderland, 2001, p. 227).");
+                demoData.Add("leach2001b", "post-therapy dataset from sexual child abuse survivor (Leach, Freshwater, Aldridge, & Sunderland, 2001, p. 227).");
+                demoData.Add("raeithel", "grid data to demonstrate the use of Bertin diagrams (Raeithel, 1998, p. 223). The context of its administration is unknown.");
+                demoData.Add("slater1977a", "drug addict’s grid dataset from (Slater, 1977, p. 32).");
+                demoData.Add("slater1977b", "grid dataset (ranked) from a seventeen year old female psychiatric patient (Slater, 1977, p. 110) showing depression, anxiety and self-mutilation. The data was originally reported by Watson (1970).");
+                // More to come
+                /*  */
                 return demoData;
             }
         }
@@ -386,36 +401,40 @@ namespace OpenRepGridGui.Service
         public void getDemo(String data)
         {
 
-           string msg =  "Demo-Grids from literature selected by Mark Heckmann\nPlease check http://docu.openrepgrid.org/data.html \n\n" +
-                   "OpenRepGrid (by Mark Heckmann) comes with several datsets already included.\n" +
-                   "The data can serve as a starting point to make your first steps using the software.";
+            string msg = "Demo-Grids from literature selected by Mark Heckmann\nPlease check http://docu.openrepgrid.org/data.html \n\n" +
+                    "OpenRepGrid (by Mark Heckmann) comes with several datsets already included.\n" +
+                    "The data can serve as a starting point to make your first steps using the software.";
 
-            if(! this.project.Remark.Contains(msg)){
-                 this.project.Remark += this.project.Remark + msg;
+            if (!this.project.Remark.Contains(msg))
+            {
+                this.project.Remark += this.project.Remark + msg;
             }
 
             this.FirePropertyChanged("CurrentProject");
 
-            addGridFromR(data,"");
-            
+            addGridFromR(data, "");
+
         }
-          
+
         #endregion
 
 
         private void addGridFromR(string GridName, string cmd)
         {
-            if(cmd.Length >0)            this.R.Evaluate(cmd);
+            if (cmd.Length > 0) this.R.Evaluate(cmd);
 
             Interview i = new Interview(this.CurrentProject);
             i.GridName = GridName;
 
             InterviewService iService = new InterviewService(this, i);
             iService.Reset();
-            iService.GetFromR(  true);
+            iService.GetFromR(true);
             this.AddInterview(iService.CurrentInterview);
+
+            this.CurrentProject.FirePropertyChanged("Interviews");
+            this.FirePropertyChanged("CurrentProject");
         }
-        
+
         public void addRandomGrid(String GridName = "RandomGrid", int nc = 10, int ne = 15, int nwc = 5, int nwe = 5, int minScale = -3,
             int maxScale = 3, int options = 1)
         {
@@ -449,8 +468,8 @@ namespace OpenRepGridGui.Service
 
         public void ImportGridStat(String GridName = "GridStat")
         {
-             
-            string cmd = string.Format("{0} <- importGridstat()",  GridName );
+
+            string cmd = string.Format("{0} <- importGridstat()", GridName);
             addGridFromR(GridName, cmd);
         }
 
@@ -464,8 +483,8 @@ namespace OpenRepGridGui.Service
 
         public void ImportGridSuite(String GridName = "GridSuite")
         {
-             string cmd = string.Format("{0} <- importGridsuite()",   GridName );
-             addGridFromR(GridName, cmd);
+            string cmd = string.Format("{0} <- importGridsuite()", GridName);
+            addGridFromR(GridName, cmd);
         }
 
         public void ImportGridSuite(FileInfo f, String GridName = "GridSuite")
@@ -479,8 +498,8 @@ namespace OpenRepGridGui.Service
 
         public void ImportScivesco(String GridName = "Scivesco")
         {
-              string cmd = string.Format("{0} <- importScivesco()",                 GridName);
-              addGridFromR(GridName, cmd);
+            string cmd = string.Format("{0} <- importScivesco()", GridName);
+            addGridFromR(GridName, cmd);
         }
 
         public void ImportScivesco(FileInfo f, String GridName = "Scivesco")
@@ -488,11 +507,11 @@ namespace OpenRepGridGui.Service
             if (f.Exists == false) throw new FileNotFoundException();
             string cmd = string.Format("{0} <- importScivesco(\"{1}\")",
                  GridName, f.FullName.Replace("\\", "/"));
-            addGridFromR(GridName, cmd );
+            addGridFromR(GridName, cmd);
         }
-     
+
         #endregion
 
-    
+
     }
 }

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using OpenRepGridGui.Service;
 using System.IO;
 using OpenRepGridGui.View.mdi;
+using OpenRepGridModel.Model;
 
 namespace OpenRepGridGui.mdi
 {
@@ -40,9 +41,13 @@ namespace OpenRepGridGui.mdi
                 this.ucRConsole1.rEngine = this.r;
 
 
-                service = new ProjectService(r);
-                 
-                this.projectBindingSource.DataSource = this.Service.CurrentProject;
+                this.Service = new ProjectService(r);
+                this.Service.CurrentProject.Name = "<new name here>";
+                this.Service.CurrentProject.ResetHasChanges();
+
+                this.projectBindingSource.DataSource =this.Service;
+                this.projectBindingSource.DataMember = "CurrentProject";
+
                 ToolStripMenuItem parent = loadDemosFromLiteratureincludedInOpenRepGridToolStripMenuItem;
                 foreach (String key in service.DemoData.Keys)
                 {
@@ -63,8 +68,7 @@ namespace OpenRepGridGui.mdi
         }
 
         #region Event handler
-
-
+         
         private void R_rExec(RHelper.RExececutedEventArgs e)
         {
             ConsoleColor c = Console.ForegroundColor;
@@ -78,90 +82,25 @@ namespace OpenRepGridGui.mdi
 
             Console.ForegroundColor = c;
         }
-
-
-        void Load_Demo_Button_Click(object sender, EventArgs e)
+         
+       private void Load_Demo_Button_Click(object sender, EventArgs e)
         {
             try
             {
+                this.projectBindingSource.EndEdit();
+
                 ToolStripMenuItem m = (ToolStripMenuItem)sender;
-                this.service.AddInterview();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error while adding an interview");
-            }
-        }
+                String tag = (String)m.Tag;
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.projectBindingSource.EndEdit();
-
-                if (this.service.HasChanges)
-                {
-                    DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
-                    if (dlg == System.Windows.Forms.DialogResult.OK)
-                    {
-
-                        throw new Exception("Please choose 'Save' from the menu.");
-                    }
-                    else if (dlg == System.Windows.Forms.DialogResult.Cancel)
-                    {
-                        throw new Exception("Aborted by user");
-                    }
-                }
                 this.projectBindingSource.SuspendBinding();
-
-                this.service = new ProjectService(r);
+                this.service.LoadDemoInterview(tag);
                 this.projectBindingSource.ResumeBinding();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error while creating new project");
-            }
-        }
-
-        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
                 this.projectBindingSource.EndEdit();
 
-                if (this.service.HasChanges)
-                {
-                    DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
-                    if (dlg == System.Windows.Forms.DialogResult.OK)
-                    {
-
-                        throw new Exception("Please choose 'Save' from the menu.");
-                    }
-                    else if (dlg == System.Windows.Forms.DialogResult.Cancel)
-                    {
-                        throw new Exception("Aborted by user");
-                    }
-                }
-                OpenFileDialog opf = new OpenFileDialog();
-                opf.Filter = "XML-file (*.xml)|*.xml";
-                opf.Title = "Please choose project file to be loaded";
-                opf.Multiselect = false;
-                if (opf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.projectBindingSource.SuspendBinding();
-                    ;
-                    this.service = new ProjectService(r);
-                    this.service.ImportFelixLindemann(new FileInfo(opf.FileName));
-                    this.projectBindingSource.ResumeBinding();
-
-
-                }
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error while loading a project");
+                MessageBox.Show(ex.Message, "Error while adding a demo-grid to the project");
             }
         }
 
@@ -178,6 +117,8 @@ namespace OpenRepGridGui.mdi
                 {
                     this.service.Save(new FileInfo(sfd.FileName));
                 }
+                this.projectBindingSource.ResetBindings(false);
+                this.service.FirePropertyChanged("CurrentProject"); 
             }
             catch (Exception ex)
             {
@@ -221,7 +162,7 @@ namespace OpenRepGridGui.mdi
             {
                 this.projectBindingSource.EndEdit();
 
-                if (this.service.HasChanges)
+                if (this.service.HasChanges())
                 {
                     DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
                     if (dlg == System.Windows.Forms.DialogResult.OK)
@@ -246,16 +187,96 @@ namespace OpenRepGridGui.mdi
 
         }
 
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.projectBindingSource.EndEdit();
+
+                if (this.service.HasChanges())
+                {
+                    DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
+                    if (dlg == System.Windows.Forms.DialogResult.OK)
+                    {
+
+                        throw new Exception("Please choose 'Save' from the menu.");
+                    }
+                    else if (dlg == System.Windows.Forms.DialogResult.Cancel)
+                    {
+                        throw new Exception("Aborted by user");
+                    }
+                } 
+
+                this.Service.CurrentProject = new Project();
+                this.Service.FirePropertyChanged("CurrentProject");
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error while creating new project");
+            }
+        }
+
         private void addInterviewToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             try
-            {
-                this.service.AddInterview();
+            { 
+                this.Service.AddInterview(); 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error while adding an interview");
+            }
+        }
+
+        #region Load / import
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.projectBindingSource.EndEdit();
+
+                if (this.service.HasChanges())
+                {
+                    DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", 
+                        "Confirm Saving", MessageBoxButtons.YesNoCancel);
+                    if (dlg == System.Windows.Forms.DialogResult.Yes)
+                    {
+
+                        throw new Exception("Please choose 'Save' from the menu.");
+                    }
+                    else if (dlg == System.Windows.Forms.DialogResult.Cancel)
+                    {
+                        throw new Exception("Aborted by user");
+                    }
+                }
+                OpenFileDialog opf = new OpenFileDialog();
+                opf.Filter = "XML-file (*.xml)|*.xml";
+                opf.Title = "Please choose project file to be loaded";
+                opf.Multiselect = false;
+                if (opf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                   this.Service = new ProjectService(r);
+                    this.Service.CurrentProject.Name = "<new name here>";
+                    this.Service.CurrentProject.ResetHasChanges();
+
+                    this.Service.ImportFelixLindemann(new FileInfo(opf.FileName));
+
+                    this.projectBindingSource.DataSource = this.Service;
+                    this.projectBindingSource.DataMember = "CurrentProject";
+
+                    this.projectBindingSource.ResetBindings(false);
+                    this.projectBindingSource.ResetBindings(true);
+                    editDataToolStripMenuItem_Click(null, null);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error while loading a project");
             }
         }
 
@@ -269,14 +290,8 @@ namespace OpenRepGridGui.mdi
                 opf.Title = "Please choose a GridStat file to be imported";
                 opf.Multiselect = false;
                 if (opf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.projectBindingSource.SuspendBinding();
-                    ;
-
-                    this.service.ImportGridStat(new FileInfo(opf.FileName), "GridStat");
-                    this.projectBindingSource.ResumeBinding();
-
-
+                { 
+                    this.service.ImportGridStat(new FileInfo(opf.FileName), "GridStat");  
                 }
             }
             catch (Exception ex)
@@ -295,13 +310,8 @@ namespace OpenRepGridGui.mdi
                 opf.Title = "Please choose a GridCor file to be imported";
                 opf.Multiselect = false;
                 if (opf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.projectBindingSource.SuspendBinding();
-                    ;
-
-                    this.service.ImportGridStat(new FileInfo(opf.FileName), "GridCor");
-                    this.projectBindingSource.ResumeBinding();
-
+                { 
+                    this.service.ImportGridStat(new FileInfo(opf.FileName), "GridCor");  
 
                 }
             }
@@ -320,14 +330,8 @@ namespace OpenRepGridGui.mdi
                 opf.Title = "Please choose a GridCor file to be imported";
                 opf.Multiselect = false;
                 if (opf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.projectBindingSource.SuspendBinding();
-                    ;
-
-                    this.service.ImportGridStat(new FileInfo(opf.FileName), "GridSuite");
-                    this.projectBindingSource.ResumeBinding();
-
-
+                { 
+                    this.service.ImportGridStat(new FileInfo(opf.FileName), "GridSuite"); 
                 }
 
             }
@@ -348,14 +352,8 @@ namespace OpenRepGridGui.mdi
                 opf.Title = "Please choose a sci:vesco file to be imported";
                 opf.Multiselect = false;
                 if (opf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.projectBindingSource.SuspendBinding();
-                    ;
-
-                    this.service.ImportGridStat(new FileInfo(opf.FileName), "SciVesco");
-                    this.projectBindingSource.ResumeBinding();
-
-
+                {  
+                    this.service.ImportGridStat(new FileInfo(opf.FileName), "SciVesco");  
                 }
 
             }
@@ -370,7 +368,7 @@ namespace OpenRepGridGui.mdi
 
             try
             {
-                this.service.addRandomGrid("RandomGrid");
+                this.service.addRandomGrid("RandomGrid"); 
             }
             catch (Exception ex)
             {
@@ -378,12 +376,9 @@ namespace OpenRepGridGui.mdi
             }
         }
 
-        private void showHideRConsoleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem m = (ToolStripMenuItem)sender;
-            this.splitter1.Visible = m.Checked;
-            this.ucRConsole1.Visible = m.Checked;
-        }
+        #endregion
+
+        #region MDI
 
         private void casadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -442,11 +437,21 @@ namespace OpenRepGridGui.mdi
             this.LayoutMdi(System.Windows.Forms.MdiLayout.ArrangeIcons);
         }
 
+        #endregion
+
+        private void showHideRConsoleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem m = (ToolStripMenuItem)sender;
+            m.Checked = !m.Checked;
+            this.splitter1.Visible = m.Checked;
+            this.panel1.Visible = m.Checked;
+        }
+
         private void ProjectDetails_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
-                if (this.service.HasChanges)
+                if (this.service.HasChanges())
                 {
                     DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
                     if (dlg == System.Windows.Forms.DialogResult.OK)
@@ -466,8 +471,6 @@ namespace OpenRepGridGui.mdi
                 e.Cancel = true;
             }
         }
-
-
 
         private void editDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -496,6 +499,7 @@ namespace OpenRepGridGui.mdi
         }
 
         #endregion
+         
 
     }
 }

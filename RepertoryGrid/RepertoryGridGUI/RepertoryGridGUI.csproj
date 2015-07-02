@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C2B52DD7-5B28-470F-AB8C-6276BE7ABF1B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RepertoryGridGUI</RootNamespace>
+    <AssemblyName>RepertoryGridGUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DialogProjectProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogProjectProperties.Designer.cs">
+      <DependentUpon>DialogProjectProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogRateElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogRateElement.Designer.cs">
+      <DependentUpon>DialogRateElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventHandler\ReOrderedConstructEventArgs.cs" />
+    <Compile Include="FormInterview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInterview.Designer.cs">
+      <DependentUpon>FormInterview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProject.Designer.cs">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ufos\FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufos\ufoConstructAlternative.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\ufoConstructAlternative.Designer.cs">
+      <DependentUpon>ufoConstructAlternative.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufos\ufoConstructs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\ufoConstructs.Designer.cs">
+      <DependentUpon>ufoConstructs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufos\ufoElements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\ufoElements.Designer.cs">
+      <DependentUpon>ufoElements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufos\ufoScoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\ufoScoring.Designer.cs">
+      <DependentUpon>ufoScoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FormNewElement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\FormNewElement.Designer.cs">
+      <DependentUpon>FormNewElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcConstruct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcConstruct.Designer.cs">
+      <DependentUpon>UcConstruct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufos\ufoInterview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\ufoInterview.Designer.cs">
+      <DependentUpon>ufoInterview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ufos\ufoScales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ufos\ufoScales.Designer.cs">
+      <DependentUpon>ufoScales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcElement.Designer.cs">
+      <DependentUpon>UcElement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucScoring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucScoring.Designer.cs">
+      <DependentUpon>ucScoring.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DialogProjectProperties.resx">
+      <DependentUpon>DialogProjectProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogRateElement.resx">
+      <DependentUpon>DialogRateElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInterview.resx">
+      <DependentUpon>FormInterview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProject.resx">
+      <DependentUpon>FormProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ufos\FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufos\ufoConstructAlternative.resx">
+      <DependentUpon>ufoConstructAlternative.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufos\ufoConstructs.resx">
+      <DependentUpon>ufoConstructs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufos\ufoElements.resx">
+      <DependentUpon>ufoElements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufos\ufoScoring.resx">
+      <DependentUpon>ufoScoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FormNewElement.resx">
+      <DependentUpon>FormNewElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcConstruct.resx">
+      <DependentUpon>UcConstruct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufos\ufoInterview.resx">
+      <DependentUpon>ufoInterview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ufos\ufoScales.resx">
+      <DependentUpon>ufoScales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcElement.resx">
+      <DependentUpon>UcElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ucScoring.resx">
+      <DependentUpon>ucScoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\RepertoryGrid.Model.Construct.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Model.Element.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Model.Interview.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Model.Project.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Model.ScaleItem.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Model.Score.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Service.InterviewService.datasource" />
+    <None Include="Properties\DataSources\RepertoryGrid.Service.ProjectService.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\myExtensions\LimeTreeExtensions.csproj">
+      <Project>{8716A3AA-0C88-4CCA-AF85-AB77C2F47C95}</Project>
+      <Name>LimeTreeExtensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepertoryGridModel\RepertoryGridModel.csproj">
+      <Project>{FDD87B5D-ADAE-499C-9EF9-9FD0A9C16F64}</Project>
+      <Name>RepertoryGridModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepertoryGridService\RepertoryGridService.csproj">
+      <Project>{211ACE1B-8E6C-4F53-A411-418A4C2BA281}</Project>
+      <Name>RepertoryGridService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHelper\RHelper.csproj">
+      <Project>{45A62EDB-1676-4991-9766-C2F66F211D98}</Project>
+      <Name>RHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditTableHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeleteHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ShowGridlinesHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FullScreenHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CancelApproval_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddTableHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddToFavoritesHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AppWindow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WindowsHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book_openHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EntityDataModel_property_with_key_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulleted_list_options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SortHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SortUpHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_NewRecordHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LayoutSelectRow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillUpHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillDownHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LayoutSelectColumn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillLeftHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillRightHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compareversionsHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XSDSchema_GraphBtmToTop.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

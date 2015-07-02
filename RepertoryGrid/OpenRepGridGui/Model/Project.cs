@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text; 
+using System.Text;
 using System.Xml.Linq;
 using System.Diagnostics;
 using System.ComponentModel;
@@ -63,6 +63,10 @@ namespace OpenRepGridModel.Model
             set { SetPropertyField("Remark", ref remark, value); }
         }
 
+        public   Boolean HasChanges()
+        {
+            return this.hasChanges || this.Interviews.Any(x => x.HasChanges());
+        }
 
         #endregion
 
@@ -71,7 +75,7 @@ namespace OpenRepGridModel.Model
         public Project()
         {
             this.Id = Guid.NewGuid();
-            this.HasChanges = false;
+            this.ResetHasChanges();
         }
 
         public Project(XElement xml)
@@ -84,7 +88,7 @@ namespace OpenRepGridModel.Model
                 this.Remark = xml.Element("Remark").Value;
                 this.Interviews.Clear();
 
-                this.HasChanges = false;
+                this.ResetHasChanges();
             }
             else
             {
@@ -159,18 +163,18 @@ namespace OpenRepGridModel.Model
 
         void i_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            this.HasChanges = true;
-        } 
-          
+            this.ResetHasChanges();
+        }
+
         public void ResetHasChanges()
         {
-            this.HasChanges = false;
+            this.hasChanges = false;
             foreach (Interview interview in this.Interviews)
             {
                 interview.ResetHasChanges();
             }
         }
-         
+
         #endregion
 
     }

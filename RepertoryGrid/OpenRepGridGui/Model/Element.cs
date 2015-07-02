@@ -72,6 +72,12 @@ namespace OpenRepGridModel.Model
             get { return scores; }
         }
 
+        public   Boolean HasChanges()
+        {
+            return this.hasChanges ||
+                       this.Scores.Any(x => x.HasChanges());
+             
+        }
         #endregion
 
         #region Constructor
@@ -155,7 +161,7 @@ namespace OpenRepGridModel.Model
 
         void r_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            this.HasChanges = (true);
+             
         } 
 
         #endregion
@@ -164,10 +170,10 @@ namespace OpenRepGridModel.Model
 
         public void ResetHasChanges()
         {
-            this.HasChanges = false;
+            this.hasChanges = false;
             foreach (Score r in this.Scores)
             {
-                r.HasChanges = false;
+                r.ResetHasChanges();
             }
         }
 

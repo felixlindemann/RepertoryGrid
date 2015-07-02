@@ -40,11 +40,6 @@
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interviewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInterviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +53,11 @@
             this.getRandomGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadDemosFromLiteratureincludedInOpenRepGridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.editDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showHideRConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +82,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip1.Location = new System.Drawing.Point(0, 469);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(998, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1039, 22);
             this.statusStrip1.TabIndex = 10;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -96,7 +96,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(413, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(454, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // panel1
@@ -105,7 +105,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 335);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(998, 134);
+            this.panel1.Size = new System.Drawing.Size(1039, 134);
             this.panel1.TabIndex = 12;
             // 
             // ucRConsole1
@@ -114,7 +114,7 @@
             this.ucRConsole1.Location = new System.Drawing.Point(0, 0);
             this.ucRConsole1.Name = "ucRConsole1";
             this.ucRConsole1.rEngine = null;
-            this.ucRConsole1.Size = new System.Drawing.Size(998, 134);
+            this.ucRConsole1.Size = new System.Drawing.Size(1039, 134);
             this.ucRConsole1.TabIndex = 1;
             // 
             // splitter1
@@ -122,7 +122,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.splitter1.Location = new System.Drawing.Point(0, 332);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(998, 3);
+            this.splitter1.Size = new System.Drawing.Size(1039, 3);
             this.splitter1.TabIndex = 13;
             this.splitter1.TabStop = false;
             // 
@@ -130,21 +130,21 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
-            this.interviewsToolStripMenuItem,
             this.rConsoleToolStripMenuItem,
             this.windowsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(998, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1039, 24);
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // dateiToolStripMenuItem
             // 
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveProjectToolStripMenuItem,
             this.newToolStripMenuItem,
             this.loadToolStripMenuItem,
-            this.saveProjectToolStripMenuItem,
+            this.interviewsToolStripMenuItem,
             this.editDataToolStripMenuItem,
             this.toolStripSeparator1,
             this.optionsToolStripMenuItem,
@@ -158,7 +158,7 @@
             // 
             this.newToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.DocumentHS;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -166,50 +166,17 @@
             // 
             this.loadToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.openHS;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.loadToolStripMenuItem.Text = "Load";
-            this.loadToolStripMenuItem.Click += new System.EventHandler(this.Load_Demo_Button_Click);
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // saveProjectToolStripMenuItem
             // 
             this.saveProjectToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.saveHS;
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
             this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.saveProjectToolStripMenuItem_Click);
-            // 
-            // editDataToolStripMenuItem
-            // 
-            this.editDataToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.CommentHS;
-            this.editDataToolStripMenuItem.Name = "editDataToolStripMenuItem";
-            this.editDataToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.editDataToolStripMenuItem.Text = "Edit Data";
-            this.editDataToolStripMenuItem.Click += new System.EventHandler(this.editDataToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(135, 6);
-            // 
-            // optionsToolStripMenuItem
-            // 
-            this.optionsToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.Properties;
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.optionsToolStripMenuItem.Text = "Options";
-            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(135, 6);
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // interviewsToolStripMenuItem
             // 
@@ -217,8 +184,9 @@
             this.addInterviewToolStripMenuItem,
             this.importToolStripMenuItem,
             this.toolStripSeparator4});
+            this.interviewsToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.SendInstantMessage_32x32;
             this.interviewsToolStripMenuItem.Name = "interviewsToolStripMenuItem";
-            this.interviewsToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.interviewsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.interviewsToolStripMenuItem.Text = "Interviews";
             // 
             // addInterviewToolStripMenuItem
@@ -259,28 +227,24 @@
             this.importGridStatToolStripMenuItem.Name = "importGridStatToolStripMenuItem";
             this.importGridStatToolStripMenuItem.Size = new System.Drawing.Size(366, 22);
             this.importGridStatToolStripMenuItem.Text = "Import Grid Stat";
-            this.importGridStatToolStripMenuItem.Click += new System.EventHandler(this.importGridStatToolStripMenuItem_Click);
             // 
             // importGridCorToolStripMenuItem
             // 
             this.importGridCorToolStripMenuItem.Name = "importGridCorToolStripMenuItem";
             this.importGridCorToolStripMenuItem.Size = new System.Drawing.Size(366, 22);
             this.importGridCorToolStripMenuItem.Text = "Import Grid Cor";
-            this.importGridCorToolStripMenuItem.Click += new System.EventHandler(this.importGridCorToolStripMenuItem_Click);
             // 
             // importGridSuiteToolStripMenuItem
             // 
             this.importGridSuiteToolStripMenuItem.Name = "importGridSuiteToolStripMenuItem";
             this.importGridSuiteToolStripMenuItem.Size = new System.Drawing.Size(366, 22);
             this.importGridSuiteToolStripMenuItem.Text = "Import Grid Suite";
-            this.importGridSuiteToolStripMenuItem.Click += new System.EventHandler(this.importGridSuiteToolStripMenuItem_Click);
             // 
             // importScivescoToolStripMenuItem
             // 
             this.importScivescoToolStripMenuItem.Name = "importScivescoToolStripMenuItem";
             this.importScivescoToolStripMenuItem.Size = new System.Drawing.Size(366, 22);
             this.importScivescoToolStripMenuItem.Text = "Import Scivesco";
-            this.importScivescoToolStripMenuItem.Click += new System.EventHandler(this.importScivescoToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -300,7 +264,6 @@
             this.getRandomGridToolStripMenuItem.Name = "getRandomGridToolStripMenuItem";
             this.getRandomGridToolStripMenuItem.Size = new System.Drawing.Size(366, 22);
             this.getRandomGridToolStripMenuItem.Text = "Load Random Grid";
-            this.getRandomGridToolStripMenuItem.Click += new System.EventHandler(this.getRandomGridToolStripMenuItem_Click);
             // 
             // loadDemosFromLiteratureincludedInOpenRepGridToolStripMenuItem
             // 
@@ -312,6 +275,39 @@
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // editDataToolStripMenuItem
+            // 
+            this.editDataToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.CommentHS;
+            this.editDataToolStripMenuItem.Name = "editDataToolStripMenuItem";
+            this.editDataToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editDataToolStripMenuItem.Text = "Edit Project Data";
+            this.editDataToolStripMenuItem.Click += new System.EventHandler(this.editDataToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.Properties;
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.optionsToolStripMenuItem.Text = "Options";
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // rConsoleToolStripMenuItem
             // 
@@ -399,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 491);
+            this.ClientSize = new System.Drawing.Size(1039, 491);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
@@ -438,6 +434,17 @@
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rConsoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showHideRConsoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem casadeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileHorizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tileVerticalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem interviewsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addInterviewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
@@ -450,18 +457,7 @@
         private System.Windows.Forms.ToolStripMenuItem demoDataFromOpenRepGridToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getRandomGridToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadDemosFromLiteratureincludedInOpenRepGridToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editDataToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rConsoleToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showHideRConsoleToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem windowsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem casadeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem minimizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem closeAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem arrangeIconsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tileHorizontalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tileVerticalToolStripMenuItem;
 
 
     }

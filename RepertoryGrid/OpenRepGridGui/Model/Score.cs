@@ -61,7 +61,7 @@ namespace OpenRepGridModel.Model
             this.ParentElement.Scores.Add(this);
             this.ParentConstruct = construct;
             this.ScaleItemId = rating; 
-            this.HasChanges = false;
+            this.ResetHasChanges();
 
         }
 
@@ -69,10 +69,11 @@ namespace OpenRepGridModel.Model
 
         #region methods
 
+        public Boolean HasChanges() { return this.hasChanges; }
         public string getRatingForR()
         {
             if (this.ScaleItemId == int.MaxValue ||
-                this.ScaleItemId == int.MaxValue)
+                this.ScaleItemId == int.MinValue)
             {
                 return "NA";
             }
@@ -91,6 +92,10 @@ namespace OpenRepGridModel.Model
 
         }
 
+        public void ResetHasChanges()
+        {
+            this.hasChanges = false; 
+        }
         public override bool Equals(object obj)
         {
             if (obj.GetType() == this.GetType())

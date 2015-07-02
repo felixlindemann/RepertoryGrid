@@ -76,7 +76,11 @@ namespace TestProjectRepertoryGridService
             IS.CurrentInterview.GridName = "bell2010";
             IS.GetFromR( true);
             IS.R.Evaluate(IS.CurrentInterview.GridName);
-            IS.cluster(along:1, print: false);
+
+            Dictionary<String, object> d = new Dictionary<string, object>();
+            d.Add("along", 1);
+            d.Add("print", false);
+            IS.cluster(d);
 
             IS.R.Evaluate(IS.CurrentInterview.GridName);
         }

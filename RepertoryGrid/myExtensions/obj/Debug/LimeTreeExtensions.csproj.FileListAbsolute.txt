@@ -2,3 +2,7 @@ Y:\git\github\RepertoryGrid\RepertoryGrid\myExtensions\bin\Debug\LimeTree.dll
 Y:\git\github\RepertoryGrid\RepertoryGrid\myExtensions\bin\Debug\LimeTree.pdb
 Y:\git\github\RepertoryGrid\RepertoryGrid\myExtensions\obj\Debug\LimeTree.dll
 Y:\git\github\RepertoryGrid\RepertoryGrid\myExtensions\obj\Debug\LimeTree.pdb
+\\psf\Home\git\github\RepertoryGrid\RepertoryGrid\myExtensions\bin\Debug\LimeTree.dll
+\\psf\Home\git\github\RepertoryGrid\RepertoryGrid\myExtensions\bin\Debug\LimeTree.pdb
+\\psf\Home\git\github\RepertoryGrid\RepertoryGrid\myExtensions\obj\Debug\LimeTree.dll
+\\psf\Home\git\github\RepertoryGrid\RepertoryGrid\myExtensions\obj\Debug\LimeTree.pdb

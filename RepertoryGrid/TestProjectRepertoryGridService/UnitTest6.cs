@@ -99,7 +99,7 @@ namespace TestProjectRepertoryGridService
             Cumulative Var 0.47 0.67 0.86
 
             */
-            IS.ConstructPCA(false);
+              IS.ConstructPCA( );
         }
 
     }
