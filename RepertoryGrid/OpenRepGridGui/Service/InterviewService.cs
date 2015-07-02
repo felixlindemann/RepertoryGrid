@@ -824,7 +824,10 @@ namespace OpenRepGridGui.Service
                             }
                         } 
                     }
-                    else
+                    else if (key == "custom")
+                    {
+                        cmd.Append(optionalValues[key]);
+                    }else
                     {
                         throw new ArgumentException(string.Format("The optional Argument '{0}' is not supported", key));
                     }
@@ -931,11 +934,62 @@ namespace OpenRepGridGui.Service
             acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
             acceptedValues.Add(new rParameter(true, "main", "Title of plot. The default is a name indicating the distance function and cluster method.", null, typeof(string), 1, 1, 1));
             acceptedValues.Add(new rParameter(true, "print", "Logical. Wether to print the dendrogram (default is TRUE).", null, typeof(Boolean), 1, 1, 1));
-
+            acceptedValues.Add(new rParameter(true, "mar", "Define the plot region (bottom, left, upper, right).", null, typeof(double), 4, 4, 4));
+            acceptedValues.Add(new rParameter(true, "cex", "Size parameter for the nodes. Usually not needed.", null, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "lab.cex", "Size parameter for the constructs on the right side.", new double[] { 0.1, 3.9 }, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "cex.main", "Size parameter for the plot title (default is .9).", new double[] { 0.1, 3.9 }, typeof(double), 1, 1, 1));
+            // 
 
             return acceptedValues;
         }
+        
+        public static List<rParameter> BertinClusterAcceptedValues()
+        {
+            List<rParameter> acceptedValues = new List<rParameter>();
+             acceptedValues.Add(new rParameter(true, "dmethod", "The distance measure to be used. This must be one of \"euclidean\", \"maximum\", \"manhattan\", \"canberra\", \"binary\" or \"minkowski\". Any unambiguous substring can be given. For additional information on the different types type ?dist.", InterviewService.DistanceMeasures(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "cmethod", "The agglomeration method to be used. This should be (an unambiguous abbreviation of) one of \"ward\", \"single\", \"complete\", \"average\", \"mcquitty\", \"median\" or \"centroid\".", InterviewService.ClusterMethods(), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "p", "The power of the Minkowski distance, in case \"minkowski\" is used as argument for dmethod", new int[] { 1, 10 }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "align", "Whether the constructs should be aligned before clustering (default is TRUE). If not, the grid matrix is clustered as is. See Details section for more information.", null, typeof(Boolean), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "trim", "The number of characters a construct or element is trimmed to (default is 20). If NA no trimming occurs. Trimming simply saves space when displaying correlation of constructs with long names.", new int[] { 0, int.MaxValue }, typeof(int), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "type", "Type of dendrogram. Either or \"triangle\" (default) or \"rectangle\" form.", InterviewService.DendrogramType (), typeof(Dictionary<String, Boolean>), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "cex.axis", "cex for axis labels, default is .6", new double[] { 0.1, 3.9 }, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "col.axis", "Color for axis and axis labels, default is grey(.4).", null, typeof(Color), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "draw.axis", "Whether to draw axis showing the distance metric for the dendrograms (default is TRUE).", null, typeof(Boolean), 1, 1, 1));
+            // 
+            acceptedValues.AddRange(InterviewService.BertinAcceptedValues());
+            return acceptedValues;
+        }
+        public static List<rParameter> BertinAcceptedValues()
+        {
+            List<rParameter> acceptedValues = new List<rParameter>();
+            acceptedValues.Add(new rParameter(true, "colors", "Vector. Two or more colors defininig the color ramp for the bertin (default c(\"white\", \"black\")).", null, typeof(Color), 2, 2, 2));
+            acceptedValues.Add(new rParameter(true, "showvalues", "Logical. Wether scores are shown in bertin", null, typeof(Boolean), 1, 1, 1));
 
+            acceptedValues.Add(new rParameter(true, "cex.elements", "Numeric. Text size of element labels (default .7).", new double[]{0.1,3.9}, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "cex.constructs", "Numeric. Text size of construct labels (default .7).", new double[] { 0.1, 3.9 }, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "cex.text", "Numeric. Text size of scores in bertin cells (default .7).", new double[] { 0.1, 3.9 }, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "col.text", "Color of scores in bertin (default NA). By default the color of the text is chosen according to the background color. If the background ist bright the text will be black and vice versa. When a color is specified the color is set independetn of background.", null, typeof(Color), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "border", "Border color of the bertin cells (default white).", null, typeof(Color), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "lheight", "Line height for constructs.", null, typeof(double), 1, 1, 1));
+            acceptedValues.Add(new rParameter(true, "id", "Logical. Wheteher to print id number for constructs and elements respectively (default c(T,T)).", null, typeof(Boolean), 2, 2, 2));
+             
+
+            return acceptedValues;
+        }/*
+        List<string> colors = null,
+            Boolean showvalues = true,
+            Boolean IndexColumns = true,
+            Boolean IndexElements = true,
+            double[] xlim = null,
+            double[] ylim = null,
+            double[] margins = null,
+            double cexElements = 0.7,
+            double cexConstructs = 0.7,
+            double cexText = 0.7,
+            string colText = "NA",
+            string border = "white",
+            double lheight = 0.75,
+            Boolean print = true)*/
         #endregion
 
         #region Description
@@ -1265,7 +1319,24 @@ namespace OpenRepGridGui.Service
             this.R.Evaluate(cmd.ToString());
 
             this.GetFromR(false);
+             
+        }
+        /// <summary>
+        /// cluster is a preliminary implementation of a cluster function. It supports various distance measures as well as cluster methods. More is to come. 
+        /// </summary> 
+        public void BertinCluster(            Dictionary<String, Object> optionalValues = null)
+        {
+            this.SetToR(false);
+            StringBuilder cmd = new StringBuilder();
 
+
+            cmd.Append("bertinCluster(");
+            cmd.Append(this.CurrentInterview.GridName);
+            cmd.Append(getOptionalValues(optionalValues, InterviewService.ClusterAcceptedValues()));
+            cmd.Append(")");
+            this.AppendRScript(cmd.ToString());
+            this.R.Evaluate(cmd.ToString());
+             
 
         }
         #endregion
@@ -1274,54 +1345,10 @@ namespace OpenRepGridGui.Service
 
         #region Visualisation
 
-        public void bertin(Boolean toFile = false,
-            List<string> colors = null,
-            Boolean showvalues = true,
-            Boolean IndexColumns = true,
-            Boolean IndexElements = true,
-            double[] xlim = null,
-            double[] ylim = null,
-            double[] margins = null,
-            double cexElements = 0.7,
-            double cexConstructs = 0.7,
-            double cexText = 0.7,
-            string colText = "NA",
-            string border = "white",
-            double lheight = 0.75,
-            Boolean print = true)
-        {
+        public void bertin(  Dictionary<String, Object> optionalValues = null){ 
             throw new NotImplementedException();
         }
-
-        public void bertinCluster(Boolean toFile = false,
-            string dmethod = "euclidean",
-            string cmethod = "ward",
-            int[] p = null,
-            Boolean align = true,
-            int trim = -1,
-            string type = "triangle",
-            double xoff = 0.01,
-            double yoff = 0.01,
-            double cexaxis = 0.6,
-            string colaxis = "grey(0.4)",
-            Boolean drawAxis = true,
-            List<string> colors = null,
-            Boolean showvalues = true,
-            Boolean IndexColumns = true,
-            Boolean IndexElements = true,
-            double[] xlim = null,
-            double[] ylim = null,
-            double[] margins = null,
-            double cexElements = 0.7,
-            double cexConstructs = 0.7,
-            double cexText = 0.7,
-            string colText = "NA",
-            string border = "white",
-            double lheight = 0.75,
-            Boolean print = true)
-        {
-            throw new NotImplementedException();
-        }
+             
 
         /// <summary>
         /// biplotSimple(x, dim = 1:2, center = 1, normalize = 0, g = 0, h = 1 -

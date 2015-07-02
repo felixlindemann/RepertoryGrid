@@ -184,10 +184,7 @@ namespace OpenRepGridGui.View.mdi
         }
 
         #endregion
-
-        #region Evaluation
-
-        #endregion
+         
 
         #endregion
 
@@ -797,6 +794,27 @@ namespace OpenRepGridGui.View.mdi
             }
         }
 
+        private void bertinClusterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dlgValues dlg = new dlgValues();
+                dlg.Text = "Please provide custom parameters for the BertinCluster function";
+                dlg.AcceptedValues = InterviewService.BertinClusterAcceptedValues();
+                if (dlg.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+                {
+                    throw new Exception("Aborted by User");
+                }
+                this.interviewService.BertinCluster(dlg.OptionalValues);
+                 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show(ex.Message, "Error while Bertin-Clustering");
+            }
+        }
         #endregion
 
         #region Constructs
@@ -950,6 +968,12 @@ namespace OpenRepGridGui.View.mdi
 
 
         #endregion
+
+        private void bertinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
          
 
 

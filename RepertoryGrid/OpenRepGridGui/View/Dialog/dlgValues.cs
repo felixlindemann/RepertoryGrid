@@ -37,7 +37,23 @@ namespace OpenRepGridGui.View.Dialog
         {
             get
             {
-                return ucOptionalValues1.OptionalValues();
+                 Dictionary<String, Object> t =  ucOptionalValues1.OptionalValues();
+                 if (checkBoxCustomOptions.Checked)
+                 {
+
+                     String cmd = textBox1.Text.Trim();
+                     if (!cmd.StartsWith("#"))
+                     {
+                         if (!cmd.StartsWith(","))
+                         {
+                             cmd = ", " + cmd;
+                         }
+                         t.Add("custom", cmd);
+                     }
+                 }
+
+
+                 return t;
             }
         }
 
@@ -52,6 +68,11 @@ namespace OpenRepGridGui.View.Dialog
 
             this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Close();
+        }
+
+        private void checkBoxCustomOptions_CheckedChanged(object sender, EventArgs e)
+        {
+            this.textBox1.Enabled = checkBoxCustomOptions.Checked;
         }
     }
 }
