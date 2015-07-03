@@ -68,6 +68,12 @@
     <Compile Include="View\Dialog\dlgValues.Designer.cs">
       <DependentUpon>dlgValues.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Dialog\FormScale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Dialog\FormScale.Designer.cs">
+      <DependentUpon>FormScale.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="View\Dialog\dlgValues.resx">
       <DependentUpon>dlgValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Dialog\FormScale.resx">
+      <DependentUpon>FormScale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
@@ -281,6 +290,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ThumbnailView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveFormDesignHS.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

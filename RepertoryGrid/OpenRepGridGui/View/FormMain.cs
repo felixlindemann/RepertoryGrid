@@ -18,6 +18,8 @@ namespace OpenRepGridGui.mdi
 
         #region variables
 
+        private FileInfo projectFile;
+
         private RHelper.RHelper r;
         private ProjectService service;
 
@@ -56,8 +58,8 @@ namespace OpenRepGridGui.mdi
                     m.Tag = key;
                     m.Click += new EventHandler(Load_Demo_Button_Click);
                     parent.DropDownItems.Add(m);
-                } 
-
+                }
+                MessageBox.Show("this software is still in beta-Phase. -- The OpenRepGrid Library is programmed by Mark Heckmann.");
             }
             catch (Exception ex)
             {
@@ -158,32 +160,7 @@ namespace OpenRepGridGui.mdi
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.projectBindingSource.EndEdit();
-
-                if (this.service.HasChanges())
-                {
-                    DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
-                    if (dlg == System.Windows.Forms.DialogResult.OK)
-                    {
-
-                        throw new Exception("Please choose 'Save' from the menu.");
-                    }
-                    else if (dlg == System.Windows.Forms.DialogResult.Cancel)
-                    {
-                        throw new Exception("Aborted by user");
-                    }
-                }
-                this.service.Dispose();
-                r.Dispose();
-                GC.Collect();
-                Application.Exit();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error while quitting the application");
-            }
+            this.Close();
 
         }
 
@@ -262,9 +239,9 @@ namespace OpenRepGridGui.mdi
                    this.Service = new ProjectService(r);
                     this.Service.CurrentProject.Name = "<new name here>";
                     this.Service.CurrentProject.ResetHasChanges();
-
-                    this.Service.ImportFelixLindemann(new FileInfo(opf.FileName));
-
+                    projectFile = new FileInfo(opf.FileName);
+                    this.Service.ImportFelixLindemann(projectFile);
+                    this.QuickSaveProjectToolStripMenuItem.Enabled = true;
                     this.projectBindingSource.DataSource = this.Service;
                     this.projectBindingSource.DataMember = "CurrentProject";
 
@@ -276,6 +253,7 @@ namespace OpenRepGridGui.mdi
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 MessageBox.Show(ex.Message, "Error while loading a project");
             }
         }
@@ -446,16 +424,21 @@ namespace OpenRepGridGui.mdi
             this.splitter1.Visible = m.Checked;
             this.panel1.Visible = m.Checked;
         }
-
+        
         private void ProjectDetails_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                this.projectBindingSource.EndEdit();
+
                 if (this.service.HasChanges())
                 {
-                    DialogResult dlg = MessageBox.Show("The current project has unsaved changes. Should they be saved now?", "Confirm Saving", MessageBoxButtons.YesNoCancel);
-                    if (dlg == System.Windows.Forms.DialogResult.OK)
+                    DialogResult dlg = 
+                        MessageBox.Show("The current project has unsaved changes. Should they be saved now?",
+                        "Confirm Saving", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (dlg == System.Windows.Forms.DialogResult.Yes)
                     {
+
                         throw new Exception("Please choose 'Save' from the menu.");
                     }
                     else if (dlg == System.Windows.Forms.DialogResult.Cancel)
@@ -463,13 +446,18 @@ namespace OpenRepGridGui.mdi
                         throw new Exception("Aborted by user");
                     }
                 }
+
             }
             catch (Exception ex)
             {
-
-                MessageBox.Show(ex.Message, "Error while closing application.");
+                MessageBox.Show(ex.Message, "Error while quitting the application");
                 e.Cancel = true;
+                return;
             }
+            this.service.Dispose();
+            r.Dispose();
+            GC.Collect();
+            Application.Exit(); 
         }
 
         private void editDataToolStripMenuItem_Click(object sender, EventArgs e)
@@ -499,6 +487,47 @@ namespace OpenRepGridGui.mdi
         }
 
         #endregion
+
+        private void QuickSaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.projectBindingSource.EndEdit();
+
+                if (projectFile == null)
+                {
+                    saveProjectToolStripMenuItem_Click(sender, e);
+                    return;
+                }
+                this.service.Save(projectFile);
+                
+                this.projectBindingSource.ResetBindings(false);
+                this.service.FirePropertyChanged("CurrentProject");
+
+                if (MdiChildren.Any(x => x.GetType() == typeof(mdiInterview)))
+                {
+                    foreach (mdiInterview frm in MdiChildren.Where(x => x.GetType() == typeof(mdiInterview)))
+                    {
+                        if (frm.cboScoring != null)
+                        {
+                            for (int i = 0; i <= frm.cboScoring.GetUpperBound(0);i++ )
+                            {
+                                for (int j = 0; j <= frm.cboScoring.GetUpperBound(1); j++)
+                                {
+                                    frm.cboScoring[i, j].BackColor = Color.White;
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error while saving a project");
+            }
+        }
          
 
     }

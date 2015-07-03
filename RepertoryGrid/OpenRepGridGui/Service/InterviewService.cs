@@ -462,8 +462,7 @@ namespace OpenRepGridGui.Service
 
         public Construct AddConstruct()
         {
-
-            this.ResetRScript();
+            if (this.CurrentInterview.Scales.Any() == false) this.defineDefaultScale(); 
             Construct c = new Construct(this.CurrentInterview);
             this.CurrentInterview.Constructs.Add(c);
             this.CurrentInterview.FirePropertyChanged("Constructs");
@@ -485,9 +484,8 @@ namespace OpenRepGridGui.Service
             {
                 elem.Scores.RemoveAll(x => x.ParentConstruct.Id.Equals(c.Id));
             }
-
-            int index = this.CurrentInterview.Constructs.IndexOf(c);
-            this.CurrentInterview.Constructs.RemoveAt(index);
+             
+            this.CurrentInterview.Constructs.Remove(c);
             this.CurrentInterview.FirePropertyChanged("Constructs");
 
         }
@@ -504,6 +502,7 @@ namespace OpenRepGridGui.Service
 
         public Element AddElement()
         {
+            if (this.CurrentInterview.Scales.Any() == false) this.defineDefaultScale();
             Element elem = new Element(this.CurrentInterview);
             this.CurrentInterview.Elements.Add(elem);
             elem.PropertyChanged += new PropertyChangedEventHandler(elem_PropertyChanged);

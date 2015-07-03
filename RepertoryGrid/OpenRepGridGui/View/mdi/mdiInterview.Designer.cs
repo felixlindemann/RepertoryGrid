@@ -35,45 +35,26 @@
             System.Windows.Forms.Label dateLabel;
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSplitButtonUpdateR = new System.Windows.Forms.ToolStripSplitButton();
+            this.updateFromRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setToRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSplitButtonEvalutaion = new System.Windows.Forms.ToolStripSplitButton();
+            this.removeAllEvaluationTabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageInterview = new System.Windows.Forms.TabPage();
             this.remarkTextBox = new System.Windows.Forms.TextBox();
             this.probandTextBox = new System.Windows.Forms.TextBox();
             this.gridNameTextBox = new System.Windows.Forms.TextBox();
             this.dateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.tabPageScale = new System.Windows.Forms.TabPage();
+            this.scaleItemDataGridView = new System.Windows.Forms.DataGridView();
+            this.DatagridviewColumnName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatagridviewColumnDisplayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scaleItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPageElements = new System.Windows.Forms.TabPage();
             this.elementsDataGridView = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tabPageConstructs = new System.Windows.Forms.TabPage();
-            this.constructsDataGridView = new System.Windows.Forms.DataGridView();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tabPageScoring = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelConstructPole = new System.Windows.Forms.Label();
-            this.panelScoringLeft = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panelScoringRight = new System.Windows.Forms.Panel();
-            this.panelScoringMain = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panelScoringTop = new System.Windows.Forms.Panel();
-            this.rotatedTextLabel2 = new LimeTree.Gui.Input.RotatedTextLabel();
-            this.rotatedTextLabel1 = new LimeTree.Gui.Input.RotatedTextLabel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelContrastPole = new System.Windows.Forms.Label();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripComboBoxFromElements = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripComboBoxToElements = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.interviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.elementsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabelElement = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonMoveLeft = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMoveRight = new System.Windows.Forms.ToolStripButton();
@@ -94,11 +75,10 @@
             this.heckmannsApproach2012ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clusterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bertinClusterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPageConstructs = new System.Windows.Forms.TabPage();
+            this.constructsDataGridView = new System.Windows.Forms.DataGridView();
             this.constructsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabelConstructs = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonMoveUp = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonMoveDown = new System.Windows.Forms.ToolStripButton();
@@ -116,16 +96,44 @@
             this.clusterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bertinClusterToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSplitButtonVisualisation = new System.Windows.Forms.ToolStripSplitButton();
+            this.bertinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPageScoring = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelConstructPole = new System.Windows.Forms.Label();
+            this.panelScoringLeft = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panelScoringRight = new System.Windows.Forms.Panel();
+            this.panelScoringMain = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panelScoringTop = new System.Windows.Forms.Panel();
+            this.rotatedTextLabel2 = new LimeTree.Gui.Input.RotatedTextLabel();
+            this.rotatedTextLabel1 = new LimeTree.Gui.Input.RotatedTextLabel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelContrastPole = new System.Windows.Forms.Label();
+            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabelScoring = new System.Windows.Forms.ToolStripLabel();
             this.toolStripButtonReloadScoring = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCopy = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxFromElements = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripComboBoxToElements = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripButtonCopyRating = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSplitButtonUpdateR = new System.Windows.Forms.ToolStripSplitButton();
-            this.updateFromRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setToRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSplitButtonEvalutaion = new System.Windows.Forms.ToolStripSplitButton();
-            this.removeAllEvaluationTabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bertinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.TextboxWidthOfElement = new System.Windows.Forms.ToolStripTextBox();
+            this.interviewBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             remarkLabel = new System.Windows.Forms.Label();
             probandLabel = new System.Windows.Forms.Label();
             gridNameLabel = new System.Windows.Forms.Label();
@@ -133,11 +141,16 @@
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageInterview.SuspendLayout();
+            this.tabPageScale.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scaleItemDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scaleItemBindingSource)).BeginInit();
             this.tabPageElements.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementsBindingSource)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabPageConstructs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.constructsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.constructsBindingSource)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.tabPageScoring.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -148,8 +161,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interviewBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.constructsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // remarkLabel
@@ -207,9 +218,54 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(733, 17);
             this.toolStripStatusLabel1.Spring = true;
             // 
+            // toolStripSplitButtonUpdateR
+            // 
+            this.toolStripSplitButtonUpdateR.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateFromRToolStripMenuItem,
+            this.setToRToolStripMenuItem});
+            this.toolStripSplitButtonUpdateR.Image = global::OpenRepGridGui.Properties.Resources.RIconImg;
+            this.toolStripSplitButtonUpdateR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonUpdateR.Name = "toolStripSplitButtonUpdateR";
+            this.toolStripSplitButtonUpdateR.Size = new System.Drawing.Size(87, 20);
+            this.toolStripSplitButtonUpdateR.Text = "Update R";
+            // 
+            // updateFromRToolStripMenuItem
+            // 
+            this.updateFromRToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.GoLtrHS;
+            this.updateFromRToolStripMenuItem.Name = "updateFromRToolStripMenuItem";
+            this.updateFromRToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.updateFromRToolStripMenuItem.Text = "Update From R";
+            this.updateFromRToolStripMenuItem.Click += new System.EventHandler(this.updateFromRToolStripMenuItem_Click);
+            // 
+            // setToRToolStripMenuItem
+            // 
+            this.setToRToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.GoRtlHS;
+            this.setToRToolStripMenuItem.Name = "setToRToolStripMenuItem";
+            this.setToRToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.setToRToolStripMenuItem.Text = "Set to R";
+            this.setToRToolStripMenuItem.Click += new System.EventHandler(this.setToRToolStripMenuItem_Click);
+            // 
+            // toolStripSplitButtonEvalutaion
+            // 
+            this.toolStripSplitButtonEvalutaion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.removeAllEvaluationTabsToolStripMenuItem});
+            this.toolStripSplitButtonEvalutaion.Image = global::OpenRepGridGui.Properties.Resources.CancelApproval_32x32;
+            this.toolStripSplitButtonEvalutaion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButtonEvalutaion.Name = "toolStripSplitButtonEvalutaion";
+            this.toolStripSplitButtonEvalutaion.Size = new System.Drawing.Size(94, 20);
+            this.toolStripSplitButtonEvalutaion.Text = "Evaluation";
+            // 
+            // removeAllEvaluationTabsToolStripMenuItem
+            // 
+            this.removeAllEvaluationTabsToolStripMenuItem.Name = "removeAllEvaluationTabsToolStripMenuItem";
+            this.removeAllEvaluationTabsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.removeAllEvaluationTabsToolStripMenuItem.Text = "Remove all Evaluation Tabs";
+            this.removeAllEvaluationTabsToolStripMenuItem.Click += new System.EventHandler(this.removeAllEvaluationTabsToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageInterview);
+            this.tabControl1.Controls.Add(this.tabPageScale);
             this.tabControl1.Controls.Add(this.tabPageElements);
             this.tabControl1.Controls.Add(this.tabPageConstructs);
             this.tabControl1.Controls.Add(this.tabPageScoring);
@@ -275,6 +331,54 @@
             this.dateDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateDateTimePicker.TabIndex = 2;
             // 
+            // tabPageScale
+            // 
+            this.tabPageScale.Controls.Add(this.scaleItemDataGridView);
+            this.tabPageScale.Location = new System.Drawing.Point(4, 22);
+            this.tabPageScale.Name = "tabPageScale";
+            this.tabPageScale.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageScale.Size = new System.Drawing.Size(921, 365);
+            this.tabPageScale.TabIndex = 4;
+            this.tabPageScale.Text = "Scale";
+            this.tabPageScale.UseVisualStyleBackColor = true;
+            // 
+            // scaleItemDataGridView
+            // 
+            this.scaleItemDataGridView.AllowUserToAddRows = false;
+            this.scaleItemDataGridView.AllowUserToDeleteRows = false;
+            this.scaleItemDataGridView.AutoGenerateColumns = false;
+            this.scaleItemDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.scaleItemDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumnID,
+            this.DatagridviewColumnName,
+            this.DatagridviewColumnDisplayName});
+            this.scaleItemDataGridView.DataSource = this.scaleItemBindingSource;
+            this.scaleItemDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scaleItemDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.scaleItemDataGridView.Name = "scaleItemDataGridView";
+            this.scaleItemDataGridView.Size = new System.Drawing.Size(915, 359);
+            this.scaleItemDataGridView.TabIndex = 0;
+            this.scaleItemDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.scaleItemDataGridView_CellContentClick);
+            this.scaleItemDataGridView.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.scaleItemDataGridView_CellValidating);
+            // 
+            // DatagridviewColumnName
+            // 
+            this.DatagridviewColumnName.DataPropertyName = "Name";
+            this.DatagridviewColumnName.HeaderText = "Name";
+            this.DatagridviewColumnName.Name = "DatagridviewColumnName";
+            // 
+            // DatagridviewColumnDisplayName
+            // 
+            this.DatagridviewColumnDisplayName.DataPropertyName = "DisplayName";
+            this.DatagridviewColumnDisplayName.HeaderText = "DisplayName";
+            this.DatagridviewColumnDisplayName.Name = "DatagridviewColumnDisplayName";
+            this.DatagridviewColumnDisplayName.ReadOnly = true;
+            // 
+            // scaleItemBindingSource
+            // 
+            this.scaleItemBindingSource.DataMember = "Scales";
+            this.scaleItemBindingSource.DataSource = this.interviewBindingSource;
+            // 
             // tabPageElements
             // 
             this.tabPageElements.Controls.Add(this.elementsDataGridView);
@@ -303,6 +407,11 @@
             this.elementsDataGridView.Size = new System.Drawing.Size(915, 334);
             this.elementsDataGridView.TabIndex = 2;
             // 
+            // elementsBindingSource
+            // 
+            this.elementsBindingSource.DataMember = "Elements";
+            this.elementsBindingSource.DataSource = this.interviewBindingSource;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -318,317 +427,6 @@
             this.toolStrip1.Size = new System.Drawing.Size(915, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tabPageConstructs
-            // 
-            this.tabPageConstructs.Controls.Add(this.constructsDataGridView);
-            this.tabPageConstructs.Controls.Add(this.toolStrip2);
-            this.tabPageConstructs.Location = new System.Drawing.Point(4, 22);
-            this.tabPageConstructs.Name = "tabPageConstructs";
-            this.tabPageConstructs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageConstructs.Size = new System.Drawing.Size(921, 365);
-            this.tabPageConstructs.TabIndex = 1;
-            this.tabPageConstructs.Text = "Constructs";
-            this.tabPageConstructs.UseVisualStyleBackColor = true;
-            // 
-            // constructsDataGridView
-            // 
-            this.constructsDataGridView.AllowUserToAddRows = false;
-            this.constructsDataGridView.AllowUserToDeleteRows = false;
-            this.constructsDataGridView.AutoGenerateColumns = false;
-            this.constructsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.constructsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.constructsDataGridView.DataSource = this.constructsBindingSource;
-            this.constructsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.constructsDataGridView.Location = new System.Drawing.Point(3, 28);
-            this.constructsDataGridView.Name = "constructsDataGridView";
-            this.constructsDataGridView.Size = new System.Drawing.Size(915, 334);
-            this.constructsDataGridView.TabIndex = 2;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabelConstructs,
-            this.toolStripButtonMoveUp,
-            this.toolStripButtonMoveDown,
-            this.toolStripButtonAddConstructs,
-            this.toolStripButtonRemoveConstruct,
-            this.toolStripButtonAutosizeConstructs,
-            this.toolStripSplitButton1,
-            this.toolStripSplitButtonVisualisation});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(915, 25);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // tabPageScoring
-            // 
-            this.tabPageScoring.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageScoring.Controls.Add(this.toolStrip3);
-            this.tabPageScoring.Location = new System.Drawing.Point(4, 22);
-            this.tabPageScoring.Name = "tabPageScoring";
-            this.tabPageScoring.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageScoring.Size = new System.Drawing.Size(921, 365);
-            this.tabPageScoring.TabIndex = 3;
-            this.tabPageScoring.Text = "Scoring";
-            this.tabPageScoring.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelScoringLeft, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelScoringRight, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelScoringMain, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panelScoringTop, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 28);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 165F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 334);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.labelConstructPole, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(698, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(214, 159);
-            this.tableLayoutPanel3.TabIndex = 5;
-            // 
-            // labelConstructPole
-            // 
-            this.labelConstructPole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelConstructPole.Location = new System.Drawing.Point(3, 132);
-            this.labelConstructPole.Name = "labelConstructPole";
-            this.labelConstructPole.Size = new System.Drawing.Size(208, 27);
-            this.labelConstructPole.TabIndex = 0;
-            this.labelConstructPole.Text = "Construct Pole";
-            this.labelConstructPole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panelScoringLeft
-            // 
-            this.panelScoringLeft.AutoScroll = true;
-            this.panelScoringLeft.BackColor = System.Drawing.Color.LemonChiffon;
-            this.panelScoringLeft.Controls.Add(this.textBox2);
-            this.panelScoringLeft.Controls.Add(this.textBox1);
-            this.panelScoringLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelScoringLeft.Location = new System.Drawing.Point(3, 168);
-            this.panelScoringLeft.Name = "panelScoringLeft";
-            this.panelScoringLeft.Size = new System.Drawing.Size(214, 163);
-            this.panelScoringLeft.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 29);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // panelScoringRight
-            // 
-            this.panelScoringRight.AutoScroll = true;
-            this.panelScoringRight.BackColor = System.Drawing.Color.LemonChiffon;
-            this.panelScoringRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelScoringRight.Location = new System.Drawing.Point(698, 168);
-            this.panelScoringRight.Name = "panelScoringRight";
-            this.panelScoringRight.Size = new System.Drawing.Size(214, 163);
-            this.panelScoringRight.TabIndex = 1;
-            // 
-            // panelScoringMain
-            // 
-            this.panelScoringMain.AutoScroll = true;
-            this.panelScoringMain.BackColor = System.Drawing.Color.LemonChiffon;
-            this.panelScoringMain.Controls.Add(this.comboBox2);
-            this.panelScoringMain.Controls.Add(this.comboBox1);
-            this.panelScoringMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelScoringMain.Location = new System.Drawing.Point(223, 168);
-            this.panelScoringMain.Name = "panelScoringMain";
-            this.panelScoringMain.Size = new System.Drawing.Size(469, 163);
-            this.panelScoringMain.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(6, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(45, 21);
-            this.comboBox2.TabIndex = 1;
-            this.comboBox2.Text = "NA";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(45, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "NA";
-            // 
-            // panelScoringTop
-            // 
-            this.panelScoringTop.AutoScroll = true;
-            this.panelScoringTop.BackColor = System.Drawing.Color.LemonChiffon;
-            this.panelScoringTop.Controls.Add(this.rotatedTextLabel2);
-            this.panelScoringTop.Controls.Add(this.rotatedTextLabel1);
-            this.panelScoringTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelScoringTop.Location = new System.Drawing.Point(223, 3);
-            this.panelScoringTop.Name = "panelScoringTop";
-            this.panelScoringTop.Size = new System.Drawing.Size(469, 159);
-            this.panelScoringTop.TabIndex = 3;
-            // 
-            // rotatedTextLabel2
-            // 
-            this.rotatedTextLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.rotatedTextLabel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.rotatedTextLabel2.Debugging = false;
-            this.rotatedTextLabel2.DemoBoxSize = new System.Drawing.SizeF(100F, 100F);
-            this.rotatedTextLabel2.DemoModus = false;
-            this.rotatedTextLabel2.FitHeight = false;
-            this.rotatedTextLabel2.FitWidth = false;
-            this.rotatedTextLabel2.Location = new System.Drawing.Point(57, 3);
-            this.rotatedTextLabel2.Margin = new System.Windows.Forms.Padding(3);
-            this.rotatedTextLabel2.Name = "rotatedTextLabel2";
-            this.rotatedTextLabel2.RotatedAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rotatedTextLabel2.RotationAngle = 90D;
-            this.rotatedTextLabel2.Size = new System.Drawing.Size(48, 156);
-            this.rotatedTextLabel2.TabIndex = 1;
-            this.rotatedTextLabel2.Text = "test asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf";
-            this.rotatedTextLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rotatedTextLabel1
-            // 
-            this.rotatedTextLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.rotatedTextLabel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.rotatedTextLabel1.Debugging = false;
-            this.rotatedTextLabel1.DemoBoxSize = new System.Drawing.SizeF(100F, 100F);
-            this.rotatedTextLabel1.DemoModus = false;
-            this.rotatedTextLabel1.FitHeight = false;
-            this.rotatedTextLabel1.FitWidth = false;
-            this.rotatedTextLabel1.Location = new System.Drawing.Point(3, 3);
-            this.rotatedTextLabel1.Margin = new System.Windows.Forms.Padding(3);
-            this.rotatedTextLabel1.Name = "rotatedTextLabel1";
-            this.rotatedTextLabel1.RotatedAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rotatedTextLabel1.RotationAngle = 90D;
-            this.rotatedTextLabel1.Size = new System.Drawing.Size(48, 153);
-            this.rotatedTextLabel1.TabIndex = 0;
-            this.rotatedTextLabel1.Text = "test asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf";
-            this.rotatedTextLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.labelContrastPole, 0, 1);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 159);
-            this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // labelContrastPole
-            // 
-            this.labelContrastPole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelContrastPole.Location = new System.Drawing.Point(3, 132);
-            this.labelContrastPole.Name = "labelContrastPole";
-            this.labelContrastPole.Size = new System.Drawing.Size(208, 27);
-            this.labelContrastPole.TabIndex = 0;
-            this.labelContrastPole.Text = "Contrast Pole";
-            this.labelContrastPole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // toolStrip3
-            // 
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabelScoring,
-            this.toolStripButtonReloadScoring,
-            this.toolStripSeparator1,
-            this.toolStripLabelCopy,
-            this.toolStripComboBoxFromElements,
-            this.toolStripLabel1,
-            this.toolStripComboBoxToElements,
-            this.toolStripButtonCopyRating,
-            this.toolStripSeparator2});
-            this.toolStrip3.Location = new System.Drawing.Point(3, 3);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(915, 25);
-            this.toolStrip3.TabIndex = 0;
-            this.toolStrip3.Text = "toolStrip3";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripComboBoxFromElements
-            // 
-            this.toolStripComboBoxFromElements.Name = "toolStripComboBoxFromElements";
-            this.toolStripComboBoxFromElements.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(21, 22);
-            this.toolStripLabel1.Text = "To";
-            // 
-            // toolStripComboBoxToElements
-            // 
-            this.toolStripComboBoxToElements.Name = "toolStripComboBoxToElements";
-            this.toolStripComboBoxToElements.Size = new System.Drawing.Size(121, 25);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // interviewBindingSource
-            // 
-            this.interviewBindingSource.DataSource = typeof(OpenRepGridModel.Model.Interview);
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Remark";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Remark";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // elementsBindingSource
-            // 
-            this.elementsBindingSource.DataMember = "Elements";
-            this.elementsBindingSource.DataSource = this.interviewBindingSource;
             // 
             // toolStripLabelElement
             // 
@@ -794,34 +592,57 @@
             this.bertinClusterToolStripMenuItem.Text = "Bertin Cluster";
             this.bertinClusterToolStripMenuItem.Click += new System.EventHandler(this.bertinClusterToolStripMenuItem_Click);
             // 
-            // dataGridViewTextBoxColumn5
+            // tabPageConstructs
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.tabPageConstructs.Controls.Add(this.constructsDataGridView);
+            this.tabPageConstructs.Controls.Add(this.toolStrip2);
+            this.tabPageConstructs.Location = new System.Drawing.Point(4, 22);
+            this.tabPageConstructs.Name = "tabPageConstructs";
+            this.tabPageConstructs.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageConstructs.Size = new System.Drawing.Size(921, 365);
+            this.tabPageConstructs.TabIndex = 1;
+            this.tabPageConstructs.Text = "Constructs";
+            this.tabPageConstructs.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // constructsDataGridView
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ContrastPol";
-            this.dataGridViewTextBoxColumn6.HeaderText = "ContrastPol";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "ConstructPol";
-            this.dataGridViewTextBoxColumn7.HeaderText = "ConstructPol";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Remark";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Remark";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.constructsDataGridView.AllowUserToAddRows = false;
+            this.constructsDataGridView.AllowUserToDeleteRows = false;
+            this.constructsDataGridView.AutoGenerateColumns = false;
+            this.constructsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.constructsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            this.constructsDataGridView.DataSource = this.constructsBindingSource;
+            this.constructsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.constructsDataGridView.Location = new System.Drawing.Point(3, 28);
+            this.constructsDataGridView.Name = "constructsDataGridView";
+            this.constructsDataGridView.Size = new System.Drawing.Size(915, 334);
+            this.constructsDataGridView.TabIndex = 2;
             // 
             // constructsBindingSource
             // 
             this.constructsBindingSource.DataMember = "Constructs";
             this.constructsBindingSource.DataSource = this.interviewBindingSource;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelConstructs,
+            this.toolStripButtonMoveUp,
+            this.toolStripButtonMoveDown,
+            this.toolStripButtonAddConstructs,
+            this.toolStripButtonRemoveConstruct,
+            this.toolStripButtonAutosizeConstructs,
+            this.toolStripSplitButton1,
+            this.toolStripSplitButtonVisualisation});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(915, 25);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
             // 
             // toolStripLabelConstructs
             // 
@@ -967,6 +788,234 @@
             this.toolStripSplitButtonVisualisation.Size = new System.Drawing.Size(105, 22);
             this.toolStripSplitButtonVisualisation.Text = "Visualisation";
             // 
+            // bertinToolStripMenuItem
+            // 
+            this.bertinToolStripMenuItem.Name = "bertinToolStripMenuItem";
+            this.bertinToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.bertinToolStripMenuItem.Text = "Bertin";
+            this.bertinToolStripMenuItem.Click += new System.EventHandler(this.bertinToolStripMenuItem_Click);
+            // 
+            // tabPageScoring
+            // 
+            this.tabPageScoring.Controls.Add(this.tableLayoutPanel1);
+            this.tabPageScoring.Controls.Add(this.toolStrip3);
+            this.tabPageScoring.Location = new System.Drawing.Point(4, 22);
+            this.tabPageScoring.Name = "tabPageScoring";
+            this.tabPageScoring.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageScoring.Size = new System.Drawing.Size(921, 365);
+            this.tabPageScoring.TabIndex = 3;
+            this.tabPageScoring.Text = "Scoring";
+            this.tabPageScoring.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 220F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelScoringLeft, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelScoringRight, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelScoringMain, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panelScoringTop, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 28);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 165F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 334);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.labelConstructPole, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(698, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(214, 159);
+            this.tableLayoutPanel3.TabIndex = 5;
+            // 
+            // labelConstructPole
+            // 
+            this.labelConstructPole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelConstructPole.Location = new System.Drawing.Point(3, 132);
+            this.labelConstructPole.Name = "labelConstructPole";
+            this.labelConstructPole.Size = new System.Drawing.Size(208, 27);
+            this.labelConstructPole.TabIndex = 0;
+            this.labelConstructPole.Text = "Construct Pole";
+            this.labelConstructPole.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panelScoringLeft
+            // 
+            this.panelScoringLeft.AutoScroll = true;
+            this.panelScoringLeft.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panelScoringLeft.Controls.Add(this.textBox2);
+            this.panelScoringLeft.Controls.Add(this.textBox1);
+            this.panelScoringLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScoringLeft.Location = new System.Drawing.Point(3, 168);
+            this.panelScoringLeft.Name = "panelScoringLeft";
+            this.panelScoringLeft.Size = new System.Drawing.Size(214, 163);
+            this.panelScoringLeft.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(6, 29);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(205, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(205, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // panelScoringRight
+            // 
+            this.panelScoringRight.AutoScroll = true;
+            this.panelScoringRight.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panelScoringRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScoringRight.Location = new System.Drawing.Point(698, 168);
+            this.panelScoringRight.Name = "panelScoringRight";
+            this.panelScoringRight.Size = new System.Drawing.Size(214, 163);
+            this.panelScoringRight.TabIndex = 1;
+            // 
+            // panelScoringMain
+            // 
+            this.panelScoringMain.AutoScroll = true;
+            this.panelScoringMain.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panelScoringMain.Controls.Add(this.comboBox2);
+            this.panelScoringMain.Controls.Add(this.comboBox1);
+            this.panelScoringMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScoringMain.Location = new System.Drawing.Point(223, 168);
+            this.panelScoringMain.Name = "panelScoringMain";
+            this.panelScoringMain.Size = new System.Drawing.Size(469, 163);
+            this.panelScoringMain.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(6, 30);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(45, 21);
+            this.comboBox2.TabIndex = 1;
+            this.comboBox2.Text = "NA";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(45, 21);
+            this.comboBox1.TabIndex = 0;
+            this.comboBox1.Text = "NA";
+            // 
+            // panelScoringTop
+            // 
+            this.panelScoringTop.AutoScroll = true;
+            this.panelScoringTop.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panelScoringTop.Controls.Add(this.rotatedTextLabel2);
+            this.panelScoringTop.Controls.Add(this.rotatedTextLabel1);
+            this.panelScoringTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScoringTop.Location = new System.Drawing.Point(223, 3);
+            this.panelScoringTop.Name = "panelScoringTop";
+            this.panelScoringTop.Size = new System.Drawing.Size(469, 159);
+            this.panelScoringTop.TabIndex = 3;
+            // 
+            // rotatedTextLabel2
+            // 
+            this.rotatedTextLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.rotatedTextLabel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.rotatedTextLabel2.Debugging = false;
+            this.rotatedTextLabel2.DemoBoxSize = new System.Drawing.SizeF(100F, 100F);
+            this.rotatedTextLabel2.DemoModus = false;
+            this.rotatedTextLabel2.FitHeight = false;
+            this.rotatedTextLabel2.FitWidth = false;
+            this.rotatedTextLabel2.Location = new System.Drawing.Point(57, 3);
+            this.rotatedTextLabel2.Margin = new System.Windows.Forms.Padding(3);
+            this.rotatedTextLabel2.Name = "rotatedTextLabel2";
+            this.rotatedTextLabel2.RotatedAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rotatedTextLabel2.RotationAngle = 90D;
+            this.rotatedTextLabel2.Size = new System.Drawing.Size(48, 156);
+            this.rotatedTextLabel2.TabIndex = 1;
+            this.rotatedTextLabel2.Text = "test asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf";
+            this.rotatedTextLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rotatedTextLabel1
+            // 
+            this.rotatedTextLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.rotatedTextLabel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.rotatedTextLabel1.Debugging = false;
+            this.rotatedTextLabel1.DemoBoxSize = new System.Drawing.SizeF(100F, 100F);
+            this.rotatedTextLabel1.DemoModus = false;
+            this.rotatedTextLabel1.FitHeight = false;
+            this.rotatedTextLabel1.FitWidth = false;
+            this.rotatedTextLabel1.Location = new System.Drawing.Point(3, 3);
+            this.rotatedTextLabel1.Margin = new System.Windows.Forms.Padding(3);
+            this.rotatedTextLabel1.Name = "rotatedTextLabel1";
+            this.rotatedTextLabel1.RotatedAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rotatedTextLabel1.RotationAngle = 90D;
+            this.rotatedTextLabel1.Size = new System.Drawing.Size(48, 153);
+            this.rotatedTextLabel1.TabIndex = 0;
+            this.rotatedTextLabel1.Text = "test asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf";
+            this.rotatedTextLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.labelContrastPole, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(214, 159);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // labelContrastPole
+            // 
+            this.labelContrastPole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelContrastPole.Location = new System.Drawing.Point(3, 132);
+            this.labelContrastPole.Name = "labelContrastPole";
+            this.labelContrastPole.Size = new System.Drawing.Size(208, 27);
+            this.labelContrastPole.TabIndex = 0;
+            this.labelContrastPole.Text = "Contrast Pole";
+            this.labelContrastPole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStrip3
+            // 
+            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabelScoring,
+            this.toolStripButtonReloadScoring,
+            this.toolStripSeparator1,
+            this.toolStripLabelCopy,
+            this.toolStripComboBoxFromElements,
+            this.toolStripLabel1,
+            this.toolStripComboBoxToElements,
+            this.toolStripButtonCopyRating,
+            this.toolStripSeparator2,
+            this.toolStripLabel2,
+            this.TextboxWidthOfElement});
+            this.toolStrip3.Location = new System.Drawing.Point(3, 3);
+            this.toolStrip3.Name = "toolStrip3";
+            this.toolStrip3.Size = new System.Drawing.Size(915, 25);
+            this.toolStrip3.TabIndex = 0;
+            this.toolStrip3.Text = "toolStrip3";
+            // 
             // toolStripLabelScoring
             // 
             this.toolStripLabelScoring.Image = global::OpenRepGridGui.Properties.Resources.compareversionsHS;
@@ -983,12 +1032,33 @@
             this.toolStripButtonReloadScoring.Text = "Reload Scoring Table";
             this.toolStripButtonReloadScoring.Click += new System.EventHandler(this.toolStripButtonReloadScoring_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // toolStripLabelCopy
             // 
             this.toolStripLabelCopy.Image = global::OpenRepGridGui.Properties.Resources.CopyHS;
             this.toolStripLabelCopy.Name = "toolStripLabelCopy";
             this.toolStripLabelCopy.Size = new System.Drawing.Size(125, 22);
             this.toolStripLabelCopy.Text = "Copy Scoring From";
+            // 
+            // toolStripComboBoxFromElements
+            // 
+            this.toolStripComboBoxFromElements.Name = "toolStripComboBoxFromElements";
+            this.toolStripComboBoxFromElements.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(21, 22);
+            this.toolStripLabel1.Text = "To";
+            // 
+            // toolStripComboBoxToElements
+            // 
+            this.toolStripComboBoxToElements.Name = "toolStripComboBoxToElements";
+            this.toolStripComboBoxToElements.Size = new System.Drawing.Size(121, 25);
             // 
             // toolStripButtonCopyRating
             // 
@@ -1000,56 +1070,71 @@
             this.toolStripButtonCopyRating.Text = "Copy Scoring";
             this.toolStripButtonCopyRating.Click += new System.EventHandler(this.toolStripButtonCopyRating_Click);
             // 
-            // toolStripSplitButtonUpdateR
+            // toolStripSeparator2
             // 
-            this.toolStripSplitButtonUpdateR.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updateFromRToolStripMenuItem,
-            this.setToRToolStripMenuItem});
-            this.toolStripSplitButtonUpdateR.Image = global::OpenRepGridGui.Properties.Resources.RIconImg;
-            this.toolStripSplitButtonUpdateR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButtonUpdateR.Name = "toolStripSplitButtonUpdateR";
-            this.toolStripSplitButtonUpdateR.Size = new System.Drawing.Size(87, 20);
-            this.toolStripSplitButtonUpdateR.Text = "Update R";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // updateFromRToolStripMenuItem
+            // toolStripLabel2
             // 
-            this.updateFromRToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.GoLtrHS;
-            this.updateFromRToolStripMenuItem.Name = "updateFromRToolStripMenuItem";
-            this.updateFromRToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.updateFromRToolStripMenuItem.Text = "Update From R";
-            this.updateFromRToolStripMenuItem.Click += new System.EventHandler(this.updateFromRToolStripMenuItem_Click);
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(99, 22);
+            this.toolStripLabel2.Text = "Width of Element";
+            this.toolStripLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // setToRToolStripMenuItem
+            // TextboxWidthOfElement
             // 
-            this.setToRToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.GoRtlHS;
-            this.setToRToolStripMenuItem.Name = "setToRToolStripMenuItem";
-            this.setToRToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.setToRToolStripMenuItem.Text = "Set to R";
-            this.setToRToolStripMenuItem.Click += new System.EventHandler(this.setToRToolStripMenuItem_Click);
+            this.TextboxWidthOfElement.Name = "TextboxWidthOfElement";
+            this.TextboxWidthOfElement.Size = new System.Drawing.Size(100, 25);
+            this.TextboxWidthOfElement.Text = "40";
+            this.TextboxWidthOfElement.Leave += new System.EventHandler(this.TextboxWidthOfElement_Leave);
+            this.TextboxWidthOfElement.Validating += new System.ComponentModel.CancelEventHandler(this.TextboxWidthOfElement_Validating);
             // 
-            // toolStripSplitButtonEvalutaion
+            // interviewBindingSource
             // 
-            this.toolStripSplitButtonEvalutaion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.removeAllEvaluationTabsToolStripMenuItem});
-            this.toolStripSplitButtonEvalutaion.Image = global::OpenRepGridGui.Properties.Resources.CancelApproval_32x32;
-            this.toolStripSplitButtonEvalutaion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButtonEvalutaion.Name = "toolStripSplitButtonEvalutaion";
-            this.toolStripSplitButtonEvalutaion.Size = new System.Drawing.Size(94, 20);
-            this.toolStripSplitButtonEvalutaion.Text = "Evaluation";
+            this.interviewBindingSource.DataSource = typeof(OpenRepGridModel.Model.Interview);
             // 
-            // removeAllEvaluationTabsToolStripMenuItem
+            // dataGridViewTextBoxColumnID
             // 
-            this.removeAllEvaluationTabsToolStripMenuItem.Name = "removeAllEvaluationTabsToolStripMenuItem";
-            this.removeAllEvaluationTabsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.removeAllEvaluationTabsToolStripMenuItem.Text = "Remove all Evaluation Tabs";
-            this.removeAllEvaluationTabsToolStripMenuItem.Click += new System.EventHandler(this.removeAllEvaluationTabsToolStripMenuItem_Click);
+            this.dataGridViewTextBoxColumnID.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumnID.HeaderText = "Value";
+            this.dataGridViewTextBoxColumnID.Name = "dataGridViewTextBoxColumnID";
             // 
-            // bertinToolStripMenuItem
+            // dataGridViewTextBoxColumn3
             // 
-            this.bertinToolStripMenuItem.Name = "bertinToolStripMenuItem";
-            this.bertinToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.bertinToolStripMenuItem.Text = "Bertin";
-            this.bertinToolStripMenuItem.Click += new System.EventHandler(this.bertinToolStripMenuItem_Click);
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Remark";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Remark";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "ContrastPol";
+            this.dataGridViewTextBoxColumn6.HeaderText = "ContrastPol";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "ConstructPol";
+            this.dataGridViewTextBoxColumn7.HeaderText = "ConstructPol";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Remark";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Remark";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             // 
             // mdiInterview
             // 
@@ -1066,14 +1151,19 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPageInterview.ResumeLayout(false);
             this.tabPageInterview.PerformLayout();
+            this.tabPageScale.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.scaleItemDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scaleItemBindingSource)).EndInit();
             this.tabPageElements.ResumeLayout(false);
             this.tabPageElements.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.elementsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.elementsBindingSource)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabPageConstructs.ResumeLayout(false);
             this.tabPageConstructs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.constructsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.constructsBindingSource)).EndInit();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.tabPageScoring.ResumeLayout(false);
@@ -1088,8 +1178,6 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.interviewBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.elementsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.constructsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1190,5 +1278,13 @@
         private System.Windows.Forms.ToolStripMenuItem bertinClusterToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButtonVisualisation;
         private System.Windows.Forms.ToolStripMenuItem bertinToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPageScale;
+        private System.Windows.Forms.DataGridView scaleItemDataGridView;
+        private System.Windows.Forms.BindingSource scaleItemBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatagridviewColumnName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatagridviewColumnDisplayName;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox TextboxWidthOfElement;
     }
 }

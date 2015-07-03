@@ -232,6 +232,7 @@ namespace OpenRepGridGui.Service
             Interview interview = new Interview(this.CurrentProject);
             interview.GridName = "grid_" + Math.Abs(interview.Id.GetHashCode());
             interview.Proband = "<Proband>";
+
             AddInterview(interview);
         }
 
@@ -239,6 +240,7 @@ namespace OpenRepGridGui.Service
         {
             this.CurrentProject.Interviews.Add(i);
             InterviewService IS = new InterviewService(this, i);
+            IS.defineDefaultScale();
             this.InterviewServices.Add(IS);
             this.FirePropertyChanged("CurrentProject");
         }

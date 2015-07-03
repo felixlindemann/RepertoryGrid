@@ -79,9 +79,12 @@ namespace OpenRepGridModel.Model
 
         public ScaleItem(Interview   parent, int iValue, string sName)
         {
-            this.Id = iValue;
             this.ParentInterview = parent;
-            this.ParentInterview.Scales.Add(this);
+            if (this.ParentInterview.Scales.Any(x => x.id == iValue) == false)
+            {
+                this.ParentInterview.Scales.Add(this);
+            }
+            this.Id = iValue;
             this.Name = sName;
             this.ResetHasChanges();
         }
@@ -90,7 +93,10 @@ namespace OpenRepGridModel.Model
         {
             this.Id = int.Parse(xe.Attribute("Id").Value);
             this.ParentInterview = parent;
-            this.ParentInterview.Scales.Add(this);
+            if (this.ParentInterview.Scales.Any(x => x.id == this.Id) == false)
+            {
+                this.ParentInterview.Scales.Add(this);
+            } 
             this.Name = xe.Attribute("Name").Value;
             this.ResetHasChanges();
         }

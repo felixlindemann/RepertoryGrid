@@ -53,3 +53,4 @@ Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGr
 Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValues.resources
 Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValueStringEnumDictionary.resources
 Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.uc.ucOptionalValue.resources
+Y:\git\github\RepertoryGrid\RepertoryGrid\OpenRepGridGui\obj\x86\Debug\OpenRepGridGui.View.Dialog.FormScale.resources

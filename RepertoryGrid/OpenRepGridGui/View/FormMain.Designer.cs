@@ -39,7 +39,8 @@
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuickSaveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.interviewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addInterviewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,9 +142,10 @@
             // dateiToolStripMenuItem
             // 
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveProjectToolStripMenuItem,
             this.newToolStripMenuItem,
             this.loadToolStripMenuItem,
+            this.QuickSaveProjectToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
             this.interviewsToolStripMenuItem,
             this.editDataToolStripMenuItem,
             this.toolStripSeparator1,
@@ -158,7 +160,8 @@
             // 
             this.newToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.DocumentHS;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -166,17 +169,30 @@
             // 
             this.loadToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.openHS;
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.loadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
-            // saveProjectToolStripMenuItem
+            // QuickSaveProjectToolStripMenuItem
             // 
-            this.saveProjectToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.saveHS;
-            this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.saveProjectToolStripMenuItem.Text = "Save Project";
-            this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.saveProjectToolStripMenuItem_Click);
+            this.QuickSaveProjectToolStripMenuItem.Enabled = false;
+            this.QuickSaveProjectToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.saveHS;
+            this.QuickSaveProjectToolStripMenuItem.Name = "QuickSaveProjectToolStripMenuItem";
+            this.QuickSaveProjectToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.QuickSaveProjectToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.QuickSaveProjectToolStripMenuItem.Text = "Save Project";
+            this.QuickSaveProjectToolStripMenuItem.Click += new System.EventHandler(this.QuickSaveProjectToolStripMenuItem_Click);
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.SaveFormDesignHS;
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveProjectToolStripMenuItem_Click);
             // 
             // interviewsToolStripMenuItem
             // 
@@ -186,7 +202,7 @@
             this.toolStripSeparator4});
             this.interviewsToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.SendInstantMessage_32x32;
             this.interviewsToolStripMenuItem.Name = "interviewsToolStripMenuItem";
-            this.interviewsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.interviewsToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.interviewsToolStripMenuItem.Text = "Interviews";
             // 
             // addInterviewToolStripMenuItem
@@ -280,32 +296,33 @@
             // 
             this.editDataToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.CommentHS;
             this.editDataToolStripMenuItem.Name = "editDataToolStripMenuItem";
-            this.editDataToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.editDataToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.editDataToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.editDataToolStripMenuItem.Text = "Edit Project Data";
             this.editDataToolStripMenuItem.Click += new System.EventHandler(this.editDataToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(236, 6);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Image = global::OpenRepGridGui.Properties.Resources.Properties;
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.optionsToolStripMenuItem.Text = "Options";
             this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(236, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -429,7 +446,7 @@
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveProjectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem QuickSaveProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -458,6 +475,7 @@
         private System.Windows.Forms.ToolStripMenuItem getRandomGridToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadDemosFromLiteratureincludedInOpenRepGridToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 
 
     }

@@ -34,9 +34,28 @@ namespace OpenRepGridGui.View.mdi
             this.panelScoringTop.Scroll += new ScrollEventHandler(panelScoringLeft_Scroll);
             this.panelScoringMain.Scroll += new ScrollEventHandler(panelScoringLeft_Scroll);
             ClearScoring();
+            this.ElementWidth = 40;
         }
 
         #region Properties
+
+        private int elementWidth = 50;
+
+        public int ElementWidth
+        {
+            get { return elementWidth; }
+            set
+            {
+                if (value == elementWidth) return;
+                elementWidth = value; 
+                
+                if (TextboxWidthOfElement.Text != "" + value)
+                {
+                    TextboxWidthOfElement.Text = "" + value;
+                }
+            }
+        }
+        
 
         private InterviewService interviewService;
 
@@ -149,6 +168,8 @@ namespace OpenRepGridGui.View.mdi
                 this.elementsBindingSource.SuspendBinding();
                 this.Service.AddElement();
                 this.elementsBindingSource.ResumeBinding();
+                this.elementsBindingSource.ResetBindings(false);
+
                 this.ClearScoring();
             }
             catch (Exception ex)
@@ -162,14 +183,18 @@ namespace OpenRepGridGui.View.mdi
             try
             {
 
-                if (MessageBox.Show("Should the current Element really be deleted?", "Confirm Delete", MessageBoxButtons.YesNoCancel) == System.Windows.Forms.DialogResult.OK)
-                {
+                if (MessageBox.Show("Should the current Element really be deleted?", 
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes){
 
                     this.elementsBindingSource.EndEdit();
                     this.interviewBindingSource.EndEdit();
-                    this.elementsBindingSource.SuspendBinding();
-                    this.Service.DeleteElement(elementsBindingSource.Position);
-                    this.elementsBindingSource.ResumeBinding();
+                    Element el = (Element)elementsBindingSource.Current;
+                    elementsBindingSource.SuspendBinding();
+                    this.Service.DeleteElement(el);
+                    elementsBindingSource.ResumeBinding();
+                    elementsBindingSource.ResetBindings(false);
                     this.ClearScoring();
                 }
                 else
@@ -179,6 +204,7 @@ namespace OpenRepGridGui.View.mdi
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 MessageBox.Show(ex.Message, "Error while removing an element");
             }
         }
@@ -232,7 +258,13 @@ namespace OpenRepGridGui.View.mdi
 
             try
             {
+                this.constructsBindingSource.EndEdit();
+                this.interviewBindingSource.EndEdit();
+                this.constructsBindingSource.SuspendBinding();
                 this.Service.AddConstruct();
+                this.constructsBindingSource.ResumeBinding();
+                this.constructsBindingSource.ResetBindings(false);
+                 
             }
             catch (Exception ex)
             {
@@ -244,14 +276,20 @@ namespace OpenRepGridGui.View.mdi
         {
             try
             {
-                if (MessageBox.Show("Should the current Construct really be deleted?", "Confirm Delete", MessageBoxButtons.YesNoCancel) == System.Windows.Forms.DialogResult.OK)
+                if (MessageBox.Show("Should the current Construct really be deleted?", 
+                    "Confirm Delete", 
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes
+                     )
                 {
 
                     this.constructsBindingSource.EndEdit();
                     this.interviewBindingSource.EndEdit();
-                    this.constructsBindingSource.SuspendBinding();
-                    this.Service.DeleteConstruct(constructsBindingSource.Position);
-                    this.constructsBindingSource.ResumeBinding();
+                    Construct c = (Construct)constructsBindingSource.Current;
+                    constructsBindingSource.SuspendBinding();
+                    this.Service.DeleteConstruct(c);
+                    constructsBindingSource.ResumeBinding();
+                    constructsBindingSource.ResetBindings(false);
                     this.ClearScoring();
                 }
                 else
@@ -262,6 +300,7 @@ namespace OpenRepGridGui.View.mdi
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
                 MessageBox.Show(ex.Message, "Error while removing a construct");
             }
         }
@@ -431,12 +470,12 @@ namespace OpenRepGridGui.View.mdi
         Label[] LabelsConstructsLeft = new Label[0];
         Label[] LabelsConstructsRight = new Label[0];
         RotatedTextLabel[] LabelsElement = new RotatedTextLabel[0];
-        ComboBox[,] cboScoring = new ComboBox[0, 0];
+      public  ComboBox[,] cboScoring = new ComboBox[0, 0];
         List<BindingSource> BindingSources = new List<BindingSource>();
 
         private void ReDrawScoring()
         {
-            int width = 45;
+            int width = this.elementWidth;
             this.SuspendLayout();
             try
             {
@@ -487,20 +526,23 @@ namespace OpenRepGridGui.View.mdi
                         cboScoring[i, j].DataSource = b;
                         cboScoring[i, j].DisplayMember = "DisplayName";
                         cboScoring[i, j].ValueMember = "Id";
+                          cboScoring[i, j].AutoCompleteMode = AutoCompleteMode.Suggest;
+                         cboScoring[i, j].AutoCompleteSource = AutoCompleteSource.ListItems;
                         cboScoring[i, j].Size = new System.Drawing.Size(width, 21);
                         cboScoring[i, j].Location = new System.Drawing.Point(3 + j * (width + 3), 3 + i * 24);
-                        cboScoring[i, j].Tag = score;
+                        cboScoring[i, j].Tag = b;
                         cboScoring[i, j].LostFocus += new EventHandler(mdiInterview_LostFocus);
                         cboScoring[i, j].DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", c, "ScaleItemId", true));
                         this.panelScoringMain.Controls.Add(cboScoring[i, j]);
-
+                   //     cboScoring[i, j].Enter += new EventHandler(mdiInterview_Enter);
+                   //     cboScoring[i, j].Leave += new EventHandler(mdiInterview_Leave);
                         this.toolTip1.SetToolTip(cboScoring[i, j],
                             string.Format("Element: {0} -- Construct: {1}/{2}",
                             element.Name, construct.ContrastPol,
                             construct.ContrastPol));
                         BindingSources.Add(c);
                         BindingSources.Add(b);
-
+                        cboScoring[i, j].SelectedValueChanged += new EventHandler(mdiInterview_SelectedValueChanged);
                         if (j == 0)
                         {
                             Label lbl = new Label();
@@ -530,6 +572,27 @@ namespace OpenRepGridGui.View.mdi
                 Console.WriteLine(ex.ToString());
             }
             this.ResumeLayout();
+        }
+
+        void mdiInterview_SelectedValueChanged(object sender, EventArgs e)
+        {
+            ComboBox cbo = (ComboBox)sender;
+            cbo.BackColor = Color.Orange;
+        }
+
+        void mdiInterview_Leave(object sender, EventArgs e)
+        {
+            ComboBox cbo = (ComboBox)sender;
+            cbo.DroppedDown = false;
+            BindingSource b = (BindingSource)cbo.Tag;
+            b.EndEdit();
+            
+        }
+
+        void mdiInterview_Enter(object sender, EventArgs e)
+        {
+            ComboBox cbo = (ComboBox)sender;
+            cbo.DroppedDown = true;
         }
 
         void mdiInterview_LostFocus(object sender, EventArgs e)
@@ -973,6 +1036,68 @@ namespace OpenRepGridGui.View.mdi
         {
 
         }
+
+        private void scaleItemDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            DataGridView dataGridView = (DataGridView)sender;
+            DataGridViewCell cell = dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            cell.ErrorText = string.Empty;
+
+            if (cell.ValueType == (typeof(int)))
+            {
+                ScaleItem S = (ScaleItem)scaleItemBindingSource.Current;
+                if (S.IsDefault)
+                {
+                    dataGridView.EndEdit();
+                    cell.ErrorText = "This is a default value. It can't be changed.";
+                    e.Cancel = true;
+                    return;
+
+                }
+                int id = (int)cell.Value;
+                List<ScaleItem> l = interviewService.CurrentInterview.Scales.Where(x => x.Id == id).ToList();
+                l.Remove(S);
+                if (l.Count > 0)
+                {
+                    dataGridView.EndEdit();
+                    cell.ErrorText = "The Value must be unique!";
+                    e.Cancel = true;
+                    return;
+                }
+                // update all Ratings
+                interviewService.CurrentInterview.Elements.ForEach(x => x.Scores.Where(s => s.ScaleItemId == S.Id)
+                                                                                .ToList()
+                                                                                .ForEach(s => s.ScaleItemId = id));
+            } 
+        }
+
+        private void scaleItemDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TextboxWidthOfElement_Validating(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                if (int.TryParse(TextboxWidthOfElement.Text, out this.elementWidth) == false)
+                {
+                    throw new Exception("Please enter numeric values only");
+                }
+                ReDrawScoring();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error while Setting new ElementWidth.");
+            }
+        }
+
+        private void TextboxWidthOfElement_Leave(object sender, EventArgs e)
+        {
+            this.Validate();
+        }
+         
 
          
 
