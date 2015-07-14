@@ -37,6 +37,65 @@ namespace OpenRepGridGui.View.mdi
             this.ElementWidth = 40;
         }
 
+        private int selectedRowIndex = 0;
+
+        public int SelectedRowIndex
+        {
+            get { return selectedRowIndex; }
+            set {
+
+             /*   LabelsConstructsLeft = new Label[0];
+                LabelsConstructsRight = new Label[0];
+                LabelsElement = new RotatedTextLabel[0];
+                cboScoring = new ComboBox[0, 0];
+                 
+                if (LabelsConstructsLeft.Length > 0)
+                {
+                    this.SuspendLayout();
+                    for (int i = 0; i <= LabelsConstructsLeft.GetUpperBound(0); i++)
+                    {
+                        Font f = new Font(LabelsConstructsLeft[i].Font, i == value ? FontStyle.Bold : FontStyle.Regular);
+                        LabelsConstructsLeft[i].Font =f;
+                        LabelsConstructsRight[i].Font =f;
+                        for (int j = 0; j <= cboScoring.GetUpperBound(1); j++)
+                        {
+                              f = new Font(cboScoring[i,j].Font, i == value || j == selectedColumnIndex ? FontStyle.Bold : FontStyle.Regular);
+                            cboScoring[i, j].Font = f;
+                        }
+                    }
+                    this.ResumeLayout();
+                }*/
+                selectedRowIndex = value; 
+            }
+        }
+        private int selectedColumnIndex = 0;
+
+        public int SelectedColumnIndex
+        {
+            get { return selectedColumnIndex; }
+            set
+            {
+                selectedColumnIndex = value; /* return;
+
+                if (LabelsElement.Length > 0)
+                {
+                    this.SuspendLayout();
+                    for (int j = 0; j <= LabelsElement.GetUpperBound(0); j++)
+                    {
+                        Font f = new Font(LabelsElement[j].Font, j == value ? FontStyle.Bold : FontStyle.Regular);
+                        LabelsElement[j].Font = f;
+                        for (int i = 0; i <= LabelsConstructsLeft.GetUpperBound(0); i++)
+                        {
+                            f = new Font(cboScoring[i, j].Font, j == value || i == selectedRowIndex ? FontStyle.Bold : FontStyle.Regular);
+                            cboScoring[i, j].Font = f;
+                        }
+                    }
+                    this.ResumeLayout();
+                }*/
+            }
+        }
+        
+
         #region Properties
 
         private int elementWidth = 50;
@@ -505,10 +564,12 @@ namespace OpenRepGridGui.View.mdi
                     LabelsElement[j].RotatedAlign = System.Drawing.ContentAlignment.MiddleCenter;
                     LabelsElement[j].RotationAngle = 90D;
                     LabelsElement[j].Text = element.Name;
+                    LabelsElement[j].Tag = j;
                     LabelsElement[j].TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
                     LabelsElement[j].Location = new System.Drawing.Point(3 + j * (width + 3), 3);
                     this.panelScoringTop.Controls.Add(LabelsElement[j]);
-
+                    LabelsElement[j].MouseEnter += new EventHandler(mdiInterviewLabelElement_MouseEnter);
+                    LabelsElement[j].MouseLeave += new EventHandler(mdiInterviewLabelElement_MouseLeave);
                     for (int i = 0; i < this.CurrentInterview.Constructs.Count; i++)
                     {
                         Construct construct = this.CurrentInterview.Constructs[i];
@@ -530,18 +591,18 @@ namespace OpenRepGridGui.View.mdi
                          cboScoring[i, j].AutoCompleteSource = AutoCompleteSource.ListItems;
                         cboScoring[i, j].Size = new System.Drawing.Size(width, 21);
                         cboScoring[i, j].Location = new System.Drawing.Point(3 + j * (width + 3), 3 + i * 24);
-                        cboScoring[i, j].Tag = b;
+                        cboScoring[i, j].Tag = new int[] { i, j };
                         cboScoring[i, j].LostFocus += new EventHandler(mdiInterview_LostFocus);
                         cboScoring[i, j].DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", c, "ScaleItemId", true));
-                        this.panelScoringMain.Controls.Add(cboScoring[i, j]);
-                   //     cboScoring[i, j].Enter += new EventHandler(mdiInterview_Enter);
-                   //     cboScoring[i, j].Leave += new EventHandler(mdiInterview_Leave);
+                        this.panelScoringMain.Controls.Add(cboScoring[i, j]); 
                         this.toolTip1.SetToolTip(cboScoring[i, j],
                             string.Format("Element: {0} -- Construct: {1}/{2}",
                             element.Name, construct.ContrastPol,
                             construct.ContrastPol));
                         BindingSources.Add(c);
                         BindingSources.Add(b);
+                        cboScoring[i, j].MouseEnter += new EventHandler(mdiInterview_cbo_MouseEnter);
+                        cboScoring[i, j].MouseLeave += new EventHandler(mdiInterview_cbo_MouseLeave);
                         cboScoring[i, j].SelectedValueChanged += new EventHandler(mdiInterview_SelectedValueChanged);
                         if (j == 0)
                         {
@@ -552,6 +613,10 @@ namespace OpenRepGridGui.View.mdi
                             lbl.Location = new Point(0, 3 + i * (21 + 3));
                             lbl.TextAlign = ContentAlignment.MiddleRight;
                             this.panelScoringLeft.Controls.Add(lbl);
+                            LabelsConstructsLeft[i] = lbl;
+                            lbl.Tag = i;
+                            lbl.MouseEnter += new EventHandler(lbl_ConstructLeft_MouseEnter);
+                            lbl.MouseLeave += new EventHandler(lbl_ConstructLeft_MouseLeave);
 
                             lbl = new Label();
                             lbl.Text = construct.ConstructPol;
@@ -560,6 +625,10 @@ namespace OpenRepGridGui.View.mdi
                             lbl.Location = new Point(0, 3 + i * (21 + 3));
                             lbl.TextAlign = ContentAlignment.MiddleLeft;
                             this.panelScoringRight.Controls.Add(lbl);
+                            lbl.Tag = i;
+                            LabelsConstructsRight[i] = lbl;
+                            lbl.MouseEnter += new EventHandler(lbl_ConstructLeft_MouseEnter);
+                            lbl.MouseLeave += new EventHandler(lbl_ConstructLeft_MouseLeave);
 
                         }
                     }
@@ -572,6 +641,44 @@ namespace OpenRepGridGui.View.mdi
                 Console.WriteLine(ex.ToString());
             }
             this.ResumeLayout();
+        }
+
+        void mdiInterview_cbo_MouseLeave(object sender, EventArgs e)
+        {
+            this.SelectedColumnIndex = -1;
+            this.SelectedRowIndex = -1;
+        }
+
+        void mdiInterview_cbo_MouseEnter(object sender, EventArgs e)
+        {
+
+            ComboBox cbo = (ComboBox)sender;
+            int[] ij = (int[])cbo.Tag;
+            this.SelectedColumnIndex = ij[0];
+            this.SelectedRowIndex = ij[1];
+        }
+
+        void lbl_ConstructLeft_MouseLeave(object sender, EventArgs e)
+        {
+            this.SelectedRowIndex = -1;
+        }
+
+        void lbl_ConstructLeft_MouseEnter(object sender, EventArgs e)
+        {
+
+            Label l = (Label)sender;
+            this.SelectedRowIndex = (int)l.Tag;
+        }
+
+        void mdiInterviewLabelElement_MouseLeave(object sender, EventArgs e)
+        {
+            this.SelectedColumnIndex = -1;
+        }
+
+        void mdiInterviewLabelElement_MouseEnter(object sender, EventArgs e)
+        {
+            RotatedTextLabel l = (RotatedTextLabel)sender;
+            this.SelectedColumnIndex = (int)l.Tag;
         }
 
         void mdiInterview_SelectedValueChanged(object sender, EventArgs e)

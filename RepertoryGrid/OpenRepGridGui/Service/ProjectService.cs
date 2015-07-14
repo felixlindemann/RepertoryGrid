@@ -338,6 +338,7 @@ namespace OpenRepGridGui.Service
                     {
                         Guid cid = Guid.Parse(xRating.Attribute("ParentConstruct").Value);
                         Predicate<Construct> pc = new Predicate<Construct>(x => x.Id.Equals(cid));
+                        // Console.WriteLine("Suche Construct ID: {0}", cid.ToString());
                         if (iService.CurrentInterview.Constructs.Any(x => pc(x)) == false) throw new KeyNotFoundException();
                         Construct c = iService.CurrentInterview.Constructs.Single(x => pc(x));
                         int rating = int.Parse(xRating.Attribute("ScaleItemId").Value);

@@ -271,7 +271,8 @@ namespace OpenRepGridGui.Service
             StringBuilder strConstructLPole = new StringBuilder();
             StringBuilder strConstructRPole = new StringBuilder();
             StringBuilder strScores = new StringBuilder();
-
+            List<String> constructNames = new List<string>();
+            List<String> ElementNames = new List<string>();
             int minScale = this.CurrentInterview.Scales.Where(x => x.IsDefault).Min(x => x.Id);
             int maxScale = this.CurrentInterview.Scales.Where(x => x.IsDefault).Max(x => x.Id);
             string gridname = (newGridName.Length == 0 ? this.CurrentInterview.GridName : newGridName);
@@ -285,6 +286,14 @@ namespace OpenRepGridGui.Service
                 Construct construct = this.CurrentInterview.Constructs[i];
                 construct.ContrastPol = construct.ContrastPol.Trim();
                 construct.ConstructPol = construct.ConstructPol.Trim();
+
+                string cName = String.Format("{0}/{1}", construct.ContrastPol.Trim(), construct.ConstructPol.Trim());
+                if (constructNames.Any(x=> x.ToUpper() == cName.ToUpper()))
+                {
+                    throw new DuplicateWaitObjectException(
+                        string.Format("The Pair ('{0}') of Contrast and Construct for construct '{1}' is not unique! Please make sure, that only unique pairs exists!", cName, construct.Name));
+                }
+                constructNames.Add(cName);
                 strConstructLPole.Append(string.Format("\"{0}\"", construct.ContrastPol.Trim()));
                 strConstructRPole.Append(string.Format("\"{0}\"", construct.ConstructPol.Trim()));
                 if (i < this.CurrentInterview.Constructs.Count - 1)
@@ -305,6 +314,12 @@ namespace OpenRepGridGui.Service
                         {
                             strElement.Append(",");
                         }
+                        string eName =  element.Name.Trim();
+                        if (ElementNames.Any(x => x.ToUpper() == eName.ToUpper()))
+                        {
+                            throw new DuplicateWaitObjectException(string.Format("The Element ('{0}') is not unique! Please make sure, that only unique elements exists!", eName));
+                        }
+                        ElementNames.Add(eName);
                     }
 
 
